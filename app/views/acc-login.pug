@@ -1,0 +1,22 @@
+extends layout/layout
+
+block vars
+    -title = 'Đăng nhập'
+    -bodyClass = 'page-login'
+block container 
+    section.sec-login 
+        .login.ss-pd 
+            .bg 
+                +img("bn-login.jpg")
+            .container 
+                .login-wrap
+                    .login-box 
+                        h1.login-title Đăng nhập
+                        +Form 
+                            +FormIp("Tên đăng nhập","","Tên đăng nhập","col")
+                            +FormPass("Mật khẩu","","Mật khẩu","col")
+                            +FormWrap
+                                a(href="").login-forget Quên mật khẩu ?
+                            +FormWrap 
+                                +Btn("Đăng nhập","","second full")
+

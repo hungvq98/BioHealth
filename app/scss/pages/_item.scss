@@ -1,0 +1,378 @@
+.hero-item {
+    height: 100%;
+
+    .inner {
+        height: 100%;
+        position: relative;
+        border-radius: var(--radius);
+        overflow: hidden;
+        box-shadow: var(--sdow);
+
+        &::after {
+            @include pseudo;
+            background: linear-gradient(180deg, rgba(0, 0, 0, 0) 60%, rgba(0, 0, 0, 0.4) 94.35%);
+            height: 100%;
+            width: 100%;
+            left: 0;
+            top: 0;
+            pointer-events: none;
+        }
+
+        .img {
+            &-inner {
+                @include imgPd(375, 286);
+
+                img {
+                    @include imgCover;
+                }
+            }
+        }
+
+        .info {
+            position: absolute;
+            width: 100%;
+            padding: 2.4rem;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+
+            &-tt {
+                color: white;
+                @include fz-20;
+                font-weight: 700;
+                @include lc(2);
+                text-transform: capitalize;
+                transition: 0.4s;
+
+                @include hover {
+                    color: #FFDE00;
+                }
+            }
+        }
+    }
+}
+
+.miniProd {
+    .inner {
+        display: flex;
+        gap: 1.2rem;
+        padding: .8rem 0;
+
+        a.remove {
+            margin-left: auto;
+            font-size: 1.7rem;
+        }
+
+        .img {
+            width: 7.2rem;
+            height: 7.2rem;
+            border-radius: var(--radius);
+            overflow: hidden;
+
+            img {
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            text-align: left;
+            font-size: 1.4rem;
+
+            &-tt {
+                font-weight: 700;
+                transition: 0.4s;
+
+                @include hover {
+                    color: var(--color-pri);
+                }
+            }
+
+            &-des {
+                color: #A0A0A0;
+                font-size: 1.2rem;
+            }
+
+            &-price {
+                color: #A0A0A0;
+                font-size: 1.2rem;
+            }
+
+            .variation {
+                font-size: 1.2rem;
+                color: #A0A0A0;
+                display: grid;
+                grid-template-columns: auto 1fr;
+            }
+        }
+    }
+}
+
+.prod-item {
+    height: 100%;
+    position: relative;
+
+    .sale-off {
+        position: absolute;
+        height: 100%;
+        width: 100%;
+        top: 0;
+        left: 0;
+        background-color: rgba(255, 255, 255, 0.8);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        z-index: 3;
+        display: none;
+
+        &-circle {
+            aspect-ratio: 1;
+            border-radius: 100rem;
+            background-color: var(--color-text);
+            width: 50%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+
+    .inner {
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+
+        .img {
+            position: relative;
+
+            .tags-list {
+                display: flex;
+                flex-wrap: wrap;
+                gap: .5rem;
+                position: absolute;
+                top: 0;
+                left: 0;
+                z-index: 2;
+                padding: 1rem
+            }
+
+            &-inner {
+                @include imgPd(1, 1);
+                border-radius: var(--radius);
+
+                img {
+                    @include imgCover;
+                }
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            &-tt {
+                font-weight: 700;
+                @include lc(2);
+                transition: 0.4s;
+
+                @include hover {
+                    color: var(--color-pri);
+                }
+            }
+
+            &-pay {
+                font-size: 1.2rem;
+                font-weight: 500;
+                padding: .5rem 1rem;
+                background-color: #E2FFE4;
+                color: #11DA22;
+                width: fit-content;
+                border-radius: var(--radius);
+            }
+        }
+    }
+
+    &.off {
+        .sale-off {
+            display: flex;
+        }
+    }
+
+    .cdw {
+        background-color: var(--color-text);
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 0 0 var(--radius) var(--radius);
+
+        &-list {
+            justify-content: space-between;
+            gap: 0;
+        }
+
+        &-item {
+            flex: 1;
+            display: block;
+
+            &:not(:first-child) {
+                border-left: 0.1rem solid rgba($color: #fff, $alpha: 0.1);
+            }
+
+            &:first-child {
+                color: var(--color-second);
+            }
+        }
+
+        &-inner {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            @include fz-24;
+
+            .text {
+                font-size: 0.5em;
+                font-weight: 700;
+                color: #BABABA;
+                text-transform: uppercase;
+            }
+        }
+
+        @include max(430px) {
+            padding: 1rem .5rem;
+        }
+    }
+
+    &.km {
+        .inner {
+            gap: 0;
+            overflow: hidden;
+
+            .img {
+                position: relative;
+                z-index: 2;
+
+                &-inner {
+                    background-color: #F5F5F5;
+                }
+            }
+
+            .cd {
+                position: relative;
+                width: 100%;
+                margin-bottom: 1rem;
+
+                &::after {
+                    @include pseudo;
+                    width: 100%;
+                    height: 3rem;
+                    bottom: 100%;
+                    left: 0;
+                    background-color: var(--color-text);
+                }
+
+            }
+
+
+        }
+    }
+}
+
+.item-review {
+    height: 100%;
+
+    .inner {
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        height: 100%;
+
+        .img {
+            &-inner {
+                @include imgPd(320, 224);
+                border-radius: var(--radius);
+
+                img {
+                    @include imgCover;
+                }
+            }
+        }
+
+        .info {
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            .star {
+                i {
+                    color: #FD5900;
+                }
+            }
+
+            &-des {
+                font-weight: 700;
+            }
+        }
+    }
+}
+
+.banner-item {
+    .inner {
+        position: relative;
+
+        .img {
+            &-inner {
+                @include imgPd(280, 596);
+                border-radius: var(--radius);
+
+                img {
+                    @include imgCover;
+                }
+            }
+        }
+
+        .info {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 2;
+            padding: clamp(2rem, calc(1.0099rem + 1.9802vw), 4rem);
+            display: flex;
+            flex-direction: column;
+            gap: .5rem;
+
+            @include max(900px) {
+                padding: 2rem 1rem;
+            }
+
+            &-tt {
+                color: white;
+                @include fz-32;
+                text-transform: uppercase;
+                font-weight: 700;
+
+                @include max(900px) {
+                    @include fz-24;
+                }
+            }
+
+            .btn {
+                &-box {
+                    border-radius: 100rem;
+                }
+
+                height: 4rem;
+
+                @include max(900px) {
+                    height: 3rem;
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+
+.burger {
+    width: 4rem ;
+    height: 4rem ;
+    flex-shrink: 0;
+    background:var(--color-text);
+    border-radius: var(--radius);
+    @include min(1201px) {
+        display: none;
+    }
+}
+.hamburger {
+    &.active {
+        .ham {
+            @include transform(rotate(45deg));
+
+            .top {
+                stroke-dashoffset: -98px;
+            }
+
+            .bottom {
+                stroke-dashoffset: -138px;
+            }
+        }
+    }
+    
+}
+
+.ham {
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+    transition: transform 400ms;
+    -moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    width: 4rem !important;
+    @include max(1200px) {
+        width: 4rem !important;
+    }
+
+    .line {
+        fill: none;
+        transition: stroke-dasharray 400ms, stroke-dashoffset 400ms;
+        stroke: white;
+        stroke-width: 5.5;
+        stroke-linecap: round;
+    }
+
+    .top {
+        stroke-dasharray: 40 140;
+    }
+
+    .bottom {
+        stroke-dasharray: 40 180;
+    }
+}

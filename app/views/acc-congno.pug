@@ -1,0 +1,96 @@
+extends layout/layout
+
+block vars
+    -title = 'Công nợ'
+    -bodyClass = 'page-acc'
+block container 
+    section.sec-acc
+        .acc 
+            .container 
+                .acc-flex 
+                    input(type="checkbox").acc-checkside#acc-checkside
+                    label.acc-side-overlay(for="acc-checkside")
+                    .acc-side 
+                        .wrapper 
+                            .acc-heads 
+                                .iwt 
+                                    .icon 
+                                        +img("avatar.jpg")
+                                    .b-gr 
+                                        p.txt Nguyễn Văn A
+                                        p.des ID: 1234
+                            .acc-bodies 
+                                a(href="").acc-item 
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc1.svg")
+                                        p.txt Thông tin tài khoản
+                                a(href="").acc-item  
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc2.svg")
+                                        p.txt Thay đổi mật khẩu
+                                a(href="").acc-item
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc3.svg")
+                                        p.txt Địa chỉ giao hàng
+                                a(href="").acc-item 
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc4.svg")
+                                        p.txt Đơn hàng
+                                a(href="").acc-item.active 
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc5.svg")
+                                        p.txt Công nợ
+                                .acc-cn 
+                                    span.txt -730,000,000 vnđ
+                                    p.des Thanh toán trước ngày 5 hàng tháng
+                            .acc-bottoms 
+                                +Btn("Đăng xuất","","pri full")
+                    .acc-main 
+                        .wrapper 
+                            .acc-heads 
+                                h1.acc-title Công nợ
+                                label.acc-btnside(for="acc-checkside")
+                                    i.fa-solid.fa-sidebar
+                            .acc-bodies 
+                                .acc-congno
+                                    .acc-congno-heads 
+                                        span.name Tổng công nợ còn lại:
+                                        span.val 730,000,000 vnđ
+                                    .acc-congno-table 
+                                        table 
+                                            thead 
+                                                tr 
+                                                    th Nội dung
+                                                    th Số tiền
+                                                    th Thời gian tạo
+                                            tbody 
+                                                each val,index in Array(4)
+                                                    tr 
+                                                        td 
+                                                            p 
+                                                                |Phát sinh công nợ 
+                                                                strong 180,000,000đ 
+                                                                |vào đơn hàng 
+                                                                strong #12345
+                                                        td.red 180,000,000
+                                                        td  28.09.2025
+                                                    tr 
+                                                        td 
+                                                            p 
+                                                                |Ghi nhận thanh toán công nợ 
+                                                                strong 180,000đ.
+                                                                |[qua tài khoản ngân hàng số giao dịch xxxx]
+                                                        td.green +190,000
+                                                        td  28.09.2025
+
+
+                                .acc-pagi 
+                                    +PageNumber
+
+                        
+                        

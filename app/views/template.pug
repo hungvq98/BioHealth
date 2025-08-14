@@ -1,0 +1,25 @@
+extends layout/layout
+
+block vars
+  -title = 'Về chúng tôi'
+  -bodyClass = 'page-about'
+
+block container 
+  .ss-pd
+    .container
+      //- =========================================
+      +Btn("Mua ngay","","pri","ic-arrow.svg")
+      +Btn("Mua ngay","","second","ic-arrow.svg")
+      +Btn("Mua ngay","","third","ic-arrow.svg")
+      +Btn("Mua ngay","","pri noic","")
+      +Btn("Mua ngay","","second","")
+      +Btn("Mua ngay","","third","")
+      +Btn("Mua ngay","","four","")
+      a(href="").btns.btns-second 
+        .btns-txt Search
+        .btns-ic 
+          i.fa-solid.fa-arrow-right
+      a(href="").btns.btns-third 
+        .btns-txt Contact us now
+        .btns-ic 
+          +img("ic-phonecall.svg")

@@ -1,0 +1,21 @@
+extends layout/layout
+
+block vars
+    -title = 'Quên mật khẩu'
+    -bodyClass = 'page-login'
+block container 
+    section.sec-login 
+        .login.ss-pd 
+            .bg 
+                +img("bn-login.jpg")
+            .container 
+                .login-wrap
+                    .login-box 
+                        h1.login-title Quên mật khẩu
+                        +Form 
+                            +FormIp("Email","","Email","col")
+                            +FormWrap
+                                a(href="").login-forget Quay lại đăng nhập
+                            +FormWrap 
+                                +Btn("Gửi","","second full")
+

@@ -1,0 +1,234 @@
+.news-dt {
+    &-layout {}
+
+    &-em {
+        display: flex;
+        gap: .5rem 2rem;
+        font-size: 1.4rem;
+        overflow: hidden;
+
+        &-txt {
+            font-weight: 500;
+            color: var(--color-pri);
+        }
+
+        &-date {
+            color: #475467;
+            position: relative;
+
+            &::after {
+                @include pseudo;
+                left: -1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                width: 0.1rem;
+                height: 1.8rem;
+                background-color: var(--cl-bd);
+            }
+        }
+    }
+
+    .desc {
+        max-width: 100%;
+    }
+    .layout-two-r {
+        .wrapper {
+            @include max(1200px) {
+                flex-direction: row;
+                .news-nb {
+                    width: calc(50% - 1.2rem);
+                }
+            
+                .news-form {
+                    width: calc(50% - 1.2rem);
+                }
+            }
+            @include max(600px) {
+                flex-direction: column;
+                .news-nb {
+                    width: 100%;
+                }
+            
+                .news-form {
+                    width: 100%;
+                }
+            }
+        }
+    }
+}
+
+.news-maybe {
+    .txt {
+        @include fz-32;
+        margin-bottom: 1rem;
+        font-weight: 700;
+        color: var(--color-pri);
+    }
+
+    ul {
+        list-style: disc;
+        padding-left: 2rem;
+
+        li::marker {
+            color: var(--color-second);
+        }
+
+        li {
+            &:not(:first-child) {
+                margin-top: 1rem;
+            }
+        }
+    }
+
+    &-it {
+        transition: 0.4s;
+        font-weight: 500;
+
+        @include hover {
+            color: var(--color-second);
+        }
+    }
+}
+
+.news-keywork {
+    &-tt {
+        margin-bottom: 0.8rem;
+        font-weight: 600;
+        color: var(--color-third);
+    }
+
+    &-list {
+        display: flex;
+        flex-wrap: wrap;
+        gap: .8rem;
+    }
+
+    &-it {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 1rem 1.2rem;
+        line-height: 1;
+        transition: 0.4s;
+        border-radius: 100rem;
+        background-color: #F6F5F7;
+        @include hover {
+            background-color: var(--color-second);
+        }
+
+        &.active {
+            background-color: var(--color-second);
+        }
+    }
+}
+
+.news-qc {
+    img {
+        width: 100%;
+        display: block;
+    }
+
+    @include max(1200px) {
+        display: none;
+    }
+}
+
+.news-nb {
+    .tt {
+        @include fz-24;
+        font-weight: 700;
+        margin-bottom: 1rem;
+        color: var(--color-pri);
+    }
+
+    .force-item {
+        .inner {
+            flex-direction: row;
+
+            .img {
+                width: 10rem;
+                flex-shrink: 0;
+
+                &-inner {
+                    border-radius: .8rem;
+
+                    &::before {
+                        border-radius: .8rem;
+                    }
+                }
+            }
+
+            .info {
+                flex: 1;
+
+                &-type {
+                    display: none;
+                }
+
+                &-tt {
+                    font-size: 1.4rem;
+                }
+
+                &-date {
+                    font-size: 1.2rem;
+                }
+            }
+        }
+    }
+
+    .row {
+        --cg: 1.2rem;
+        --rg: 1.2rem;
+    }
+}
+
+.news-form {
+    .ContactForm {
+        padding: 2rem;
+    }
+}
+.news-filter {
+    display: flex;
+    gap: 2rem;
+    border-bottom: 0.1rem solid var(--cl-bd);
+    &-it {
+        @include fz-20;
+        font-weight: 500;
+        padding: 1.6rem 0;
+        cursor: pointer;
+        border-bottom: 0.2rem solid transparent;
+        transition: 0.4s;
+        @include hover {
+            color: var(--color-second);
+            border-color: var(--color-second);
+        }
+        &.active {
+            color: var(--color-second);
+            border-color: var(--color-second);
+        }
+    }
+}
+.boxFAQ {
+    border-radius: var(--radius);
+    padding: 3.2rem;
+    border: 0.1rem solid var(--cl-bd);
+    margin-top: 4rem;
+    @include max(600px) {
+        padding: 2rem 1.5rem;
+    }
+    .input-srch {
+        input {
+            border-radius: 100rem;
+            background-color: #F2F4F7;
+        }
+
+        &-btn {
+            border-radius: 100rem;
+        }
+    }
+
+    .desc,
+    .des {
+        color: #667085;
+    }
+}

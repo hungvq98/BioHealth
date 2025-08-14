@@ -1,0 +1,292 @@
+header.hd
+  .hd-wr
+    .hd-top 
+      .container 
+        .hd-top-flex 
+          .hd-logo 
+            a(href="").custom-logo-link
+              +img("logo.svg") 
+          .hd-search 
+            form(action="")
+              .hd-search-flex 
+                .hd-search-select 
+                  select(class="re-select-main" data-placeholder="Loại sản phẩm")
+                    option(value="") Loại sản phẩm
+                    option(value="1") Loại sản phẩm 1
+                    option(value="2") Loại sản phẩm 2
+                    option(value="3") Loại sản phẩm 3
+                .hd-search-input 
+                  input(type="text" placeholder="Bạn đang tìm sản phẩm gì ....")
+                button.hd-search-btn(type="submit")
+                  +img("ic-srch.svg")
+          .hd-menu 
+            .hd-menu-drop
+              .hd-menu-it
+                .icon 
+                  i.fa-solid.fa-plus
+              .hd-act 
+                .hd-act-it.hd-account 
+                  .icon 
+                    +img("ic-usr.svg")
+                  p.txt Tài khoản
+                  .hd-account-drop 
+                    a(href="").hd-account-item
+                      .iwt  
+                        +img("ic-acc1.svg")
+                        p.txt Thông tin cá nhân
+                    a(href="").hd-account-item
+                      .iwt  
+                        +img("ic-acc2.svg")
+                        p.txt Thay đổi mật khẩu
+                    a(href="").hd-account-item
+                      .iwt  
+                        +img("ic-acc3.svg")
+                        p.txt Địa chỉ giao hàng
+                    a(href="").hd-account-item
+                      .iwt  
+                        +img("ic-acc4.svg")
+                        p.txt Đơn hàng
+                    a(href="").hd-account-item
+                      .iwt  
+                        +img("ic-acc5.svg")
+                        p.txt Công nợ cần thanh toán
+                    +Btn("Đăng xuất","","pri full")
+                .hd-act-it 
+                  .icon 
+                    +img("ic-sp.svg")
+                  p.txt Sản phẩm
+                .hd-act-it.hd-cart 
+                  .icon 
+                    +img("ic-cart.svg")
+                  p.txt Giỏ hàng
+                  .hd-cart-drop 
+                    .heads 12 sản phẩm
+                    .bodies 
+                      +miniProd("shoe1.jpg","Nike Air Max Plus","3,250,000 vnđ","Số lượng: 3")
+                      +miniProd("shoe2.jpg","Nike Air Max Plus","3,250,000 vnđ","Số lượng: 3")
+                      +miniProd("shoe3.jpg","Nike Air Max Plus","3,250,000 vnđ","Số lượng: 3")
+                      +miniProd("shoe4.jpg","Nike Air Max Plus","3,250,000 vnđ","Số lượng: 3")
+                      +miniProd("shoe5.jpg","Nike Air Max Plus","3,250,000 vnđ","Số lượng: 3")
+                      +miniProd("shoe6.jpg","Nike Air Max Plus","3,250,000 vnđ","Số lượng: 3")
+                      +miniProd("shoe7.jpg","Nike Air Max Plus","3,250,000 vnđ","Số lượng: 3")
+                    .footers 
+                      .footers-total 
+                        span.name Tạm tính
+                        span.val 6,500,000 vnđ
+                      +Btn("Thanh toán","","second full")
+                .hd-act-it 
+                  .icon 
+                    +img("ic-cn.svg")
+                  p.txt Công nợ
+                .hd-act-it 
+                  .icon 
+                    +img("ic-xk.svg")
+                  p.txt Xuất kho
+            .hd-act-it.searchJS
+              .icon 
+                +img("ic-srch.svg")
+            +Burger
+    .hd-bottom
+      .container
+          .hd-nav 
+            .menu-nav
+              ul.menu-list 
+                li.menu-item 
+                  a(href="").menu-link brand
+                  .megaMenu.ofBrand   
+                    .container 
+                      .megaMenu-flex.row
+                        .megaMenu-left.col
+                          .wrapper
+                            .megaMenu-srch 
+                              form(action="") 
+                                .megaMenu-srch-flex
+                                  button.megaMenu-srch-btn
+                                    +img("ic-srch.svg")
+                                  input(type="text" placeholder="Bạn đang tìm sản phẩm gì ....")
+                            .megaMenu-brand
+                              .megaMenu-brand-box
+                                span.type A
+                                .megaMenu-list
+                                  .megaMenu-item
+                                    ul.menu-list.row 
+                                      li.menu-item.col.current-menu-item  
+                                        a(href="").menu-link abc select
+                                      li.menu-item.col 
+                                        a(href="").menu-link abc - mart
+                                      li.menu-item.col 
+                                        a(href="").menu-link adidas
+                                      li.menu-item.col 
+                                        a(href="").menu-link akiii classic
+                                      li.menu-item.col 
+                                        a(href="").menu-link alvinclo junior
+                                      li.menu-item.col 
+                                        a(href="").menu-link analag mood
+                                      li.menu-item.col 
+                                        a(href="").menu-link arena
+                                      li.menu-item.col 
+                                        a(href="").menu-link arer
+                                      li.menu-item.col 
+                                        a(href="").menu-link Asobu
+                                      li.menu-item.col 
+                                        a(href="").menu-link alvinclo
+                                      li.menu-item.col 
+                                        a(href="").menu-link asics
+                              each val,index in Array(3)
+                                .megaMenu-brand-box
+                                  span.type B
+                                  .megaMenu-list
+                                    .megaMenu-item
+                                      ul.menu-list.row 
+                                        li.menu-item.col
+                                          a(href="").menu-link BABYZZAM
+                                        li.menu-item.col 
+                                          a(href="").menu-link BAKKEN
+                                        li.menu-item.col 
+                                          a(href="").menu-link BALLOP
+                                        li.menu-item.col 
+                                          a(href="").menu-link BALLOP KIDS
+                                        li.menu-item.col 
+                                          a(href="").menu-link BENSIMON
+                                        li.menu-item.col 
+                                          a(href="").menu-link BETTER THAN88
+                                        li.menu-item.col 
+                                          a(href="").menu-link BONGBONG
+                                        li.menu-item.col 
+                                          a(href="").menu-link BOOSTIC SUPPLY
+                                        li.menu-item.col 
+                                          a(href="").menu-link BSTQTBYCLASSY
+                                        li.menu-item.col 
+                                          a(href="").menu-link BEARPAW
+                                        li.menu-item.col 
+                                          a(href="").menu-link BOX&COX    
+                        .megaMenu-right.col
+                          .wrapper 
+                            +heroItem("hero1.jpg","hot sale","Sportswear Premium Essentials")
+                li.menu-item 
+                  a(href="").menu-link nam
+                  .megaMenu 
+                    .container 
+                      .megaMenu-flex.row
+                        .megaMenu-left.col
+                          .wrapper 
+                            .megaMenu-list
+                              .megaMenu-item
+                                p.tt Quần
+                                ul.menu-list 
+                                  li.menu-item 
+                                    a(href="").menu-link Quần dài
+                                  li.menu-item 
+                                    a(href="").menu-link Quần ngắn
+                                  li.menu-item 
+                                    a(href="").menu-link Quần tây
+                                  li.menu-item 
+                                    a(href="").menu-link Quần thể thao
+                                  li.menu-item 
+                                    a(href="").menu-link Quần tây
+                                  li.menu-item 
+                                    a(href="").menu-link Quần lót
+                              .megaMenu-item
+                                p.tt Áo
+                                ul.menu-list 
+                                  li.menu-item 
+                                    a(href="").menu-link Áo sơmi
+                                  li.menu-item 
+                                    a(href="").menu-link áo thun
+                                  li.menu-item 
+                                    a(href="").menu-link Áo tay dài
+                                  li.menu-item 
+                                    a(href="").menu-link áo thể thao
+                                  li.menu-item 
+                                    a(href="").menu-link Áo lót
+                                  li.menu-item 
+                                    a(href="").menu-link Áo polo
+                                  li.menu-item 
+                                    a(href="").menu-link ÁO khoác
+                              .megaMenu-item
+                                p.tt Giày
+                                ul.menu-list 
+                                  li.menu-item 
+                                    a(href="").menu-link Giày tây
+                                  li.menu-item 
+                                    a(href="").menu-link Giày thể thao
+                                  li.menu-item 
+                                    a(href="").menu-link Giày thời trang
+                                  li.menu-item 
+                                    a(href="").menu-link Giày đi bộ
+                                  li.menu-item 
+                                    a(href="").menu-link Giày sandal
+                                  li.menu-item 
+                                    a(href="").menu-link Dép
+                              .megaMenu-item
+                                p.tt Phụ kiện
+                                ul.menu-list 
+                                  li.menu-item 
+                                    a(href="").menu-link Nón
+                                  li.menu-item 
+                                    a(href="").menu-link Túi xách
+                                  li.menu-item 
+                                    a(href="").menu-link Vòng tay
+                                  li.menu-item 
+                                    a(href="").menu-link Dây chuyền
+                                  li.menu-item 
+                                    a(href="").menu-link Khăn
+                                  li.menu-item 
+                                    a(href="").menu-link Mắt kính
+                        .megaMenu-right.col
+                          .wrapper 
+                            +heroItem("hero1.jpg","hot sale","Sportswear Premium Essentials")
+                li.menu-item 
+                  a(href="").menu-link nữ
+                li.menu-item 
+                  a(href="").menu-link trẻ em
+                li.menu-item 
+                  a(href="").menu-link giày / dép
+                li.menu-item 
+                  a(href="").menu-link Phụ kiện
+  .hd-find.searchBoxJs 
+    .hd-search 
+      form(action="")
+        .hd-search-flex 
+          .hd-search-select 
+            select(class="re-select-main" data-placeholder="Loại sản phẩm")
+              option(value="") Loại sản phẩm
+              option(value="1") Loại sản phẩm 1
+              option(value="2") Loại sản phẩm 2
+              option(value="3") Loại sản phẩm 3
+          .hd-search-input 
+            input(type="text" placeholder="Bạn đang tìm sản phẩm gì ....")
+          button.hd-search-btn(type="submit")
+            +img("ic-srch.svg")        
+  .mobile-overlay
+  .mobile
+    .mobile-con
+      .mobile-wr
+        .mobile-nav
+          .menu-nav
+            +renderMenu(menuItems)
+          .mobile-content
+            +Social()
+.mobile-bar 
+  .hd-act 
+    .hd-act-it 
+      .icon 
+        +img("ic-usr.svg")
+      p.txt Tài khoản
+    .hd-act-it 
+      .icon 
+        +img("ic-sp.svg")
+      p.txt Sản phẩm
+    .hd-act-it 
+      .icon 
+        +img("ic-cart.svg")
+      p.txt Giỏ hàng
+    .hd-act-it 
+      .icon 
+        +img("ic-cn.svg")
+      p.txt Công nợ
+    .hd-act-it 
+      .icon 
+        +img("ic-xk.svg")
+      p.txt Xuất kho
+

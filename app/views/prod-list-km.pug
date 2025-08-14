@@ -1,0 +1,319 @@
+extends layout/layout
+
+block vars
+    -title = 'Danh sách sản phẩm khuyến mãi'
+    -bodyClass = 'page-prod'
+block container 
+    section.sec-prod-list 
+        .prod-list 
+            .container-fluid 
+                .prod-list-flex
+                    .prod-list-side 
+                        +Sidebar
+                            .wrapper
+                                .prod-heads 
+                                    +title32("filter")
+                                .prod-filter.pros
+                                    form(action="")
+                                        .pros-tag-group
+                                            .box-tags
+                                                
+                                            .pros-tag-btn.btnReset Xóa tất cả
+                                        .pros-fil
+                                            .b-inner.checkJS
+                                                .b-row.row
+                                                    .col 
+                                                        .b-box
+                                                            .b-srch 
+                                                                p.b-title Brand
+                                                                input(type="text" placeholder="Tìm kiếm...")
+                                                            p.b-title babyzzam
+                                                            span.t-txt A
+                                                            .ck-list
+                                                                .ck-it
+                                                                    label.ck-label(for="brand-1")
+                                                                        input(
+                                                                            value="brand-1" 
+                                                                            type="checkbox" 
+                                                                            data-title="Adidas" 
+                                                                            id="brand-1"
+                                                                            )
+                                                                        span.t-text Adidas
+                                                                .ck-it
+                                                                    label.ck-label(for="brand-2")
+                                                                        input(
+                                                                            value="brand-2" 
+                                                                            type="checkbox" 
+                                                                            data-title="ABC select" 
+                                                                            id="brand-2"
+                                                                            )
+                                                                        span.t-text ABC select
+                                                                .ck-it
+                                                                    label.ck-label(for="brand-3")
+                                                                        input(
+                                                                            value="brand-3" 
+                                                                            type="checkbox" 
+                                                                            data-title="analog mood"
+                                                                            id="brand-3"
+                                                                            )
+                                                                        span.t-text analog mood
+                                                            span.t-txt B
+                                                            .ck-list
+                                                                .ck-it
+                                                                    label.ck-label(for="brand-4")
+                                                                        input(
+                                                                            value="brand-4" 
+                                                                            type="checkbox" 
+                                                                            data-title="babyzzam" 
+                                                                            id="brand-4"
+                                                                            )
+                                                                        span.t-text babyzzam
+                                                                .ck-it
+                                                                    label.ck-label(for="brand-5")
+                                                                        input(
+                                                                            value="brand-5" 
+                                                                            type="checkbox" 
+                                                                            data-title="BSTQTbyclassy" 
+                                                                            id="brand-5"
+                                                                            )
+                                                                        span.t-text BSTQTbyclassy
+                                                    .col
+                                                        .b-box(class="taxonomy-pa_color").color
+                                                            span.b-title MÀU SẮC
+                                                            .ck-list(style="" class="taxonomy-pa_color")
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-167")
+                                                                        input#taxonomy-167.recheck-input(
+                                                                            value="red" 
+                                                                            data-title="red" 
+                                                                            type="checkbox"
+                                                                            )
+                                                                        span.ck-color(
+                                                                            data-color="#F91F3E" 
+                                                                            style="--data-color:#F91F3E"
+                                                                        )
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-148")
+                                                                        input#taxonomy-148.recheck-input(
+                                                                            value="pink" 
+                                                                            data-title="pink" 
+                                                                            type="checkbox"
+                                                                            )
+                                                                        span.ck-color(
+                                                                            data-color="#FF1C74" 
+                                                                            style="--data-color:#FF1C74"
+                                                                            )
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-149")
+                                                                        input#taxonomy-149.recheck-input(
+                                                                            value="pink" 
+                                                                            data-title="blue" 
+                                                                            type="checkbox"
+                                                                            )
+                                                                        span.ck-color(
+                                                                            data-color="#007AFF" 
+                                                                            style="--data-color:#007AFF"
+                                                                            )
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-150")
+                                                                        input#taxonomy-150.recheck-input(
+                                                                            value="pink" 
+                                                                            data-title="green" 
+                                                                            type="checkbox"
+                                                                            )
+                                                                        span.ck-color(
+                                                                            data-color="#00C853" 
+                                                                            style="--data-color:#00C853"
+                                                                            )
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-151")
+                                                                        input#taxonomy-151.recheck-input(
+                                                                            value="pink" 
+                                                                            data-title="yellow" 
+                                                                            type="checkbox"
+                                                                            )
+                                                                        span.ck-color(
+                                                                            data-color="#FFD600" 
+                                                                            style="--data-color:#FFD600"
+                                                                            )
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-152")
+                                                                        input#taxonomy-152.recheck-input(
+                                                                            value="pink" 
+                                                                            data-title="purple" 
+                                                                            type="checkbox"
+                                                                            )
+                                                                        span.ck-color(
+                                                                            data-color="#9C27B0" 
+                                                                            style="--data-color:#9C27B0"
+                                                                            )
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-153")
+                                                                        input#taxonomy-153.recheck-input(
+                                                                            value="pink" 
+                                                                            data-title="black" 
+                                                                            type="checkbox"
+                                                                            )
+                                                                        span.ck-color(
+                                                                            data-color="#000000" 
+                                                                            style="--data-color:#000000"
+                                                                            )
+                                                    .col
+                                                        .b-box(class="taxonomy-pa_size").size
+                                                            span.b-title Size
+                                                            .ck-list(class="taxonomy-pa_size")
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-332")
+                                                                        input#taxonomy-332.recheck-input(
+                                                                            value="xs" 
+                                                                            type="checkbox" 
+                                                                            data-title="XS"
+                                                                            )
+                                                                        span.t-text XS
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-49")
+                                                                        input#taxonomy-49.recheck-input(
+                                                                            value="28" 
+                                                                            type="checkbox" 
+                                                                            data-title="28"
+                                                                            )
+                                                                        span.t-text 28
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-50")
+                                                                        input#taxonomy-50.recheck-input(
+                                                                            value="29" 
+                                                                            type="checkbox" 
+                                                                            data-title="29"
+                                                                            )
+                                                                        span.t-text 29
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-51")
+                                                                        input#taxonomy-51.recheck-input(
+                                                                            value="30" 
+                                                                            type="checkbox" 
+                                                                            data-title="30"
+                                                                            )
+                                                                        span.t-text 30  
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-52")
+                                                                        input#taxonomy-52.recheck-input(
+                                                                            value="31" 
+                                                                            type="checkbox" 
+                                                                            data-title="31"
+                                                                            )
+                                                                        span.t-text 31      
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-53")
+                                                                        input#taxonomy-53.recheck-input(
+                                                                            value="32" 
+                                                                            type="checkbox" 
+                                                                            data-title="32"
+                                                                            )
+                                                                        span.t-text 32
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-54")
+                                                                        input#taxonomy-54.recheck-input(
+                                                                            value="33" 
+                                                                            type="checkbox" 
+                                                                            data-title="33"
+                                                                            )
+                                                                        span.t-text 33
+                                                                .ck-it
+                                                                    label.ck-label(for="taxonomy-55")
+                                                                        input#taxonomy-55.recheck-input(
+                                                                            value="34" 
+                                                                            type="checkbox" 
+                                                                            data-title="34"
+                                                                            )
+                                                                        span.t-text 34
+                                                    .col
+                                                        .b-box.nation
+                                                            span.b-title Xuất xứ
+                                                            .ck-list
+                                                                .ck-it
+                                                                    label.ck-label(for="vn")
+                                                                        input(
+                                                                            value="vn" 
+                                                                            name="taxonomies[order_by][]" 
+                                                                            type="checkbox" 
+                                                                            data-title="Việt Nam" 
+                                                                            id="vn"
+                                                                            )
+                                                                        span.t-text Việt nam
+                                                                .ck-it
+                                                                    label.ck-label(for="us")
+                                                                        input(
+                                                                            value="us" 
+                                                                            name="taxonomies[order_by][]" 
+                                                                            type="checkbox" 
+                                                                            data-title="Mỹ" 
+                                                                            id="us"
+                                                                            )
+                                                                        span.t-text Mỹ
+                                                                .ck-it
+                                                                    label.ck-label(for="cn")
+                                                                        input(
+                                                                            value="cn" 
+                                                                            name="taxonomies[order_by][]" 
+                                                                            type="checkbox" 
+                                                                            data-title="Trung Quốc"
+                                                                            id="cn"
+                                                                            )
+                                                                        span.t-text Trung quốc
+                                                .b-control
+                                                    +Btn("Đặt lại","","pri btnReset full")
+                                                    +Btn("Áp dụng","","third is-loading-btn btnSubmit full")
+
+                    .prod-list-main 
+                        .side-open
+                            .side-open-wrap 
+                                i.fa-solid.fa-sidebar.icon
+                        .wrapper 
+                            .prod-list-heads 
+                                +title32("Sản phẩm đang khuyến mãi")
+                                .prod-list-cate 
+                                    span.txt Phân loại 
+                                    -
+                                        var arrs = [
+                                            {
+                                                txt:"Tất cả",
+                                            },
+                                            {
+                                                txt:"còn hàng",
+                                            },
+                                            {
+                                                txt:"Hết hàng",
+                                            },
+                                        ] 
+                                    each val,index in arrs
+                                        .swiper-slide.col 
+                                            a(href="").prod-list-aj=val.txt
+                                    
+                            .prod-all 
+                                .flex.row.gap-res 
+                                    each val,index in Array(8)
+                                        .col 
+                                            +prodItemKM(`shoe${index+1}.jpg`,"km")
+                                    each val,index in Array(2)
+                                        .col 
+                                            +prodItemKM(`shoe${index+1}.jpg`,"km")
+                                    each val,index in Array(8)
+                                        .col 
+                                            +prodItemKM(`shoe${index+1}.jpg`,"km")
+                                    each val,index in Array(2)
+                                        .col 
+                                            +prodItemKM(`shoe${index+1}.jpg`,"km")
+                                .prod-all-pagi 
+                                    +PageNumber
+    section.sec-prod-review 
+        .prod-review.ss-pd 
+            .container 
+                +headHori("mb-24")
+                    +title32("Review từ khách hàng")
+                .prod-review-slide 
+                    .swiper.row.rows-5.gap-res 
+                        .swiper-wrapper 
+                            each val,index in Array(5)
+                                .swiper-slide.col 
+                                    +itemReview(`review${index+1}.jpg   `)
+                    +Pagination

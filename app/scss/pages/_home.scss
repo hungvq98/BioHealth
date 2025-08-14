@@ -1,0 +1,128 @@
+.homes-brand {
+    &-list {
+        --cg: 1rem;
+        --rg: 1rem;
+
+        .col {
+            width: calc(100% / 6);
+            @include max(768px) {
+                width: calc(100%/ 4);
+            }
+            @include max(450px) {
+                width: calc(100%/ 3);
+            }
+        }
+    }
+
+    &-item {
+        .img {
+            position: relative;
+            &-inner {
+                @include imgPd(80, 194);
+                border-radius: var(--radius);
+                border: 0.1rem solid var(--cl-bd);
+                transition: 0.4s;
+
+                @include hover {
+                    border-color: var(--color-pri)
+                }
+
+                img {
+                    @include imgCover;
+                }
+            }
+            .brand-name {
+                position: absolute;
+                top: 50%;
+                left: 50%;
+                transform: translate(-50%,-50%);
+                font-weight: 900;
+                text-transform: uppercase;
+                text-align: center;
+                @include fz-20;
+                @include max(500px) {
+                    font-size: 1rem;
+                }
+            }
+        }
+    }
+}
+
+.homes-cate {
+    &-slide {
+        overflow: hidden;
+        padding: 0 1.5rem;
+        .swiper {
+            .swiper-slide {
+                width: calc(100% /10.5);
+            }
+        }
+    }
+
+    &-item {
+        .inner {
+            .img {
+                &-inner {
+                    @include imgPd(1, 1);
+                    border-radius: var(--radius);
+
+                    img {
+                        @include imgCover;
+                    }
+                }
+            }
+
+            .info {
+                &-tt {
+                    font-weight: 700;
+                    text-align: center;
+                    display: block;
+                    padding-top: 0.5rem;
+                    transition: 0.4s;
+                }
+            }
+
+            @include hover {
+                .info-tt {
+                    color: var(--color-pri);
+                }
+            }
+        }
+    }
+}
+
+.homes-hero {
+    &-list {
+        .col {
+            @include max(640px) {
+                width: 100%;
+            }
+        }
+    }
+    .hero-item {
+        .inner {
+            .img {
+                &-inner {
+                    padding-top: calc(280/596*100%);
+                }
+            }
+        }
+    }
+    .col:has(.banner-item) {
+        &:nth-child(2) {
+            .banner-item {
+                .inner {
+                    .info {
+                        &-tt {
+                            color: var(--color-text);
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+.fetch-product-section .homes-prod-list {
+    min-height: 20vh;
+}

@@ -1,0 +1,69 @@
+extends layout/layout
+
+block vars
+    -title = 'Giỏ hàng'
+    -bodyClass = 'page-cart'
+block container 
+    +BreadCrumb([{txt:"Giỏ hàng"}])
+    section.sec-cart
+        .cart 
+            .container 
+                .cart-flex 
+                    .cart-main
+                        .wrapper 
+                            .cart-heads 
+                                h3.cart-title Giỏ hàng
+                            .cart-table 
+                                .acc-price-table 
+                                    table 
+                                        each val,index in Array(4)
+                                            tr 
+                                                td 
+                                                    .acc-price-item 
+                                                        .img 
+                                                            +img(`shoe${index + 1}.jpg`)
+                                                        .info Nike Air Max Plus
+                                                td 
+                                                    .acc-price-variation 
+                                                        span.txt Size: EU 38.5
+                                                        span.txt Màu sắc: Xám nhạt
+                                                        span.txt Mã sản phẩm: SD-123456
+                                                td 
+                                                    .acc-price-variation 
+                                                        span.txt Số lượng: 03
+                                                td 
+                                                    .acc-price-total 
+                                                        span.txt  3,250,000 vnđ
+                    .cart-side
+                        .wrapper
+                            .cart-heads 
+                                h3.cart-title Thông tin thanh toán
+                            .cart-bodies 
+                                .cart-block 
+                                    p.tt Thông tin khách hàng
+                                    +Form 
+                                        +FormIp("Họ tên khách hàng","","Họ tên khách hàng","col")
+                                        +FormIp("Số điện thoại","","Số điện thoại","col")
+                                        +FormIp("Email","","Email","col")
+                                        +FormIp("Địa chỉ giao hàng","","Địa chỉ giao hàng","col")
+                                .cart-block 
+                                    p.tt Giá đơn hàng
+                                    .acc-price.row 
+                                        .acc-price-left.col 
+                                            .inner
+                                                .acc-total 
+                                                    .acc-total-lines 
+                                                        span.name Giá tạm tính
+                                                        span.val  3,250,000 vnđ
+                                                    .acc-total-lines 
+                                                        span.name Thuế VAT 10%
+                                                        span.val  32,500 vnđ
+                                                    .acc-total-lines.total 
+                                                        span.name Tống đơn
+                                                        span.val  3,250,000 vnđ
+                                        .acc-price-right.col 
+                                            .inner 
+                                                +Btn("Tiếp tục mua hàng","","white full")
+                                                +Btn("Đặt hàng","","third full")
+
+                                

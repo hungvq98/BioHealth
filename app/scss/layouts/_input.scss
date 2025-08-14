@@ -1,0 +1,180 @@
+
+
+textarea {
+    resize: none;
+}
+
+form {
+    .wpcf7-not-valid-tip {
+        color: var(--color-pri);
+        bottom: .1rem;
+        right: .6rem;
+    }
+
+    .btn {
+        .wpcf7-spinner {
+            position: absolute;
+        }
+    }
+
+    .wpcf7-form-control-wrap {
+        display: block;
+        position: relative;
+    }
+}
+
+
+
+.wpcf7-response-output {
+    text-align: center;
+    // color: var(--color-pri) !important;
+}
+
+.ft-regi-btn {
+    cursor: pointer;
+}
+
+
+.form {
+    --radius: 0.8rem;
+    --text: var(--color-text);
+
+    &-list {
+        --cg:1.6rem;
+        --rg:1.6rem;
+    }
+
+    &-ip {
+        .inner {
+            position: relative;
+        }
+        .text {
+            display: block;
+            color: var(--color-text);
+            font-weight: 700;
+            margin-bottom: 0.5rem;
+
+            &.spe {
+                &::after {
+                    content: "*";
+                    color: red;
+                    display: inline;
+                    margin-left: 0.5rem;
+                }
+            }
+        }
+
+        .input {
+            position: relative;
+
+            .seepassJS {
+                position: absolute;
+                right: 1rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--color-text);
+                cursor: pointer;
+                z-index: 2;
+            }
+        }
+
+        input,
+        textarea {
+            border: 0.1rem solid var(--cl-bd);
+            outline: none;
+            padding: 1.3rem;
+            width: 100%;
+            transition: 0.4s;
+            font-size: 1.6rem;
+            font-weight: 500;
+            background-color: transparent;
+            border-radius: var(--radius);
+
+            @include input-placeholder {
+                opacity: 0.5;
+            }
+
+            &:focus {
+                border-color: var(--color-text);
+                box-shadow: var(--sdow);
+            }
+
+        }
+
+        textarea {
+            padding-top: 0.8rem;
+        }
+
+        // config
+        &.per3 {
+            width: calc(100% / 3);
+        }
+
+        &.per5 {
+            width: 50%;
+
+            @include max(500px) {
+                width: 100%;
+            }
+        }
+
+        // select
+        .select2-container--default .select2-selection--single {
+            border-radius: .8rem;
+            background-color: white;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__placeholder {
+            color: #384252;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+
+        .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
+            border-radius: .8rem !important;
+        }
+
+        .select2-container .select2-selection--single .select2-selection__rendered {
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: #384252;
+            padding-left: 1.3rem;
+        }
+
+        .dateTime {
+            width: 100%;
+        }
+
+        &:has(.btn) {
+            pointer-events: none;
+            .btn {
+                pointer-events: visible;
+            }
+        }
+    }
+}
+
+.selectNor {
+    // select
+        .select2-container--default .select2-selection--single {
+            border-radius: .8rem;
+            background-color: white;
+        }
+
+        .select2-container--default .select2-selection--single .select2-selection__placeholder {
+            color: #384252;
+            font-size: 1.6rem;
+            font-weight: 400;
+        }
+
+        .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
+            border-radius: .8rem !important;
+        }
+
+        .select2-container .select2-selection--single .select2-selection__rendered {
+            font-weight: 400;
+            font-size: 1.6rem;
+            color: #384252;
+            padding-left: 1.3rem;
+        }
+}

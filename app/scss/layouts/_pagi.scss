@@ -1,0 +1,113 @@
+.page-numbers {
+    @include flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    z-index: 5;
+    // margin-top: 1.6rem;
+    gap: .5rem;
+    &.right {
+        width: fit-content;
+        margin-left: auto;
+    }
+    &.left {
+        width: fit-content;
+        margin-right: auto;
+    }
+    >li {
+        &:not(:first-child) {
+            // margin-left: 8px;
+            &>.page-numbers {
+            }
+        }
+        &>.page-numbers {
+            width: 3.2rem;
+            height: 3.2rem;
+            padding-bottom: 0.2rem;
+            cursor: pointer;
+            position: relative;
+            font-weight: 500;
+            font-size: 1.4rem;
+            transition: 0.4s;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            line-height: 1;
+            padding-top: 0.2rem;
+            color: var(--color-text);
+            background-color: rgba($color: #292929, $alpha: .2);
+            border-radius: 100rem;
+            img {
+                width: 3.6rem;
+                height: 2.2rem;
+                position: relative;
+                z-index: 3;
+                transition: 0.4s;
+            }
+            &:after {
+                z-index: -1;
+            }
+            @include hover {
+                color: white;
+                background-color: var(--color-text);
+                &:not(.dot) {
+                    &::after {
+                        left: 0;
+                        width: 100%;
+                    }
+                }
+            }
+            &.current {
+                color: white;
+                background-color: var(--color-text);
+            }
+            &.prev,
+            &.next {
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                gap: 1rem;
+                padding: .4rem 1rem;
+                position: relative;
+                display: none;
+                @include max(500px) {
+                    .txt {
+                        display: none;
+                    }
+                }
+                
+            }
+            &.prev {
+                img {
+                    transform: rotate(180deg);
+                }
+                &::before {
+                    transform: rotate(180deg);
+                }
+                @include hover {
+                    img {
+                        transform: translateX(-.5rem) rotate(180deg);
+                    }
+                }
+            }
+            &.next {
+                @include hover {
+                    img {
+                        transform: translateX(.5rem);
+                    }
+                }
+            }
+            
+            &.dot {
+                background-color: transparent;
+                border: none;
+                @include hover {
+                    color: var(--color-text);
+                }
+            }
+            i {
+                font-weight: 400;
+            }
+        }
+    }
+}

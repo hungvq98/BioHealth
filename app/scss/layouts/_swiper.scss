@@ -1,0 +1,293 @@
+.swiper-wrapper.row {
+    flex-wrap: nowrap;
+}
+
+.swiper.rows {
+    .col {
+        margin-bottom: 0;
+    }
+}
+
+.swiper-container {
+    overflow: hidden;
+}
+
+.swiper-slide {
+    height: initial;
+    overflow: hidden;
+}
+
+.swiper-pagination {
+    position: static;
+    margin-top: 1.6rem;
+
+    &-bullet {
+        --circle: -0.4rem;
+        background-color: var(--color-pri);
+        opacity: 1;
+        position: relative;
+        margin: 0 0.3rem !important;
+        transition: 0.4s;
+        border-radius: 100rem;
+        height: 1rem;
+        width: 1rem;
+        opacity: 0.2;
+
+
+        &::before {
+            content: '';
+            position: absolute;
+            top: var(--circle);
+            right: var(--circle);
+            bottom: var(--circle);
+            left: var(--circle);
+            border: 1px solid var(--color-pri);
+            border-radius: 100rem;
+            opacity: 0;
+            transition: 0.1s ease-in-out;
+            display: none;
+        }
+
+        &-active {
+            background-color: var(--color-pri);
+            opacity: 1;
+            width: 3.2rem;
+            border-radius: 10rem;
+
+            &::before {
+                opacity: 1;
+            }
+        }
+    }
+}
+
+.swiper-control {
+    display: flex;
+    align-items: center;
+    gap: .4rem;
+    --size: 3.2rem;
+
+    @include max(1400px) {
+        // --size: 3rem;
+    }
+
+    &-btn {
+        width: var(--size);
+        height: var(--size);
+        border-radius: 100rem;
+        flex-shrink: 0;
+        background-color: var(--color-text);
+        border: .1rem solid var(--cl-bd);
+        @include mid-flex;
+        cursor: pointer;
+        @include transitionRe;
+        z-index: 5;
+        position: relative;
+        overflow: hidden;
+        font-size: 1.6rem;
+
+        >* {
+            position: relative;
+            z-index: 2;
+        }
+
+        &.swiper-button-disabled {
+            background-color: white;
+            cursor: default;
+            box-shadow: none;
+            // opacity: 0.5;
+            // display: none;
+            pointer-events: none;
+            opacity: 1;
+            i {
+                color: var(--color-text) ;
+            }
+        }
+
+        i {
+            transition: 0.4s;
+            color: white;
+
+        }
+
+        @include hover {
+            &:not(.swiper-button-disabled) {
+                color: white !important;
+
+                &::after {
+                    left: 0;
+                    width: 100%;
+                }
+            }
+
+            i {
+                color: white;
+            }
+        }
+    }
+
+    &.white {
+        .swiper-control-btn {
+            background-color: transparent;
+            border-color: white;
+            color: white;
+        }
+
+        &.mobile-plus {
+            .swiper-control-btn {
+                @include max(1350px) {
+                    background-color: white;
+                    border-color: var(--color-pri);
+                    color: var(--color-pri);
+                }
+            }
+
+        }
+    }
+
+    &.posi {
+        .swiper-control-btn {
+            @include posi-vertical;
+        }
+
+        &.minus {
+            .swiper-prev {
+                right: calc(100% + 4rem);
+
+                @include max(1350px) {
+                    right: unset;
+                    left: calc(var(--size) / 2 * -1 + 2.4rem);
+                    display: none;
+                }
+            }
+
+            .swiper-next {
+                left: calc(100% + 4rem);
+
+                @include max(1350px) {
+                    left: unset;
+                    right: calc(var(--size) / 2 * -1 + 2.4rem);
+                    display: none;
+                }
+            }
+
+            &.mobile-plus {
+                @include max($res-mobile) {
+                    .swiper-prev {
+                        left: calc((var(--size) / 2 * -1) + (1.5rem / 2));
+                    }
+
+                    .swiper-next {
+                        right: calc((var(--size) / 2 * -1) + (1.5rem / 2));
+                    }
+                }
+            }
+        }
+
+        &.midle {
+            .swiper-prev {
+                left: calc(var(--size) / 2 * -1);
+
+                @include max(1320px) {
+                    left: 0;
+                }
+            }
+
+            .swiper-next {
+                right: calc(var(--size) / 2 * -1);
+
+                @include max(1320px) {
+                    right: 0;
+                }
+            }
+        }
+
+        &.plus {
+            .swiper-prev {
+                left: 1rem;
+            }
+
+            .swiper-next {
+                right: 1rem;
+            }
+
+        }
+
+        &.mobile-plus {
+            @include max($res-mobile) {
+                .swiper-prev {
+                    left: calc((var(--size) / 2 * -1) + (1.5rem / 2));
+                }
+
+                .swiper-next {
+                    right: calc((var(--size) / 2 * -1) + (1.5rem / 2));
+                }
+            }
+        }
+    }
+
+}
+
+
+
+.swiper-pagination {
+    &.swiper-pagination-progressbar {
+        height: 0.2rem !important;
+        background-color: #E6E6E6 !important;
+    }
+
+    .swiper-pagination-progressbar-fill {
+        background-color: #000000 !important;
+        position: relative;
+        display: block;
+    }
+}
+
+
+.swiper-controls {
+    display: flex;
+    align-items: center;
+    gap: 1rem;
+    margin-top: 2.4rem;
+    &::before {
+        content: "";
+        width: 100%;
+        height: 0.1rem;
+        background-color: var(--cl-bd);
+    }
+}
+
+.swiper-pagination-custom {
+    @include fz-24;
+    position: relative;
+    align-items: center;
+    width: fit-content;
+    height: auto;
+    display: flex;
+    gap: 1rem;
+    line-height: 1;
+    transform: translateY(20%);
+    min-width: 5rem;
+
+    .current-slide {
+        display: block;
+    }
+
+    .total-slide {
+        font-size: 0.6em;
+        margin-top: auto;
+        margin-top: 2rem;
+        display: block;
+        position: relative;
+        min-width: 2rem;
+        &::after {
+            @include pseudo;
+            aspect-ratio: 13.53/29;
+            width: 75%;
+            right: 67%;
+            bottom: 0;
+            background: url("../assets/images/ic-xet.svg");
+            @include default-background;
+        }
+    }
+}

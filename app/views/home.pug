@@ -1,0 +1,299 @@
+extends layout/layout
+
+block vars
+    -title = 'Home'
+    -bodyClass = 'page-home'
+block container 
+    section.sec-homes-brand 
+        .homes-brand.ss-pd-min(data-aos="fade") 
+            .container 
+                .homes-brand-list.row.gap-res 
+                    each val,index in Array(12)
+                        .col 
+                            .homes-brand-item 
+                                .img 
+                                    a(href="").img-inner 
+                                        +img(`br${index+1}.jpg`)
+    section.sec-homes-cate 
+        .homes-cate.ss-pd-min-t(data-aos="fade")
+            .homes-cate-slide 
+                .swiper.row.gap-res 
+                    .swiper-wrapper 
+                        each val,index in Array(11)
+                            .swiper-slide.col  
+                                .homes-cate-item 
+                                    .inner 
+                                        .img 
+                                            a(href="").img-inner 
+                                                +img(`sq${index+1}.jpg`)
+                                        .info 
+                                            h4 
+                                                a(href="").info-tt Best seller 
+                .container
+                    .swiper-controls 
+                        +SwiperControl
+                        .swiper-pagination-custom 
+                            span.current-slide 0
+                            span.total-slide 0
+    section.sec-homes-hero 
+        .homes-hero.ss-pd-min-t(data-aos="fade-up-cus")
+            .container 
+                .homes-hero-list.row.gap-res
+                    .col.col-6 
+                        +heroItem("homes-hero1.jpg","hot sale","Sportswear Premium Essentials") 
+                    .col.col-6 
+                        +heroItem("homes-hero2.jpg","new","Sportswear Premium Essentials") 
+    section.sec-homes-deals 
+        .homes-deals.ss-pd-min-t(data-aos="fade-up-cus")
+            .container 
+                +headHori("mb-24")
+                    +title32("Hot deals")
+                .homes-deals-slide 
+                    .swiper.row.gap-res 
+                        .swiper-wrapper 
+                            each val,index in Array(6)
+                                .swiper-slide.col 
+                                    +prodItemKM(`shoe${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+                    .swiper-controls 
+                        +SwiperControl
+                        .swiper-pagination-custom 
+                            span.current-slide 0
+                            span.total-slide 0
+    section.sec-homes-prod 
+        .homes-prod.ss-pd-min-t(data-aos="fade-up-cus")
+            .container 
+                +headHori("mb-24")
+                    +title32("Giày")
+                    .prod-list-cate 
+                        .swiper.row 
+                            .swiper-wrapper
+                                -
+                                    var arrs = [
+                                        {
+                                            txt:"Nike",
+                                        },
+                                        {
+                                            txt:"Adidas",
+                                        },
+                                        {
+                                            txt:"Puma",
+                                        },
+                                        {
+                                            txt:"Converse",
+                                        },
+                                        {
+                                            txt:"reebok",
+                                        },
+                                        {
+                                            txt:"New Balance",
+                                        },
+                                        {
+                                            txt:"skechers",
+                                        },
+                                        {
+                                            txt:"tất cả",
+                                        },
+                                        
+                                    ] 
+                                each val,index in arrs
+                                    .swiper-slide.col 
+                                        a(href="").prod-list-aj=val.txt
+                .homes-prod-list.row.gap-res.rows-5 
+                    each val,index in Array(8)
+                        .swiper-slide.col 
+                            +prodItem(`shoe${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+                    each val,index in Array(7)
+                        .swiper-slide.col 
+                            +prodItem(`shoe${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+    section.sec-homes-prod 
+        .homes-prod.ss-pd-min-t(data-aos="fade-up-cus")
+            .container 
+                +headHori("mb-24")
+                    +title32("Dép")
+                    .prod-list-cate 
+                        .swiper.row 
+                            .swiper-wrapper
+                                -
+                                    var arrs = [
+                                        {
+                                            txt:"Nike",
+                                        },
+                                        {
+                                            txt:"Adidas",
+                                        },
+                                        {
+                                            txt:"Puma",
+                                        },
+                                        {
+                                            txt:"Converse",
+                                        },
+                                        {
+                                            txt:"reebok",
+                                        },
+                                        {
+                                            txt:"New Balance",
+                                        },
+                                        {
+                                            txt:"skechers",
+                                        },
+                                        {
+                                            txt:"tất cả",
+                                        },
+                                        
+                                    ] 
+                                each val,index in arrs
+                                    .swiper-slide.col 
+                                        a(href="").prod-list-aj=val.txt
+                .homes-prod-list.row.gap-res.rows-5 
+                    each val,index in Array(8)
+                        .swiper-slide.col 
+                            +prodItem(`shoe${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+                    each val,index in Array(7)
+                        .swiper-slide.col 
+                            +prodItem(`shoe${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+    section.sec-homes-hero 
+        .homes-hero.ss-pd-min-t(data-aos="fade-up-cus")
+            .container 
+                .homes-hero-list.row.gap-res
+                    .col.col-6 
+                        +bannerItem("homes-hero3.jpg","hot sale","nike store <br> for men <br> sale off 50%") 
+                    .col.col-6 
+                        +bannerItem("homes-hero4.jpg","new","nike store <br> for men <br> sale off 50%") 
+    section.sec-homes-prod 
+        .homes-prod.ss-pd-min-t(data-aos="fade-up-cus")
+            .container 
+                +headHori("mb-24")
+                    +title32("Quần")
+                    .prod-list-cate 
+                        .swiper.row 
+                            .swiper-wrapper
+                                -
+                                    var arrs = [
+                                        {
+                                            txt:"Quần nam",
+                                        },
+                                        {
+                                            txt:"Quần nữ",
+                                        },
+                                        {
+                                            txt:"Quần trẻ em",
+                                        },
+                                        {
+                                            txt:"Quần ngắn",
+                                        },
+                                        {
+                                            txt:"Quần jean",
+                                        },
+                                        {
+                                            txt:"Quần short",
+                                        },
+                                        {
+                                            txt:"tất cả",
+                                        },
+                                        
+                                    ] 
+                                each val,index in arrs
+                                    .swiper-slide.col 
+                                        a(href="").prod-list-aj=val.txt
+                .homes-prod-list.row.gap-res.rows-5 
+                    each val,index in Array(8)
+                        .swiper-slide.col 
+                            +prodItem(`quan${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+                    each val,index in Array(7)
+                        .swiper-slide.col 
+                            +prodItem(`quan${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)                    
+    section.sec-homes-prod 
+        .homes-prod.ss-pd-min-t(data-aos="fade-up-cus")
+            .container 
+                +headHori("mb-24")
+                    +title32("Áo")
+                    .prod-list-cate 
+                        .swiper.row 
+                            .swiper-wrapper
+                                -
+                                    var arrs = [
+                                        {
+                                            txt:"Áo nam",
+                                        },
+                                        {
+                                            txt:"Áo nữ",
+                                        },
+                                        {
+                                            txt:"Áo trẻ em",
+                                        },
+                                        {
+                                            txt:"Áo sơ mi",
+                                        },
+                                        {
+                                            txt:"Áo thun",
+                                        },
+                                        {
+                                            txt:"Áo polo",
+                                        },
+                                        {
+                                            txt:"tất cả",
+                                        },
+                                        
+                                    ] 
+                                each val,index in arrs
+                                    .swiper-slide.col 
+                                        a(href="").prod-list-aj=val.txt
+                .homes-prod-list.row.gap-res.rows-5 
+                    each val,index in Array(8)
+                        .swiper-slide.col 
+                            +prodItem(`ao${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+                    each val,index in Array(7)
+                        .swiper-slide.col 
+                            +prodItem(`ao${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+    section.sec-homes-prod 
+        .homes-prod.ss-pd-min-t(data-aos="fade-up-cus")
+            .container 
+                +headHori("mb-24")
+                    +title32("Phụ kiện")
+                    .prod-list-cate 
+                        .swiper.row 
+                            .swiper-wrapper
+                                -
+                                    var arrs = [
+                                        {
+                                            txt:"Kính mát",
+                                        },
+                                        {
+                                            txt:"trang sức",
+                                        },
+                                        {
+                                            txt:"túi xách",
+                                        },
+                                        {
+                                            txt:"Khăn choàng",
+                                        },
+                                        {
+                                            txt:"nón",
+                                        },
+                                        {
+                                            txt:"phụ kiện giày",
+                                        },
+                                        {
+                                            txt:"tất cả",
+                                        },
+                                        
+                                    ] 
+                                each val,index in arrs
+                                    .swiper-slide.col 
+                                        a(href="").prod-list-aj=val.txt
+                .homes-prod-list.row.gap-res.rows-5 
+                    each val,index in Array(15)
+                        .swiper-slide.col 
+                            +prodItem(`pk${index+1}.jpg`,`Nike Air Max Plus`,`$19.99`)
+    section.sec-prod-review 
+        .prod-review.ss-pd 
+            .container 
+                +headHori("mb-24")
+                    +title32("Review từ khách hàng")
+                .prod-review-slide 
+                    .swiper.row.rows-5.gap-res 
+                        .swiper-wrapper 
+                            each val,index in Array(5)
+                                .swiper-slide.col 
+                                    +itemReview(`review${index+1}.jpg   `)
+                    +Pagination

@@ -1,0 +1,1115 @@
+//- button
+mixin Btn(text, type, classCustom, img, ani)
+  if(!img=="")
+    if(type == "button")
+      .btn-box
+        button.btn(type="submit",class=classCustom)
+          span.txt
+            span.txt-inner #{text}
+            span.txt-icon
+              +img(img)
+    else
+      .btn-box
+        a.btn(href="",class=classCustom)
+          span.txt
+            span.txt-inner #{text} 
+            span.txt-icon
+              +img(img) 
+  else 
+    if(!classCustom)
+      if(type == "button")
+        .btn-box
+          button.btn(type="submit",class=classCustom)
+            span.txt
+              span.txt-inner #{text}
+              span.txt-icon
+                +img("arrow.svg")
+      else
+        .btn-box
+          a.btn(href="",class=classCustom)
+            span.txt
+              span.txt-inner #{text} 
+              spab.txt-icon 
+                +img("arrow.svg")
+    else 
+      if(type == "button")
+        .btn-box
+          button.btn(type="submit",class=classCustom)
+            span.txt #{text}
+      else
+        .btn-box
+          a.btn(href="", class=classCustom)
+            span.txt #{text}
+//- button bg
+mixin BtnBG(text, classCustom)
+  a.btn-bg(href="", class=classCustom)
+    span.txt #{text}
+    span.icon 
+      +img("ic-arrow.svg")
+//- button
+mixin BtnPU(text, classCustom,id)
+  a.btn(href="",class=classCustom data-popup=id)
+    span.txt
+      span.txt-inner #{text} 
+      .txt-icon 
+        +img("ic-arrow.svg")
+//- ===========================
+mixin BtnFAS(text, type, classCustom, icon)
+  if(type == "button")
+    button.btn(type="submit",class=classCustom)
+      span.txt
+        span.txt-inner #{text}
+        span.icon!=icon
+  else
+    a.btn(href="",class=classCustom)
+      span.txt
+        span.txt-inner #{text} 
+        span.icon!=icon
+//- page number
+mixin PageNumber(classCustom) 
+  ul.page-numbers(class=classCustom)
+    li 
+      a.prev.page-numbers(href="")
+        +img("ic-arrow.svg")
+    li
+      span.page-numbers.current   
+        | 1
+    li
+      a.page-numbers(href="")   
+        | 2
+    li 
+      span.page-numbers.dot 
+        |...
+    li
+      a.page-numbers(href="")   
+        | 10
+    li 
+      a.next.page-numbers(href="")
+        +img("ic-arrow.svg")
+//- breadcrumb
+mixin BreadCrumb(arr,classCustom)
+  .breadcrumb(class=classCustom)
+    .breadcrumb-wrapper 
+      ul.breadcrumb-list
+        li.breadcrumb-item
+          a.breadcrumb-link(href="")
+            | Trang chủ
+        each arrs in arr
+          li.breadcrumb-item
+            a.breadcrumb-link(href="") #{arrs.txt}
+//- swiper pagination
+mixin Pagination(classCustom)
+  .swiper-pagination(class=classCustom)
+//- countdown
+mixin CountDown(time,customClass)
+  .cdw(data-time= time, class= customClass)
+    .cdw-list 
+      .cdw-item
+        .cdw-inner 
+          .number.date
+          span.text Ngày
+      .cdw-item 
+        .cdw-inner 
+          .number.hour
+          span.text Giờ
+      .cdw-item 
+        .cdw-inner 
+          .number.minute
+          span.text Phút
+      .cdw-item
+        .cdw-inner 
+          .number.second
+          span.text Giây
+//- swiper control
+mixin SwiperControl(customClass)
+  .swiper-control(class= customClass) 
+    .swiper-control-btn.swiper-prev 
+      i.fa-solid.fa-chevron-left
+    .swiper-control-btn.swiper-next 
+      i.fa-solid.fa-chevron-right
+//- sidebar
+mixin Sidebar(classCustom) 
+  .side-fixed(class=classCustom)
+    .side-fixed-wrap
+      block
+    .side-close
+      i.fas.fa-times.close.icon
+  .side-overlay
+//- check
+mixin Checker(type,shape,text,classCustom,num,name)
+  if(num == "has")
+    if (shape == "circle")
+      label.checker(class=classCustom) 
+        input(type=type, name=name)
+        span.circle 
+        span.txt #{text}
+        span.num (32)
+    else 
+      label.checker(class=classCustom) 
+        input(type=type , name=name)
+        span.sqr 
+        span.txt #{text}
+        span.num (32)
+  else
+    if (shape == "circle")
+      label.checker(class=classCustom) 
+        input(type=type, name=name)
+        span.circle 
+        span.txt #{text}
+    else 
+      label.checker(class=classCustom) 
+        input(type=type , name=name)
+        span.sqr 
+        span.txt #{text}
+//- count
+mixin Count()
+  .count 
+    .count-btn.count-minus 
+      i.fas.fa-minus.icon
+    input(type="text" class="count-input" max="999" min="0" value="1", hidden)
+    p.count-number 
+    .count-btn.count-plus 
+      i.fas.fa-plus.icon
+//- image
+mixin img(name)
+  img(src="./assets/images/" + name, alt="")
+mixin video(name)
+  video(src="./assets/images/" + name, alt="")
+//- star %
+mixin Star(per)
+  .star
+    .star-list
+      .star-flex.star-empty
+        i.fa-regular.fa-star
+        i.fa-regular.fa-star
+        i.fa-regular.fa-star
+        i.fa-regular.fa-star
+        i.fa-regular.fa-star
+      .star-flex.star-filter(style="width:"+per)
+        i.fa-solid.fa-star
+        i.fa-solid.fa-star
+        i.fa-solid.fa-star
+        i.fa-solid.fa-star
+        i.fa-solid.fa-star        
+//- rating
+mixin Rate()
+  .rating
+    label.stars
+      input.star-item(type='radio' name='name' hidden='')
+      i.fa-regular.fa-star
+    label.stars
+      input.star-item(type='radio' name='name' hidden='')
+      i.fa-regular.fa-star
+    label.stars
+      input.star-item(type='radio' name='name' hidden='')
+      i.fa-regular.fa-star
+    label.stars
+      input.star-item(type='radio' name='name' hidden='')
+      i.fa-regular.fa-star
+    label.stars
+      input.star-item(type='radio' name='name' hidden='')
+      i.fa-regular.fa-star
+//- posi - (plus,midle,minus)
+mixin Navigation(classCustom)
+  .swiper-control(class=classCustom)
+    .swiper-control-btn.swiper-prev
+      i.fa-solid.fa-chevron-left
+    .swiper-control-btn.swiper-next
+      i.fa-solid.fa-chevron-right
+//- popup
+mixin Popup(classCustom=classCustom, dataId=dataId)
+  .popup(data-popup-id=dataId)
+    .popup-overlay
+    .popup-main(class=classCustom)
+      .popup-main-wrapper
+        .popup-over
+          .popup-wrapper
+            block
+      .popup-close
+        i.fas.fa-times.icon
+//- swiper
+mixin Swiper(classCustom) 
+  .swiper-container(class=classCustom)
+    .swiper.row
+      .swiper-wrapper 
+        block
+
+//- menu
+-
+  var menuItems = [
+    {
+      title: 'brand',
+      link: '',
+      children: [
+        {
+          title: 'A',
+          link: '',
+          children: [
+            {
+              title: 'abc select',
+              link: ''
+            },
+            {
+              title: 'abc - mart',
+              link: ''
+            },
+            {
+              title: 'adidas',
+              link: ''
+            },
+            {
+              title: 'akiii classic',
+              link: ''
+            },
+            {
+              title: 'alvinclo junior',
+              link: ''
+            },
+            {
+              title: 'analag mood',
+              link: ''
+            },
+            {
+              title: 'arena',
+              link: ''
+            },
+            {
+              title: 'arer',
+              link: ''
+            },
+            {
+              title: 'Asobu',
+              link: ''
+            },
+            {
+              title: 'alvinclo',
+            },
+            {
+              title: 'asics',
+              link: ''
+            },
+          ]
+        },
+        {
+          title: 'B',
+          link: '',
+          children: [
+            {
+              title: 'BABYZZAM',
+              link: ''
+            },
+            {
+              title: 'BAKKEN',
+              link: ''
+            },
+            {
+              title: 'BALLOP',
+              link: ''
+            },
+            {
+              title: 'BALLOP KIDS',
+              link: ''
+            },
+            {
+              title: 'BENSIMON',
+              link: ''
+            },
+            {
+              title: 'BETTER THAN88',
+              link: ''
+            },
+            {
+              title: 'BONGBONG',
+              link: ''
+            },
+            {
+              title: 'BOOSTIC SUPPLY',
+              link: ''
+            },
+            {
+              title: 'BSTQTBYCLASSY',
+              link: ''
+            },
+            {
+              title: 'BEARPAW',
+              link: ''
+            },
+            {
+              title: 'BOX&COX',
+              link: ''
+            },
+          ]
+        }
+      ]
+    },
+    {
+      title: 'nam',
+      link: '',
+      children: [
+        {
+          title: 'Quần',
+          link: '',
+          children: [
+            {
+              title: 'Quần dài',
+              link: ''
+            },
+            {
+              title: 'Quần ngắn',
+              link: ''
+            },
+            {
+              title: 'Quần tây',
+              link: ''
+            },
+            {
+              title: 'Quần thể thao',
+              link: ''
+            },
+            {
+              title: 'Quần lót',
+            }
+          ]
+        },
+        {
+          title: 'Áo',
+          link: '',
+          children: [
+            {
+              title: 'Áo sơmi',
+              link: ''
+            },
+            {
+              title: 'Áo thun',
+              link: ''
+            },
+            {
+              title: 'Áo tay dài',
+              link: ''
+            },
+            {
+              title: 'Áo thể thao',
+              link: ''
+            },
+            {
+              title: 'Áo lót',
+              link: ''
+            },
+            {
+              title: 'Áo polo',
+              link: ''
+            },
+            {
+              title: 'Áo khoác',
+              link: ''
+            }
+          ]
+        },
+        {
+          title: 'Giày',
+          link: '',
+          children: [
+            {
+              title: 'Giày tây',
+              link: ''
+            },
+            {
+              title: 'Giày thể thao',
+              link: ''
+            },
+            {
+              title: 'Giày thời trang',
+              link: ''
+            },
+            {
+              title: 'Giày đi bộ',
+              link: ''
+            },
+            {
+              title: 'Giày sandal',
+              link: ''
+            },
+            {
+              title: 'Dép',
+              link:''
+            }
+          ]
+        },
+        {
+          title: 'Phụ kiện',
+          link: '',
+          children: [
+            {
+              title: 'Nón',
+              link: ''
+            },
+            {
+              title: 'Túi xách',
+              link: ''
+            },
+            {
+              title: 'Vòng tay',
+              link: ''
+            },
+            {
+              title: 'Dây chuyền',
+              link: ''
+            },
+            {
+              title: 'Khăn',
+              link: ''
+            },
+            {
+              title: 'Mắt kính',
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: 'nữ',
+      link: '',
+      children: [
+        {
+          title: 'Quần',
+          link: '',
+          children: [
+            {
+              title: 'Quần dài',
+              link: ''
+            },
+            {
+              title: 'Quần ngắn',
+              link: ''
+            },
+            {
+              title: 'Quần tây',
+              link: ''
+            },
+            {
+              title: 'Quần thể thao',
+              link: ''
+            },
+            {
+              title: 'Quần lót',
+            }
+          ]
+        },
+        {
+          title: 'Áo',
+          link: '',
+          children: [
+            {
+              title: 'Áo sơmi',
+              link: ''
+            },
+            {
+              title: 'Áo thun',
+              link: ''
+            },
+            {
+              title: 'Áo tay dài',
+              link: ''
+            },
+            {
+              title: 'Áo thể thao',
+              link: ''
+            },
+            {
+              title: 'Áo lót',
+              link: ''
+            },
+            {
+              title: 'Áo polo',
+              link: ''
+            },
+            {
+              title: 'Áo khoác',
+              link: ''
+            }
+          ]
+        },
+        {
+          title: 'Giày',
+          link: '',
+          children: [
+            {
+              title: 'Giày tây',
+              link: ''
+            },
+            {
+              title: 'Giày thể thao',
+              link: ''
+            },
+            {
+              title: 'Giày thời trang',
+              link: ''
+            },
+            {
+              title: 'Giày đi bộ',
+              link: ''
+            },
+            {
+              title: 'Giày sandal',
+              link: ''
+            },
+            {
+              title: 'Dép',
+              link:''
+            }
+          ]
+        },
+        {
+          title: 'Phụ kiện',
+          link: '',
+          children: [
+            {
+              title: 'Nón',
+              link: ''
+            },
+            {
+              title: 'Túi xách',
+              link: ''
+            },
+            {
+              title: 'Vòng tay',
+              link: ''
+            },
+            {
+              title: 'Dây chuyền',
+              link: ''
+            },
+            {
+              title: 'Khăn',
+              link: ''
+            },
+            {
+              title: 'Mắt kính',
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: 'Trẻ em',
+      link: '',
+      children: [
+        {
+          title: 'Quần',
+          link: '',
+          children: [
+            {
+              title: 'Quần dài',
+              link: ''
+            },
+            {
+              title: 'Quần ngắn',
+              link: ''
+            },
+            {
+              title: 'Quần tây',
+              link: ''
+            },
+            {
+              title: 'Quần thể thao',
+              link: ''
+            },
+            {
+              title: 'Quần lót',
+            }
+          ]
+        },
+        {
+          title: 'Áo',
+          link: '',
+          children: [
+            {
+              title: 'Áo sơmi',
+              link: ''
+            },
+            {
+              title: 'Áo thun',
+              link: ''
+            },
+            {
+              title: 'Áo tay dài',
+              link: ''
+            },
+            {
+              title: 'Áo thể thao',
+              link: ''
+            },
+            {
+              title: 'Áo lót',
+              link: ''
+            },
+            {
+              title: 'Áo polo',
+              link: ''
+            },
+            {
+              title: 'Áo khoác',
+              link: ''
+            }
+          ]
+        },
+        {
+          title: 'Giày',
+          link: '',
+          children: [
+            {
+              title: 'Giày tây',
+              link: ''
+            },
+            {
+              title: 'Giày thể thao',
+              link: ''
+            },
+            {
+              title: 'Giày thời trang',
+              link: ''
+            },
+            {
+              title: 'Giày đi bộ',
+              link: ''
+            },
+            {
+              title: 'Giày sandal',
+              link: ''
+            },
+            {
+              title: 'Dép',
+              link:''
+            }
+          ]
+        },
+        {
+          title: 'Phụ kiện',
+          link: '',
+          children: [
+            {
+              title: 'Nón',
+              link: ''
+            },
+            {
+              title: 'Túi xách',
+              link: ''
+            },
+            {
+              title: 'Vòng tay',
+              link: ''
+            },
+            {
+              title: 'Dây chuyền',
+              link: ''
+            },
+            {
+              title: 'Khăn',
+              link: ''
+            },
+            {
+              title: 'Mắt kính',
+            }
+          ]
+        }
+      ]
+    },
+    {
+      title: 'giày / dép',
+      link: '',
+    },
+    {
+      title: 'Phụ kiện',
+      link: '',
+    },
+  ]
+mixin renderMenu(items)
+  ul.menu-list
+    each item in items
+      li.menu-item(class=item.children && item.children.length ? 'dropdown' : '')
+        a.menu-link(href=item.link)= item.title
+        if item.children && item.children.length
+          +renderMenu(item.children)
+        if item.mega
+          .megas
+            .megas-list.row
+              each megaItem in item.mega
+                div.megas-item.col
+                  p.tt= megaItem.title
+                  ul.menu-list.row
+                    each menuItem in megaItem.items
+                      li.menu-item.col  
+                        a(href="").menu-link= menuItem 
+mixin Found() 
+  .found.foundJS 
+    .found-over.foundOver
+    .found-x.foundClose 
+      i.fa-solid.fa-xmark-large
+    .found-wr
+      .container 
+        .found-f 
+          p.tt TÌM KIẾM
+          form(action="")
+            .found-form 
+              input(type="text")
+              button
+                +img("ic-srch.svg")
+mixin Lang()
+  .hd-lg 
+    .hd-lg-item 
+      +img("ic-lang.svg")
+      span.txt VN
+      span.ic
+        i.fa-solid.fa-chevron-down
+    .hd-lg-drop 
+      a(href="").hd-lg-item 
+        +img("ic-lang.svg")
+        span.txt EN
+mixin Burger()
+  .burger
+    #hamburger.hamburger
+      svg.ham(viewbox='0 0 100 100' width='48')
+        path.line.top(d='m 30,33 h 40 c 0,0 9.044436,-0.654587 9.044436,-8.508902 0,-7.854315 -8.024349,-11.958003 -14.89975,-10.85914 -6.875401,1.098863 -13.637059,4.171617 -13.637059,16.368042 v 40')
+        path.line.middle(d='m 30,50 h 40')
+        path.line.bottom(d='m 30,67 h 40 c 12.796276,0 15.357889,-11.717785 15.357889,-26.851538 0,-15.133752 -4.786586,-27.274118 -16.667516,-27.274118 -11.88093,0 -18.499247,6.994427 -18.435284,17.125656 l 0.252538,40')
+mixin sub(txt,classCustom)
+  p.sub
+    span.sub-sym /
+    |#{txt}
+mixin title64(tt,classCustom,ani)
+  if ani == "true"
+    h1.title.title-64.add-class(class=classCustom data-spl)!=tt 
+  else 
+    h1.title.title-64(class=classCustom)!=tt 
+mixin title48(tt,classCustom,ani)
+  if ani == "true"
+    h1.title.title-48.add-class(class=classCustom data-spl)!=tt 
+  else 
+    h1.title.title-48(class=classCustom)!=tt   
+mixin title40(tt,classCustom,ani)
+  if ani == "true"
+    .title-head(class=classCustom)
+      h3.title.title-40.add-class.text-hori(data-spl)!=tt
+  else
+    .title-head(class=classCustom)
+      h3.title.title-40!=tt
+mixin title36(tt,classCustom,ani)
+  if ani == "true"
+    .title-head(class=classCustom)
+      h3.title.title-36.add-class.text-hori(data-spl)!=tt
+  else
+    .title-head(class=classCustom)
+      h3.title.title-36!=tt
+mixin title32(tt,classCustom,ani)
+  if ani == "true"
+    .title-head(class=classCustom)
+      h3.title.title-32.add-class.text-hori(data-spl)!=tt
+  else
+    .title-head(class=classCustom)
+      h3.title.title-32!=tt
+mixin title24(tt,classCustom,ani)
+  if ani == "true"
+    .title-head(class=classCustom)
+      h3.title.title-24.add-class.text-hori(data-spl)!=tt
+  else
+    .title-head(class=classCustom)
+      h3.title.title-24!=tt
+mixin desc32(des,ani)
+  if ani == "true"
+    p.desc-32.add-class.text-hori(data-spl)=des
+  else 
+    p.desc-32=des
+mixin desc(des,classCustom,ani)
+  if ani == "true"
+    p.desc.add-class.fadeUp(style="--dl:0.5s" class=classCustom)!=des
+  else 
+    p.desc(class=classCustom)!=des
+mixin headVerti(classCustom)
+  .head-verti(class=classCustom) 
+    block
+mixin headHori(classCustom)
+  .head-hori(class=classCustom) 
+    block
+mixin selectFilter(name, value) 
+  .selectFilter 
+    span.txt=name
+    .sl
+      select(name="" class="re-select-main" data-placeholder=value) 
+        option(value="")=value  
+        option(value="1") Location 1
+        option(value="2") Location 2
+        option(value="3") Location 3
+mixin Form(classCustom)
+  .mainForm(class=classCustom) 
+    form(action="")
+      .form-list.row 
+        block
+mixin FormIp(name,spe,place,col)
+  label.form-ip(class=col)
+    span.text(class=spe)=name
+    input(type="text" placeholder=place)
+mixin FormPass(name,spe,place,col)
+  label.form-ip(class=col)
+    span.text(class=spe)=name
+    .input
+      input(type="text" placeholder=place)
+      i.seepassJS.fa-solid.fa-eye
+mixin FormSelect(name,spe,place,col)
+  label.form-ip(class=col)
+    span.text(class=spe)=name
+    select(name="" class="re-select-main" data-placeholder=place) 
+      option(value="")=place 
+      option(value="1") 1 
+      option(value="1") 1 
+      option(value="1") 1 
+      option(value="1") 1 
+mixin FormArea(name,spe,place,col)
+  label.form-ip(class=col)
+    .inner
+      span.text(class=spe)=name
+      textarea(value="hello" placeholder=place) 
+mixin FormWrap
+  label.form-ip.col
+    block
+
+mixin btnMore(text,classCustom)
+  a(href="" class=classCustom).btnMore=text 
+
+mixin Avatar(items,classCustom)
+  .GrAva(class=classCustom) 
+    each item in items
+      .GrAva-it
+        +img(item.img)
+mixin LogoSplide(brands)
+  .logoSplide
+    .splide
+      .splide__track 
+        .splide__list 
+          each brand in brands
+            .splide__slide 
+              .logoSplide-it 
+                .img 
+                  +img(brand.img)
+mixin TwoSplide(brands1,brands2)
+  .twoSplide
+    .splide
+      .splide__track 
+        .splide__list 
+          each brand1 in brands1
+            .splide__slide 
+              .twoSplide-it.bd-ln 
+                a(href=`./assets/images/${brand1.img}` data-fancybox="gallery2").img 
+                  +img(brand1.img)
+                .infos  
+                  p Title of Image About Our Company Description The Activities
+    .splide
+      .splide__track 
+        .splide__list 
+          each brand2 in brands2
+            .splide__slide 
+              .twoSplide-it.bd-ln 
+                a(href=`./assets/images/${brand2.img}` data-fancybox="gallery2").img 
+                  +img(brand2.img)
+                .infos  
+                  p Title of Image About Our Company Description The Activities
+mixin OneSplide(brands3,classCustom)
+  .twoSplide(class=classCustom)
+    .splide
+      .splide__track 
+        .splide__list 
+          each brand3 in brands3
+            .splide__slide 
+              .twoSplide-it.bd-ln 
+                a(href=`./assets/images/${brand3.img}` data-fancybox="gallery2").img 
+                  +img(brand3.img)
+                .infos  
+                  p Title of Image About Our Company Description The Activities
+mixin Social()
+  .social 
+    .social-list 
+      a(href="").social-link 
+        +img("ic-fb.svg")
+      a(href="").social-link 
+        +img("ic-yt.svg")
+      a(href="").social-link 
+        +img("ic-tiktok.svg")
+mixin SocialDetail()
+  .social 
+    .social-list 
+      a(href="").social-link.copyJS 
+        +img("ic-fb2.svg")
+      a(href="").social-link 
+        +img("ic-tw2.svg")
+      a(href="").social-link 
+        +img("ic-mail.svg")
+mixin Signature()
+  .signature 
+    span.txt © All Rights Reserved
+    +img("Signature.png")
+mixin DropZone 
+  .dropZone
+    span.tt Tải lên hồ sơ của bạn
+    input#dropInput(hidden="" type="file")
+    label(for="dropInput")#dropArea.drop-area
+      .text
+        i.fa-solid.fa-arrow-up-from-bracket
+        span.txt Kéo thả file vào đây hoặc chọn    
+        p.note JPG, GIF hoặc PNG. Kích thước tối đa 800Kb
+      span#browseFile
+      ul#fileList
+
+
+
+mixin SelectNormal(place)
+  .selectNor 
+    select(name="" class="re-select-main" data-placeholder=place)
+      option(value="")=place 
+      option(value="1") Cate 1   
+      option(value="1") Cate 2  
+      option(value="1") Cate 3   
+      option(value="1") Cate 4   
+mixin inputSrch(place)
+  .input-srch 
+    input(type="text" placeholder=place)
+    button.input-srch-btn 
+      +img("ic-srch.svg")
+mixin selectIcon(place,icon)
+  .selectIcon 
+    select(name="" class="re-select-main" data-placeholder=place) 
+      option(value="")=place 
+      option(value="1") Cate 1  
+      option(value="2") Cate 2
+      option(value="3") Cate 3  
+    .icon 
+      +img(icon)
+mixin uploadFile()
+  label.uploadFile
+    input(type="file" id="inputFile")
+    .icon 
+      +img("ic-upload.svg")
+    p.text#imageName Upload CV 
+      span.small (only supports PDF)
+
+mixin LayoutTwoBlock(classCustom)
+  .layout-two.row(class=classCustom)
+    block 
+mixin BlockMain
+  .layout-two-l.col 
+    .wrapper 
+      block
+mixin BlockSide
+  .layout-two-r.col 
+    .wrapper 
+      block
+
+mixin collapse(arrs,classCustom)
+  .collapse-block(class=classCustom) 
+    each v,i in arrs
+      .collapse-item  
+        .collapse-head 
+          .txt=v.tt 
+          .icon 
+            +img("caret-circle.svg")
+        .collapse-body 
+          p.des=v.des
+
+mixin imgFull(img,classCustom)
+  .imgFull(class=classCustom) 
+    .imgFull-inner 
+      +img(img)
+
+mixin heroItem(img,tag,tt,classCustom)
+  .hero-item(class=classCustom)
+    .inner 
+      .img 
+        a(href="").img-inner
+          +img(img)
+      .info 
+        if tag == "hot sale"
+          .item-tag.hot=tag
+        if tag == "new"
+          .item-tag.new=tag
+        if tag == "sale"
+          .item-tag.sale=tag
+        a(href="").info-tt=tt
+mixin bannerItem(img,tag,tt,classCustom)
+  .banner-item(class=classCustom)
+    .inner 
+      .img 
+        a(href="").img-inner
+          +img(img)
+      .info 
+        a(href="").info-tt!=tt
+        +Btn("Xem shop","","second","ic-arrow.svg")
+
+mixin miniProd(img,tt,des,price)
+  .miniProd 
+    .inner
+      .img 
+        a(href="").img-inner 
+          +img(img)
+      .info 
+        a(href="").info-tt=tt
+        p.info-des=des
+        p.info-price=price
+
+mixin prodItem(img,classCustom)
+  .prod-item(class=classCustom)
+    .inner
+      .sale-off 
+        .sale-off-circle Hết hàng
+      .img 
+        .tags-list 
+          .item-tag.new New
+          .item-tag.hot hot
+          .item-tag.sale sale
+        a(href="").img-inner 
+          +img(img)
+      .info 
+        h4 
+          a(href="").info-tt  Nike Air Max Plus
+        .box-price 
+          .box-price-cur 3,250,000 VNĐ
+          .box-price-old 4,850,000 VNĐ
+          .box-price-sale   
+            .iwt 
+              .icon 
+                +img("ic-downsale.svg")
+              .txt 20% OFF
+        p.info-pay 256 lượt bán
+
+mixin prodItemKM(img,classCustom)
+  .prod-item(class=classCustom)
+    .inner
+      .sale-off 
+        .sale-off-circle Hết hàng
+      .img 
+        .tags-list 
+          .item-tag.new New
+          .item-tag.hot hot
+          .item-tag.sale sale
+        a(href="").img-inner 
+          +img(img)
+      .cd 
+        +CountDown("06/18/2025")
+      .info 
+        h4 
+          a(href="").info-tt  Nike Air Max Plus
+        .box-price 
+          .box-price-cur 3,250,000 VNĐ
+          .box-price-old 4,850,000 VNĐ
+          .box-price-sale   
+            .iwt 
+              .icon 
+                +img("ic-downsale.svg")
+              .txt 20% OFF
+        p.info-pay 256 lượt bán
+mixin itemReview(img)
+  .item-review 
+    .inner 
+      .img 
+        a(href="").img-inner
+          +img(img)
+      .info 
+        +Star("100%")
+        p.info-des Sản phẩm chất lượng rất tốt, hài lòng
