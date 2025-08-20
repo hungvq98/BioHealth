@@ -14,13 +14,14 @@
     white-space: nowrap;
     @include font-pri;
     border: 0.1rem solid transparent;
-    font-weight: 700;
+    font-weight: 400;
     border-radius: inherit;
     
     &-box {
-        border-radius: var(--radius);
+        border-radius: 100rem;
         width: fit-content;
         transition: 0.4s;
+        position: relative;
 
         &:has(.full) {
             width: 100%;
@@ -30,10 +31,25 @@
             margin: 0 auto;
             margin-top: 2.4rem;
         }
-
-        &:has(.btn:hover) {
-            box-shadow: var(--sdow);
+        &::after {
+            @include pseudo;
+            aspect-ratio: 1;
+            width: auto;
+            height: 80%;
+            bottom: 100%;
+            right: 10%;
+            background-image: url("../assets/images/seedling.gif");
+            @include default-background;
+            transform: scale(0);
+            transform-origin: bottom center;
+            transition: 0.4s;
         }
+        @include hover {
+            &::after {
+                transform: scale(1);
+            }
+        }
+
     }
 
     &.full {
@@ -81,10 +97,11 @@
 
     @include hover {
         // filter: brightness(1.1);
+        
     }
 
     @include max(1200px) {
-        height: 4.8rem;
+        height: 3.8rem;
 
         .txt {
             font-size: 1.4rem;
@@ -113,7 +130,7 @@
             }
 
             img {
-                filter: brightness(0) saturate(100%) invert(20%) sepia(77%) saturate(7327%) hue-rotate(4deg) brightness(103%) contrast(128%);
+                filter: var(--filter-pri);
             }
         }
 
@@ -127,69 +144,23 @@
         }
 
         .txt {
-            color: var(--color-text);
-        }
-
-        @include hover {
-            border-color: var(--color-text);
-            background-color: white;
-
-            .txt {
-                color: var(--color-text);
-            }
-
-            img {
-                filter:brightness(0);
-            }
-        }
-    }
-
-    &.pri2 {
-        background-color: var(--color-pri);
-        background-color: #005851;
-        border: none;
-
-        .txt {
             color: white;
         }
 
-        img {
-            filter: none;
-        }
-
-        &::after {
-            background-color: var(--color-second);
-        }
-
         @include hover {
-            background-color: var(--color-second);
+            border-color: var(--color-second);
+            background-color: white;
 
-            // transition-delay: 0.2s;
             .txt {
-                color: var(--color-pri);
-
-                &-icon {
-                    background-color: var(--color-pri);
-
-                    img {
-                        filter: brightness(0) saturate(100%) invert(94%) sepia(8%) saturate(1862%) hue-rotate(358deg) brightness(105%) contrast(108%);
-                    }
-                }
+                color: var(--color-second);
             }
 
             img {
-                filter: brightness(0) invert(1);
+                filter: var(--filter-second);
             }
-
-            &::after {
-                transform-origin: top right;
-                transform: scaleY(1);
-            }
-
-            box-shadow: var(--sdow);
-
         }
     }
+
 
     &.white {
         background-color:white;
@@ -325,6 +296,11 @@
 
         }
     }
+    &.rev {
+        .txt {
+            flex-direction: row-reverse;
+        }
+    }
 
     &:not(:has(img)) {
         .txt {
@@ -332,7 +308,39 @@
         }
     }
 
-
+    &.hd-btn {
+        border: 0.1rem solid #FA50B1;
+        border-radius: 100rem;
+        .txt {
+            padding-left: 0.4rem;
+            gap: .4rem;
+            &-icon {
+                padding: 0.8rem;
+                border-radius: 100rem;
+                width: 4rem;
+                height: 4rem;
+                img {
+                    border-radius: 0;
+                }
+            }
+        }
+        @include hover {
+            background-color: #FA50B1;
+            .txt {
+                color: white;
+                &-icon {
+                    background-color: white;
+                }
+            }
+        }
+    }
+    &.small {
+        height: 3.2rem;
+        .txt {
+            padding: .5rem 1.6rem;
+            font-size: 1.4rem;
+        }
+    }
 }
 
 .btnMore {

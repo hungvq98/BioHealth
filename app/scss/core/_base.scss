@@ -1,4 +1,6 @@
 @import url("../assets/font/Inter/stylesheet.css"); 
+@import url("../assets/font/SVN-Mont/stylesheet.css"); 
+@import url("../assets/font/SVN-BebasNeuePro/stylesheet.css"); 
 * {
     box-sizing: border-box;
 }
@@ -16,7 +18,7 @@ html {
 }
 
 body {
-    font-family: 'Inter',sans-serif;
+    font-family: 'SVN-Mont',sans-serif;
     font-size: 16px;
     line-height: 1.5;
     font-weight: 400;
@@ -61,13 +63,11 @@ textarea {
 .main {
     min-height: 68vh;
     padding-top: var(--size-hd);
-    @include max(1200px) {
-    }
 }
 
 .container {
     width: 100%;
-    max-width: 123rem;
+    max-width: 135.2rem;
     height: 100%;
     margin: 0 auto;
     padding: 0 1.5rem;

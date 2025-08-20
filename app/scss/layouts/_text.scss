@@ -2,29 +2,44 @@
     @include fz-64;
     font-weight: 700;
     text-transform: uppercase;
-    color:var(--color-text);
+    color:var(--color-pri);
 }
 .title-48 {
     @include fz-48;
     font-weight: 700;
     text-transform: uppercase;
-    color: var(--color-text);
+    color: var(--color-pri);
+}
+.title-40 {
+    @include fz-40;
+    font-weight: 700;
+    text-transform: uppercase;
+    color: var(--color-pri);
+    .italic {
+        font-style: italic;
+    }
+    @include max(430px) {
+        @include fz-32;
+    }
 }
 .title-32 {
     @include fz-32;
     font-weight: 900;
     text-transform: uppercase;
-    color: var(--color-text);
+    color: var(--color-pri);
 }
 .title-sub {
     font-size: 1.2rem;
     font-weight: 700;
-    color: var(--color-text);
+    color: var(--color-pri);
     text-transform: uppercase;
 }
 
 .white {
     .title-64 {
+        color: white;
+    }
+    .title-40 {
         color: white;
     }
     .title-sub {
@@ -129,6 +144,13 @@
     @include max(768px) {
         align-items: center;
         flex-direction: column;
+        text-align: center;
+        .btn-box {
+            display: none;
+        }
+        .swiper-control {
+            display: none;
+        }
     }
 
 }

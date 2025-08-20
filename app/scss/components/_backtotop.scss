@@ -1,6 +1,6 @@
 .back-to-top {
-    width: 5rem;
-    height: 5rem;
+    width: 4rem;
+    height: 4rem;
     border-radius: 100rem;
     box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
     position: fixed;
@@ -17,10 +17,11 @@
     justify-content: space-evenly;
     align-items: center;
     @include default-background;
-    display: none;
-    @include min(1201px) {
-        display: none;
-    }
+    filter: var(--rdow);
+    // display: none;
+    // @include min(1201px) {
+    //     display: none;
+    // }
     
     @include max(768px) {
         right: 1.5rem;
@@ -53,8 +54,8 @@
         img {
             width: inherit;
             height: inherit;
-            width: 60%;
-            height: 60%;
+            width: 100%;
+            height: 100%;
         }
 
         // &:nth-child(1) {

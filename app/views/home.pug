@@ -1,0 +1,372 @@
+extends layout/layout
+
+block vars
+    -title = 'Trang chủ'
+    -bodyClass = 'page-home'
+
+block container 
+    section.sec-homes-bn 
+        -
+            var dmsp = [
+                {
+                    txt:"Khuyến mãi hot"
+                },
+                {
+                    txt:"Chăm sóc tóc"
+                },
+                {
+                    txt:"Chăm sóc cơ thể"
+                },
+                {
+                    txt:"Chăm sóc da mặt"
+                },
+                {
+                    txt:"Chăm sóc bảo vệ răng miệng"
+                },
+                {
+                    txt:"Tinh dầu xông"
+                },
+                {
+                    txt:"Bộ sản phẩm chăm sóc cá nhân"
+                },
+            ]
+        +dmsp(dmsp)
+        .homes-bn 
+            .container 
+                .homes-bn
+                    .homes-bn__grids 
+                        each val,index in Array(3)
+                            .homes-bn__grid 
+                                .imgs 
+                                    +img(`homes-bn${index + 1}.jpg`)
+    section.sec-homes-vcher 
+        .homes-vcher 
+            .container 
+                .homes-vcher__slide 
+                    .swiper.row.gap-res 
+                        .swiper-wrapper 
+                            each val,index in Array(4)
+                                .swiper-slide.col 
+                                    a(href="").homes-vcher__item 
+                                        .inner 
+                                            .lines
+                                                .lines-circle 
+                                                .lines-circle 
+                                            .content 
+                                                .iwt 
+                                                    .icon 
+                                                        +img("ic-mini.svg")
+                                                    .b-gr 
+                                                        p.txt Giảm 20%
+                                                        p.des Valid for first transactions in Traveloka App & Website
+                                            .copy.copyBtn
+                                                +img("ic-copy.svg")                        
+                    +SwiperControl("posi minus")    
+                    +Pagination         
+    section.sec-homes-flash 
+        .homes-flash.checkViewJS  
+            .container 
+                .homes-flash__box
+                    +boxLeaf(1,5,0.5)
+                    .homes-flash__decs 
+                        .homes-flash__dec
+                            +img("homes-flash-dec1.png")
+                        .homes-flash__dec
+                            +img("homes-flash-dec2.png")
+                    .bg.frameJs 
+                        +img("flash-green-bg.jpg")
+                    .homes-flash__head.flash 
+                        +headVerti("white")
+                            +title40('Flash Sale Tuần lễ sống <span class="italic">"Xanh"</span>',"text-hori","true")
+                        +CountDown("08/30/2025")
+                    .homes-flash__slide 
+                        .swiper.row.gap-res.rows-5 
+                            .swiper-wrapper 
+                                each val,index in Array(6)
+                                    .swiper-slide.col 
+                                        +prodItem("ver1")
+                        +Pagination
+                    .homes-flash__btns
+                        +Btn("Xem tất cả deal", "", "pri center", "ic-arrow.svg")
+    section.sec-homes-smallbn 
+        .homes-smallbn.ss-pd-min-t
+            .container 
+                .homes-smallbn__box 
+                    .bg.frameJs 
+                        +img("homes-small-bn1.jpg")
+    section.sec-homes-combo 
+        .homes-combo.ss-pd-min-t
+            .container 
+                +headHori("mb-24")
+                    +title40("combo khuyên chọn","text-hori","true")
+                    +Btn("Xem thêm", "", "pri", "ic-plus.svg")
+                .homes-flash__slide 
+                    .swiper.row.gap-res.rows-5 
+                        .swiper-wrapper 
+                            each val,index in Array(6)
+                                .swiper-slide.col 
+                                    +prodItem("ver2")
+                    +Pagination
+                    +Btn("Xem thêm", "", "pri center", "ic-plus.svg")
+    section.sec-homes-four 
+        .homes-four.ss-pd-min-t 
+            .container 
+                .homes-four__box 
+                    .flex.row.gap-res 
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn4.jpg")
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn4.jpg")
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn4.jpg")
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn3.jpg")
+    section.sec-homes-flash 
+        .homes-flash.ss-pd-min-t.ver2.checkViewJS  
+            .container 
+                .homes-flash__box 
+                    +boxLeaf(1,5,0.5)
+                    .homes-flash__decs 
+                        .homes-flash__dec
+                            +img("homes-flash-dec3.png")
+                        .homes-flash__dec
+                            +img("homes-flash-dec4.png")
+                        .homes-flash__dec
+                            +img("homes-flash-dec5.png")
+                        .homes-flash__dec
+                            +img("homes-flash-dec6.png")
+                    .bg.frameJs 
+                        +img("flash-light-bg.jpg")
+                    .homes-flash__head 
+                        +headVerti("center")
+                            +title40('Sản phẩm bán chạy',"text-hori","true")
+                    .homes-flash__slide 
+                        .swiper.row.gap-res.rows-5 
+                            .swiper-wrapper 
+                                each val,index in Array(6)
+                                    .swiper-slide.col 
+                                        +prodItem("ver1")
+                        +Pagination
+                    .homes-flash__btns
+                        +Btn("Trải nghiệm sản phẩm thiên nhiên", "", "second center", "ic-arrow.svg")                                
+    section.sec-homes-find 
+        .homes-find.ss-pd-min-t 
+            .container 
+                +headVerti("center mb-24")
+                    +title40("tìm kiếm nhiều nhất","text-hori","true")
+                .homes-find__box 
+                    .homes-flash__slide 
+                        .swiper.row.gap-res.rows-5 
+                            .swiper-wrapper 
+                                each val,index in Array(6)
+                                    .swiper-slide.col 
+                                        +prodItem("ver2")
+                        +Pagination
+    section.sec-homes-trend 
+        .homes-trend.ss-pd-min-t 
+            .container 
+                .homes-trend__box
+                    .bg 
+                        +img("homes-trend-bg.jpg") 
+                    .homes-trend__flex.row 
+                        .homes-trend__left.col 
+                            .wrapper 
+                                .img 
+                                    .img-inner 
+                                        +img("homes-trend.jpg")
+                        .homes-trend__right.col 
+                            .wrapper 
+                                +headVerti("center mb-24 white")
+                                    +title40("Sản phẩm mới & xu hướng","text-hori","true")
+                                .homes-flash__slide 
+                                    .swiper.row.gap-res.rows-3 
+                                        .swiper-wrapper 
+                                            each val,index in Array(6)
+                                                .swiper-slide.col 
+                                                    +prodItem("ver3")
+                                    +SwiperControl("center white")    
+    section.sec-homes-four
+        .homes-four.ss-pd-min-t.homes-three  
+            .container 
+                .homes-four__box 
+                    .flex.row.gap-res 
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn4.jpg")
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn4.jpg")
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn3.jpg")
+    section.sec-homes-tech 
+        .homes-tech.ss-pd-min-t 
+            .container 
+                .homes-tech__box 
+                    .bg.imgPara 
+                        +img("homes-tech.jpg")
+                    +headVerti("center mb-24")
+                        +title40("Công nghệ sản xuất","text-hori","true")
+                    .homes-tech__flex.row 
+                        .homes-tech__item.col(data-aos="fade-right-cus" data-aos-delay="400") 
+                            .inner  
+                                .info 
+                                    .info-tt 
+                                        .info-tt__top 
+                                            +img("title1.png")
+                                        h3.info-tt__bottom CÔNG NGHỆ TRÍCH LY XANH
+                                    .info-des 
+                                        .mona-content 
+                                            p Một trong những yếu tố quan trọng để mang lại hiệu quả cho các sản phẩm mỹ phẩm hữu cơ đó chính là công nghệ chiết xuất đảm bảo hàm lượng và độ tinh khiết ít lẫn tạp chất của thành phần hữu cơ. Để đáp ứng yêu cầu này, BioHealth áp dụng "công nghệ trích ly xanh" nhằm tối ưu hóa quy trình chiết xuất và bảo vệ môi trường.
+                                    +Btn('“Trích ly xanh” là gì?', "", "second center", "ic-arrow.svg")
+                                .img 
+                                    .img-inner 
+                                        +img("homes-tech1.png")
+                        .homes-tech__item.col(data-aos="fade-left-cus" data-aos-delay="400") 
+                            .inner  
+                                .info 
+                                    .info-tt 
+                                        .info-tt__top 
+                                            +img("title2.png")
+                                        h3.info-tt__bottom CÔNG NGHỆ NANO THỰC VẬT
+                                    .info-des 
+                                        .mona-content 
+                                            p Cùng với công nghệ trích ly xanh, các sản phẩm của BioHealth còn ứng dụng công nghệ Nano giúp tăng đáng kể độ khuếch tán của các hoạt chất, gia tăng hiệu quả thẩm thấu, đảm bảo công dụng đạt hiệu quả tối ưu.
+                                    +Btn('“Nano thực vật” là gì?', "", "pri center", "ic-arrow.svg")
+                                .img 
+                                    .img-inner 
+                                        +img("homes-tech1.png")
+    section.sec-homes-vct 
+        +boxLeaf(1.5,3,0.5)
+        .homes-vct.ss-pd-min-t 
+            .container 
+                .homes-vct__flex.row 
+                    .homes-vct__left.col 
+                        .wrapper(data-aos="fade-right-cus" data-aos-delay="") 
+                            .img 
+                                .img-inner 
+                                    +img("homes-vct.png")
+                    .homes-vct__right.col 
+                        .wrapper 
+                            +headVerti("")
+                                p.homes-vct__sub(data-aos="fade-left-cus" data-aos-delay="300") Về chúng tôi
+                                h3.homes-vct__title(data-aos="fade-left-cus" data-aos-delay="400") 
+                                    |Cùng 
+                                    span.bio BioHealth   
+                                    | viết nên câu chuyện sống xanh của riêng bạn
+                            .mona-content(data-aos="fade-left-cus" data-aos-delay="500") 
+                                p Các sản phẩm BioHealth không chỉ mang lại hiệu quả phục hồi các tổn hại đã xảy ra theo thời gian mà còn là người bạn đồng hành tin cậy với giải pháp mỹ phẩm hữu cơ thiên nhiên, giải pháp cho tinh thần thư thái, tự tin, thoải mái tận hưởng trải nghiệm SPA ngay tại nhà.
+                            .homes-vct__iso(data-aos="fade-left-cus" data-aos-delay="600") 
+                                each val,index in Array(3)
+                                    .imgs 
+                                        +img(`iso${index + 1}.png`)
+                            .homes-vct__btns 
+                                +Btn("Tìm hiểu thêm", "", "pri", "ic-arrow.svg")
+        .homes-material.ss-pd-min-t 
+            .recontainer 
+                .homes-material__box 
+                    .flex.row 
+                        .homes-material__left.col 
+                            .wrapper
+                                .homes-material__head 
+                                    .num 
+                                        span.num-txt.countNum 100
+                                        span.num-sym %
+                                    span.text 
+                                        |Nguyên liệu
+                                        br
+                                        | tươi nguyên
+                                .homes-material__content 
+                                    .mona-content 
+                                        p Các sản phẩm hữu cơ ngày càng được ưa chuộng nhờ mang lại nhiều lợi ích vượt trội cho sức khỏe và môi trường sống. Được chiết xuất từ các nguyên liệu tự nhiên, không chứa hóa chất độc hại, những lợi ích quan trọng của mỹ phẩm hữu có có thể kể đến
+                        .homes-material__right.col 
+                            .wrapper 
+                                .homes-material__slide 
+                                    .swiper.row.gap-res
+                                        .swiper-wrapper 
+                                            .swiper-slide.col 
+                                                .homes-material__item 
+                                                    .inner 
+                                                        .img 
+                                                            .img-inner
+                                                                +img("rauma.png") 
+                                                        .info 
+                                                            h4.info-tt rau má
+                                            .swiper-slide.col 
+                                                .homes-material__item 
+                                                    .inner 
+                                                        .img 
+                                                            .img-inner
+                                                                +img("huongnhu.png") 
+                                                        .info 
+                                                            h4.info-tt hương nhu
+                                            .swiper-slide.col 
+                                                .homes-material__item 
+                                                    .inner 
+                                                        .img 
+                                                            .img-inner
+                                                                +img("rauma.png") 
+                                                        .info 
+                                                            h4.info-tt rau má
+                                    +SwiperControl("posi plus")    
+    section.sec-homes-resrch 
+        .homes-resrch.ss-pd-min-t 
+            .recontainer 
+                .homes-resrch__head
+                    +headHori("mb-24")
+                        +title40("Khám phá xu hướng làm đẹp tự nhiên","text-hori","true")
+                        +SwiperControl()
+                .homes-resrch__slide
+                    .swiper.row.gap-res
+                        .swiper-wrapper 
+                            each val,index in Array(4)
+                                .swiper-slide.col 
+                                    +itemBlog(`blog${index + 1}.jpg`)
+                        +Pagination
+    section.sec-homes-recent 
+        .homes-recent.ss-pd-min-t 
+            .container 
+                +headHori("mb-24")
+                    +title40("sản phẩm vừa xem","text-hori","true")
+                    +SwiperControl()
+                .homes-recent__slide
+                    .swiper.row.gap-res.rows-5 
+                        .swiper-wrapper 
+                            each val,index in Array(6)
+                                .swiper-slide.col 
+                                    +prodItem("ver2")
+    section.sec-homes-sale 
+        .homes-sale.ss-pd-min
+            .container 
+                .homes-sale__box
+                    .bg 
+                        +img("homes-sale-bg.jpg")
+                    .flex.row 
+                        .homes-sale__left.col 
+                            .wrapper 
+                                .iwt 
+                                    .icon 
+                                        +img("ic-mini2.svg")
+                                    p.txt 
+                                        span.txt-pri Nhận ưu đãi 
+                                        |làm đẹp sớm 
+                                        br
+                                        |nhất cùng chúng tôi!
+                        .homes-sale__right.col 
+                            .wrapper
+                                .homes-sale__form 
+                                    form(action="")
+                                        .homes-sale__input 
+                                            input(type="text" placeholder="Email của bạn...")
+                                            +Btn("Gửi ngay", "button", "pri", "")

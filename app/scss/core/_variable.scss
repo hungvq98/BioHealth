@@ -1,35 +1,46 @@
 :root {
-    --size-hd: 10.8rem;
+    --hd-top:10rem;
+    --hd-mid:11.7rem;
+    --hd-bottom:5.6rem;
+    --size-hd: calc(var(--hd-top) + var(--hd-mid) + var(--hd-bottom));
+    --fade: 0.5rem;
     --pd-sc: 8rem;
     --pd: 4rem;
+    --pd-42: clamp(2rem, calc(1.1803rem + 1.6393vw), 4rem);
     // border
     --radius: .8rem;
+    --radius-xl: 1.6rem;
     --cl-bd: #E2E8F0;
     --cl-bdw: rgba(255,255,255,.2);
-    --rds:8rem;
     // transition
     --transition: 0.6s calc(var(--char-index) * 0.02s) ease-in-out;
     // distance
-    --recontainer: calc(100vw - (100vw - 120rem)/2);
-    --half: calc((100vw - 120rem)/2);
+    --recontainer: calc(100vw - (100vw - 132.2rem)/2);
+    --half: calc((100vw - 132.2rem)/2);
     // color
     --color-text: #292929;
-    --color-pri: #F91F3E;
-    --color-second: #FFDE00;
-    --color-third: #062365;
+    --color-pri: #1A5B2E;
+    --color-second: #02AB59;
+    --color-third: #EAFFF5;
     --color-red: #DD3C27;
+    --color-des: #7D7D7D;
     // shadow
-    --sdow: 10px 10px 40px rgba(0, 0, 0, 0.16);
+    --sdow: 0px 4px 12px rgba(104, 104, 104, 0.2);
     --rdow: drop-shadow(0px 8px 24px rgba(0, 0, 0, 0.1));
 
-    // filter: ;
-    --filter-pri: brightness(0) saturate(100%) invert(17%) sepia(97%) saturate(3087%) hue-rotate(347deg) brightness(80%) contrast(100%);
-    --filter-second: brightness(0) saturate(100%) invert(76%) sepia(24%) saturate(4509%) hue-rotate(339deg) brightness(107%) contrast(104%);
-
+    // filter
+    --filter-pri: brightness(0) saturate(100%) invert(25%) sepia(66%) saturate(436%) hue-rotate(87deg) brightness(97%) contrast(95%);
+    --filter-second: brightness(0) saturate(100%) invert(29%) sepia(99%) saturate(2182%) hue-rotate(140deg) brightness(98%) contrast(101%);
+    // Linear
+    --linear-pri: linear-gradient(90deg, #1A5B2E 0%, #37C162 100%);
+    @media screen and (max-width: 1300px) {
+        --recontainer: calc(100% - 1.5rem);
+        --half: 1.5rem;
+    }
     @media (max-width: 1200px) {
         --pd-sc: 4.8rem;
         --radius: 1rem;
-        --size-hd: 6rem;
+        --size-hd: 9.8rem;
         --pd: 2rem;
         --recontainer: calc(100% - 1.5rem);
         --half: 1.5rem;
@@ -37,13 +48,11 @@
     }
 }
 
+
 //Responsive
 $res-mobile: 1199px;
 $res-mobile-min: 1201px;
 $mobile: 500px;
-
-$resMenuMax: 650px;
-$resMenuMin: 651px;
 //Distance
 $radius: 3.2rem;
 

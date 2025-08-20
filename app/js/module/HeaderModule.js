@@ -3,6 +3,7 @@ export default function HeaderModule() {
     const header = document.querySelector(".hd");
     const mobile = document.querySelector(".mobile");
     const mobileOverlay = document.querySelector(".mobile-overlay");
+    const body = document.querySelector("body");
     function HandleHeader() {
         if (header && mobile && mobileOverlay) {
             if (window.scrollY > 0) {
@@ -82,4 +83,58 @@ export default function HeaderModule() {
             }
         })
     }
+
+
+    (function () {
+        if (window.scrollY > 0) {
+            header.classList.add("small", "in");
+        } else {
+            header.classList.remove("small", "in");
+        }
+    })();
+
+    var lastScrollTop = 0;
+    var scrollDown = 0;
+
+    window.addEventListener(
+        "scroll",
+        function () {
+            let checkOntouch = document.querySelector(".no-touch");
+
+            if (header) {
+                if (window.scrollY > 0) {
+                    header.classList.add("small");
+                } else {
+                    header.classList.remove("small");
+                }
+
+                if (!checkOntouch) {
+                    var st = window.pageYOffset || document.documentElement.scrollTop;
+                    var lt = 0;
+                    if (st >= 0 && st > lastScrollTop) {
+                        scrollDown = window.pageYOffset;
+                        // downscroll code
+                        header.classList.add("out");
+                        header.classList.remove("in");
+
+                        body.classList.add("out");
+                        body.classList.remove("in");
+                        lt = st;
+                    } else {
+                        // upscroll code
+
+                        if (scrollDown > window.pageYOffset) {
+                            header.classList.remove("out");
+                            header.classList.add("in");
+
+                            body.classList.remove("out");
+                            body.classList.add("in");
+                        }
+                    }
+                    lastScrollTop = st <= 0 ? 0 : st; // For Mobile or negative scrolling
+                }
+            }
+        },
+        false
+    );
 }

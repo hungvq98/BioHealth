@@ -111,8 +111,103 @@ export default function ComponentModule() {
         readLessBtn.addEventListener('click', function (e) {
           item.classList.remove('open')
         })
-        
+
       }
     })
   }
+
+
+  const frames = document.querySelectorAll(".frameJs");
+  frames.forEach((frame) => {
+    const img = frame.querySelector("img");
+    const canvas = document.createElement("canvas");
+    frame.appendChild(canvas);
+    const ctx = canvas.getContext("2d");
+
+    let ledSpacing = 30;
+    let ledRadius = 5;
+    let waveSpeed = 0.1;
+    let waveFrequency = Math.PI / 8;
+    let positions = [];
+    let time = 0;
+    let isVisible = false;
+
+    function setupCanvas() {
+      canvas.width = img.offsetWidth;
+      canvas.height = img.offsetHeight;
+      positions = [];
+      let numLedsX = Math.floor(canvas.width / ledSpacing);
+      let numLedsY = Math.floor(canvas.height / ledSpacing);
+
+      for (let i = 0; i < numLedsX; i++)
+        positions.push({ x: i * ledSpacing, y: 0 });
+      for (let i = 0; i < numLedsY; i++)
+        positions.push({ x: canvas.width, y: i * ledSpacing });
+      for (let i = 0; i < numLedsX; i++)
+        positions.push({ x: canvas.width - i * ledSpacing, y: canvas.height });
+      for (let i = 0; i < numLedsY; i++)
+        positions.push({ x: 0, y: canvas.height - i * ledSpacing });
+    }
+
+    function drawLeds() {
+      if (!isVisible) return; // Nếu frame không hiển thị, dừng vẽ
+
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      let numLeds = positions.length;
+
+      for (let i = 0; i < numLeds; i++) {
+        let led = positions[i];
+        let opacity = Math.sin(waveFrequency * i + time) * 0.5 + 0.5;
+
+        ctx.beginPath();
+        ctx.arc(led.x, led.y, ledRadius, 0, Math.PI * 2);
+        ctx.fillStyle = `rgba(255, 255, 255, ${opacity})`;
+        ctx.shadowColor = "white";
+        ctx.shadowBlur = 10 * opacity;
+        ctx.fill();
+      }
+
+      time += waveSpeed;
+      requestAnimationFrame(drawLeds);
+    }
+
+    setupCanvas();
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          isVisible = entry.isIntersecting;
+          if (isVisible) requestAnimationFrame(drawLeds);
+        });
+      },
+      { threshold: 0.1 }
+    );
+
+    observer.observe(frame);
+
+    window.addEventListener("resize", setupCanvas);
+  });
+  function detectInView() {
+    const elements = document.querySelectorAll('.checkViewJS');
+
+    elements.forEach(el => {
+      const rect = el.getBoundingClientRect();
+      const inView =
+        rect.top < (window.innerHeight - 200) &&
+        rect.bottom > 0;
+      if (inView) {
+        el.classList.add('inview');
+      } else {
+        el.classList.remove('inview');
+      }
+    });
+  }
+
+  // Gọi khi cuộn hoặc resize
+  window.addEventListener("load", detectInView);
+  window.addEventListener('scroll', detectInView);
+  window.addEventListener('resize', detectInView);
+
+  // Gọi khi DOM đã sẵn sàng
+  document.addEventListener('DOMContentLoaded', detectInView);
 }

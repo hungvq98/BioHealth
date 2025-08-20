@@ -1,6 +1,6 @@
 :root {
     // item
-    --text: var(--color-text);
+    --text: var(--color-pri);
     --text-hover: var(--color-pri);
     --fw: 400;
     // background sub
@@ -27,7 +27,6 @@
                 >.menu-item {
                     display: flex;
                     align-items: center;
-                    text-transform: uppercase;
 
                     &:last-child {
                         >.menu-list {
@@ -80,7 +79,6 @@
                         display: flex;
                         align-items: center;
                         color: var(--text);
-                        font-weight: 700;
                     }
 
                     &.current_page_item,
@@ -432,6 +430,7 @@
                     display: none;
                     transition: 0.4s;
                     font-size: var(--fz-arrow);
+                    font-size: 1.4rem;
                 }
             }
 
@@ -488,7 +487,7 @@
                     }
 
                     >.menu-link {
-                        font-style: italic;
+                        // font-style: italic;
                         font-weight: 500;
                         font-size: 1.4rem;
                     }
@@ -527,7 +526,7 @@
     .menu-nav {
         >.menu-list {
             .menu-item > .menu-list {
-                padding-bottom: 2rem;
+                // padding-bottom: 2rem;
             }
         }
         

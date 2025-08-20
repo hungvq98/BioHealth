@@ -782,5 +782,17 @@ table {
     }
     .cdw-item {
         display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 4rem;
+        height: 4rem;
+        font-size: 2rem;
+        font-weight: 600;
+        color: white;
+        border-radius: var(--radius);
+        background-color: var(--color-second);
+        .text {
+            display: none;
+        }
     }
 }

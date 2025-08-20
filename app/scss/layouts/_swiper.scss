@@ -76,8 +76,7 @@
         height: var(--size);
         border-radius: 100rem;
         flex-shrink: 0;
-        background-color: var(--color-text);
-        border: .1rem solid var(--cl-bd);
+        background-color: transparent;
         @include mid-flex;
         cursor: pointer;
         @include transitionRe;
@@ -98,7 +97,7 @@
             // opacity: 0.5;
             // display: none;
             pointer-events: none;
-            opacity: 1;
+            opacity: 0.5;
             i {
                 color: var(--color-text) ;
             }
@@ -106,13 +105,13 @@
 
         i {
             transition: 0.4s;
-            color: white;
+            color: var(--color-text);
 
         }
 
         @include hover {
             &:not(.swiper-button-disabled) {
-                color: white !important;
+                background-color: var(--color-pri);
 
                 &::after {
                     left: 0;
@@ -130,7 +129,9 @@
         .swiper-control-btn {
             background-color: transparent;
             border-color: white;
-            color: white;
+            i {
+                color: white;
+            }
         }
 
         &.mobile-plus {
@@ -143,6 +144,11 @@
             }
 
         }
+    }
+    &.center {
+        margin: 0 auto;
+        width: fit-content;
+        margin-top: 1rem;
     }
 
     &.posi {

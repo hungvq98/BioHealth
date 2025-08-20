@@ -20,6 +20,8 @@ import HoverParallax from "./module/HoverParallax.js";
 import CountDownModule from "./module/CountDownModule.js";
 import ConfettiModule from "./module/ConfettiModule.js";
 import ProductFilter from "./module/ProductFilter.js";
+import LeafModule from "./module/LeafModule.js";
+import SmoothScrollModule from "./module/SmoothScrollModule.js";
 
 window.addEventListener("DOMContentLoaded", () => {
     TextAniModule();
@@ -44,4 +46,6 @@ window.addEventListener("DOMContentLoaded", () => {
     CountDownModule();
     ConfettiModule();
     ProductFilter();
+    LeafModule();
+    SmoothScrollModule();
 });

@@ -154,268 +154,94 @@ export default function SwiperModule() {
     })
   }
 
-
-  // 
-  functionSlider(".prod-review-slide", {
-    speed: 1200,
-    slidesPerView: "auto",
-    // slidesPerGroup: 2,
-    initialSlide: 0,
-    centeredSlides: false,
-    loop: true,
-    spaceBetween: 0,
-    effect: "slide",
-  });
-
-
-
-  function initProductSlider() {
-    const prod_slider = document.querySelectorAll(".prod-dt-slide");
-    if (prod_slider) {
-      prod_slider.forEach((item, i) => {
-        const swiperThumb = item.querySelector(".prod-dt-slide-thumb .swiper");
-        const swiperMain = item.querySelector(".prod-dt-slide-main .swiper");
-        const itemImg = new Swiper(swiperThumb, {
-          speed: 1200,
-          slidesPerView: "auto",
-          // slidesPerGroup: 2,
-          initialSlide: 0,
-          centeredSlides: false,
-          loop: false,
-          direction: "vertical",
-          spaceBetween: 0,
-          effect: "slide",
-          breakpoints: {
-            0: {
-              direction: "horizontal",
-            },
-            931: {
-              direction: "vertical",
-            }
-          }
-        });
-        const itemMain = new Swiper(swiperMain, {
-          speed: 1200,
-          slidesPerView: "auto",
-          // slidesPerGroup: 2,
-          initialSlide: 0,
-          centeredSlides: false,
-          loop: false,
-          spaceBetween: 0,
-          effect: "slide",
-          thumbs: {
-            swiper: itemImg,
-          },
-        });
-      });
-    }
-  }
-
-  function initProductPricePrivate() {
-    const prices = document.querySelectorAll(".price")
-    if (prices) {
-      prices.forEach(price => {
-        const priceEye = price.querySelector(".price-eye")
-        const priceDel = price.querySelector(".price-del del")
-        const pricePrivate = price.querySelector(".price-private")
-        if (priceEye) {
-          priceEye.addEventListener("click", () => {
-            price.classList.toggle("active");
-          })
-        }
-      });
-    }
-  }
-
-  initProductSlider();
-  initProductPricePrivate();
-
-  window.initProductSlider = initProductSlider;
-  window.initProductPricePrivate = initProductPricePrivate;
-
-  document.addEventListener("variationChangedCustom", function (e) {
-    initProductSlider();
-    initProductPricePrivate();
-  });
-
-  document.addEventListener(
-    "addonifyQuickViewModalContentLoaded",
-    function (e) {
-      initProductSlider();
-    }
-  );
-
-
-
-  // const slide = document.querySelector(".prod-dt-slide");
-  // let detcetScreen = window.innerWidth > 930;
-  // if (slide && detcetScreen) {
-  //   const thumb = slide.querySelector(".prod-dt-slide-thumb");
-  //   const main = slide.querySelector(".prod-dt-slide-main");
-  //   var mainHeight = main.offsetHeight;
-  //   thumb.style.height = `${mainHeight}px`;
-  // }
-
-
-  functionSlider(".prod-related-slide", {
-    speed: 1200,
-    slidesPerView: "auto",
-    // slidesPerGroup: 2,
-    initialSlide: 0,
-    centeredSlides: false,
-    loop: true,
-    spaceBetween: 0,
-    effect: "slide",
-  });
-
-
-
-  const homesCate = document.querySelector('.homes-cate-slide');
-  if (homesCate) {
-    const swiperSquare = new Swiper('.homes-cate-slide  .swiper', {
-      speed: 1200,
-      slidesPerView: 10,
-      initialSlide: 0,
-      centeredSlides: false,
-      loop: false,
-      spaceBetween: 0,
-      effect: "slide",
-      navigation: {
-        nextEl: '.homes-cate-slide .swiper-next',
-        prevEl: '.homes-cate-slide .swiper-prev',
-      },
-      breakpoints: {
-        0: {
-          slidesPerView: 2,
-          slidesPerGroup: 2,
-        },
-        431: {
-          slidesPerView: 4,
-          slidesPerGroup: 4,
-        },
-        581: {
-          slidesPerView: 6,
-          slidesPerGroup: 6,
-        },
-        769: {
-          slidesPerView: 8,
-          slidesPerGroup: 8,
-        },
-        1201: {
-          slidesPerView: 10,
-          slidesPerGroup: 10,
-        }
-      },
-      on: {
-        init: function () {
-          updateFraction(this);
-        },
-        slideChange: function () {
-          updateFraction(this);
-        }
-      }
-    });
-
-    window.addEventListener('resize', () => {
-      updateFraction(swiperSquare);
-    });
-    function getCurrentSlidesPerView(swiper) {
-      const { breakpoints = {}, originalParams } = swiper.params;
-      const current = swiper.currentBreakpoint;
-
-      if (current && breakpoints[current] && breakpoints[current].slidesPerView) {
-        return breakpoints[current].slidesPerView;
-      }
-
-      // Fallback
-      return originalParams.slidesPerView || 1;
-    }
-    function updateFraction(swiper) {
-      const perView = getCurrentSlidesPerView(swiper);
-      const totalSlides = swiper.slides.length - (swiper.loopedSlides || 0) * 2;
-      const totalViews = Math.ceil(totalSlides / perView);
-      const currentView = swiper.snapIndex + 1;
-
-      document.querySelector('.homes-cate-slide .current-slide').textContent = String(currentView).padStart(2, '0');
-      document.querySelector('.homes-cate-slide .total-slide').textContent = String(totalViews).padStart(2, '0');
-    }
-  }
-
-  const hotDeals = document.querySelectorAll('.homes-deals-slide');
-  if (hotDeals) {
-    hotDeals.forEach((hotDeal, index) => {
-      const hotDealSlide = hotDeal.querySelector('.swiper');
-      const hotDealPagi = hotDeal.querySelector('.swiper-pagination');
-      const swiperSquare = new Swiper(hotDealSlide, {
-        speed: 1200,
-        slidesPerView: 4,
-        initialSlide: 0,
-        centeredSlides: false,
-        loop: false,
-        spaceBetween: 0,
-        effect: "slide",
-        navigation: {
-          nextEl: hotDeal.querySelector('.swiper-next'),
-          prevEl: hotDeal.querySelector('.swiper-prev'),
+  const splideBtns = document.querySelectorAll(".hd-top__splide .splide")
+  if (splideBtns) {
+    splideBtns.forEach((splidex, index) => {
+      new Splide(splidex, {
+        type: 'slide',
+        drag: 'free',
+        focus: 'center',
+        perPage: 4,
+        gap:6,
+        direction: index == 1 ? "rtl" : "ltr",
+        autoScroll: {
+          speed: 0.5,
         },
         breakpoints: {
           0: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+            perPage: 3,
+            gap: 6,
           },
-          431: {
-            slidesPerView: 2,
-            slidesPerGroup: 2,
+          420: {
+            perPage: 3,
+            gap: 6,
           },
-          581: {
-            slidesPerView: 3,
-            slidesPerGroup: 3,
+          501: {
+            perPage: 4,
+            gap: 6,
           },
-          769: {
-            slidesPerView: 4,
-            slidesPerGroup: 4,
+          1201: {
+            perPage: 5,
+            gap: 8,
           }
         },
-        on: {
-          init: function () {
-            updateFraction(this);
-          },
-          slideChange: function () {
-            updateFraction(this);
-          }
-        }
-      });
-
-      window.addEventListener('resize', () => {
-        updateFraction(swiperSquare);
-      });
-      function getCurrentSlidesPerView(swiper) {
-        const { breakpoints = {}, originalParams } = swiper.params;
-        const current = swiper.currentBreakpoint;
-
-        if (current && breakpoints[current] && breakpoints[current].slidesPerView) {
-          return breakpoints[current].slidesPerView;
-        }
-
-        // Fallback
-        return originalParams.slidesPerView || 1;
-      }
-      function updateFraction(swiper) {
-        const perView = getCurrentSlidesPerView(swiper);
-        const totalSlides = swiper.slides.length - (swiper.loopedSlides || 0) * 2;
-        const totalViews = Math.ceil(totalSlides / perView);
-        const currentView = swiper.snapIndex + 1;
-
-        hotDeal.querySelector('.current-slide').textContent = String(currentView).padStart(2, '0');
-        hotDeal.querySelector('.total-slide').textContent = String(totalViews).padStart(2, '0');
-      }
-    });
-
+      }).mount(window.splide.Extensions);
+    })
   }
 
+  functionSlider(".dmsp-list", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+  functionSlider(".homes-vcher__slide", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+  functionSlider(".homes-flash__slide ", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+  functionSlider(".homes-material__slide", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: true,
+    slideToClickedSlide: true,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+  functionSlider(".homes-resrch", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: true,
+    spaceBetween: 0,
+    effect: "slide",
+  });
 
-
-  functionSlider(".prod-list-cate", {
+  functionSlider(".homes-recent", {
     speed: 1200,
     slidesPerView: "auto",
     // slidesPerGroup: 2,
