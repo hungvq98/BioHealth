@@ -1,0 +1,41 @@
+extends layout/layout
+
+block vars
+    -title = 'Tin tức'
+    -bodyClass = 'page-news'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Tin tức"}])
+    section.sec-news-blog 
+        .news-blog.ss-pd-b
+            .container
+                .news-blog__head 
+                    +headHori("mb-24")
+                        +title40("Danh mục bài viết","","")
+                        -
+                            var arrs = [
+                                {
+                                    txt:"TẤT CẢ"
+                                },
+                                {
+                                    txt:"XU HƯỚNG LÀM ĐẸP"
+                                },
+                                {
+                                    txt:"BÍ QUYẾT TỪ CHUYÊN GIA"
+                                },
+                                {
+                                    txt:"GÓC REVIEW"
+                                },
+                                {
+                                    txt:"CHĂM SÓC CƠ THỂ"
+                                },
+                            ]
+                        +prodFilter(arrs)
+                .news-blog__list.row.gap-res.rows-3 
+                    each val,index in Array(9)
+                        .col 
+                            +itemBlog(`blog${index+1}.jpg`)
+                +PageNumber("center")
+    +secSale

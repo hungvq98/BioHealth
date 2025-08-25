@@ -1,0 +1,71 @@
+extends layout/layout
+
+block vars
+    -title = 'Tin tức chi tiết'
+    -bodyClass = 'page-news'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Tin tức"}])
+    section.sec-news-dt 
+        .news-dt.ss-pd-b 
+            .container 
+                +LayoutTwoBlock
+                    +BlockMain
+                        .news-dt__head 
+                            p.sub CHĂM SÓC CƠ THỂ
+                            +title40("Mách bạn 10 bước trang điểm cơ bản cho người mới bắt đầu")
+                            .author 
+                                span.author__name Admin 
+                                span.author__date 22 tháng 8 , 2022
+                        .mona-content 
+                            figure 
+                                +img("mona1.jpg")
+                            blockquote 
+                                p Không có người phụ nữ xấu, chỉ có người phụ nữ không biết làm đẹp” - Bạn sẽ thêm tự tin, chủ động trong cuộc sống khi biết làm đẹp cho bản thân. Một số hướng dẫn dưới đây của Beauty Box sẽ chỉ ra 10 bước trang điểm cơ bản cho người mới bắt đầu, bạn cùng tham khảo nhé.
+                            h4 4 bước chăm sóc da trước khi trang điểm
+                            p Để có được lớp trang điểm hoàn hảo nhất, chăm sóc da trước khi trang điểm là điều rất cần thiết. Dưới đây là các bước dưỡng da cần lưu ý:
+                            p 
+                                strong Bước 1: Làm sạch da mặt
+                                br
+                                |Sử dụng sữa rửa mặt để loại bỏ bụi bẩn, vi khuẩn và tế bào chết trên da. Điều này giúp lỗ chân lông thông thoáng và hấp thu dưỡng chất tốt hơn.
+                            p 
+                                strong Bước 2: Cân bằng da
+                                br
+                                |Dùng nước hoa hồng để loại bỏ vi khuẩn gây viêm da. Đồng thời, giúp nuôi dưỡng cấu trúc da và giúp da đàn hồi tốt hơn.
+                            p 
+                                strong Bước 3: Dưỡng ẩm
+                                br
+                                |Thoa một lớp serum hoặc kem dưỡng ẩm mỏng lên da để tăng độ ẩm và giúp da mềm mịn hơn. Ngoài ra, còn giúp các lớp mỹ phẩm sau này bám lâu hơn.
+                            p 
+                                strong Bước 4: Dùng kem chống nắng
+                                br
+                                |Sử dụng thêm kem chống nắng để hạn chế tối đa các tác động xấu từ ánh nắng mặt trời lên da. Từ đó, giúp giảm hình thành sạm thâm và tình trạng lão hóa da sớm.
+                            figure 
+                                +img("mona2.jpg")
+                        .news-dt__bottom 
+                            span.txt  Chia sẻ bài viết
+                            +Social()       
+                            
+                    +BlockSide
+                        h3.news-dt__title BÁN CHẠY NHẤT
+                        .news-dt__list.row.gap-res 
+                            each val,index in Array(3)
+                                .col 
+                                    +prodItem("ver2")
+    section.sec-homes-resrch 
+        .homes-resrch.ss-pd-min-t 
+            .recontainer 
+                .homes-resrch__head
+                    +headHori("mb-24")
+                        +title40("tin tức liên quan","text-hori","true")
+                        +SwiperControl()
+                .homes-resrch__slide
+                    .swiper.row.gap-res
+                        .swiper-wrapper 
+                            each val,index in Array(4)
+                                .swiper-slide.col 
+                                    +itemBlog(`blog${index + 1}.jpg`)
+                        +Pagination
+    +secSale

@@ -1,0 +1,37 @@
+extends layout/layout
+
+block vars
+    -title = 'Đăng nhập'
+    -bodyClass = 'page-sign'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Đăng nhập"}])
+    section.sec-sign
+        .sign.ss-pd-min-t.add-class.ParaY  
+            .sign__decs
+                .sign__dec.ParaYScroll
+                    .in 
+                        +img("sign-dec1.png")
+                .sign__dec.ParaYScroll
+                    .in 
+                        +img("sign-dec2.png")
+            .container 
+                .sign__form
+                    .sign__box 
+                        .dec 
+                            .dec-in 
+                                +img("homes-flash-dec5.png")
+                        +headVerti("mb-24 center") 
+                            +title40("Đăng nhập")
+                        +Form 
+                            +FormIp("Email","","Email","col")   
+                            +FormPass("Mật khẩu của bạn","","Mật khẩu của bạn","col") 
+                            +FormWrap()
+                                .sign__form-flex 
+                                    +Checker("checkbox","sqr","Lưu thông tin")  
+                                    a(href="").sign__form-link Quên mật khẩu?
+                            +FormWrap()
+                                +Btn("Đăng nhập ngay","button","second center","ic-arrow.svg")   
+    +secSale

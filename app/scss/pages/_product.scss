@@ -14,3 +14,35 @@
         color: #949494;
     }
 }
+.prod-filter {
+    &__list {
+        display: flex;
+        gap: 1.2rem;
+        flex-wrap: wrap;
+        max-width: 100%;
+        width: fit-content;
+        justify-content: center;
+        @include max(1200px) {
+            gap: .8rem;
+        }
+    }
+    &__link {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: .8rem 1.6rem;
+        border-radius: .8rem;
+        transition: 0.4s;
+        border: 0.1rem solid var(--cl-bd);
+        font-size: 1.4rem;
+        @include hover {
+            background-color: var(--color-second);
+            border-color: var(--color-second);
+            color:white;
+        }
+        @include max(1200px) {
+            font-size: 1.2rem;
+            padding: .4rem  .8rem;
+        }
+    }
+}

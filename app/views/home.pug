@@ -274,7 +274,7 @@ block container
                             .homes-vct__btns 
                                 +Btn("Tìm hiểu thêm", "", "pri", "ic-arrow.svg")
         .homes-material.ss-pd-min-t 
-            .recontainer 
+            .container 
                 .homes-material__box 
                     .flex.row 
                         .homes-material__left.col 
@@ -303,6 +303,9 @@ block container
                                                                 +img("rauma.png") 
                                                         .info 
                                                             h4.info-tt rau má
+                                                            .info-bottom 
+                                                                p.des Lá bạc hà đươc sử dụng trong các sản phẩm mỹ phẩm như :cao dược liệu để gội đầu, lá tắm cho trẻ em, nước sức miệng,...
+                                                                +Btn(`Sản phẩm làm từ “ Rau Má"`,"","pri center","ic-arrow.svg")
                                             .swiper-slide.col 
                                                 .homes-material__item 
                                                     .inner 
@@ -311,6 +314,9 @@ block container
                                                                 +img("huongnhu.png") 
                                                         .info 
                                                             h4.info-tt hương nhu
+                                                            .info-bottom 
+                                                                p.des Lá bạc hà đươc sử dụng trong các sản phẩm mỹ phẩm như :cao dược liệu để gội đầu, lá tắm cho trẻ em, nước sức miệng,...
+                                                                +Btn(`Sản phẩm làm từ “ Rau Má"`,"","pri center","ic-arrow.svg")
                                             .swiper-slide.col 
                                                 .homes-material__item 
                                                     .inner 
@@ -319,7 +325,9 @@ block container
                                                                 +img("rauma.png") 
                                                         .info 
                                                             h4.info-tt rau má
-                                    +SwiperControl("posi plus")    
+                                                            .info-bottom 
+                                                                p.des Lá bạc hà đươc sử dụng trong các sản phẩm mỹ phẩm như :cao dược liệu để gội đầu, lá tắm cho trẻ em, nước sức miệng,...
+                                                                +Btn(`Sản phẩm làm từ “ Rau Má"`,"","pri center","ic-arrow.svg")
     section.sec-homes-resrch 
         .homes-resrch.ss-pd-min-t 
             .recontainer 
@@ -346,27 +354,4 @@ block container
                             each val,index in Array(6)
                                 .swiper-slide.col 
                                     +prodItem("ver2")
-    section.sec-homes-sale 
-        .homes-sale.ss-pd-min
-            .container 
-                .homes-sale__box
-                    .bg 
-                        +img("homes-sale-bg.jpg")
-                    .flex.row 
-                        .homes-sale__left.col 
-                            .wrapper 
-                                .iwt 
-                                    .icon 
-                                        +img("ic-mini2.svg")
-                                    p.txt 
-                                        span.txt-pri Nhận ưu đãi 
-                                        |làm đẹp sớm 
-                                        br
-                                        |nhất cùng chúng tôi!
-                        .homes-sale__right.col 
-                            .wrapper
-                                .homes-sale__form 
-                                    form(action="")
-                                        .homes-sale__input 
-                                            input(type="text" placeholder="Email của bạn...")
-                                            +Btn("Gửi ngay", "button", "pri", "")
+    +secSale

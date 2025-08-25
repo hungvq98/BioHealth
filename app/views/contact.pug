@@ -1,0 +1,81 @@
+extends layout/layout
+
+block vars
+    -title = 'Liên hệ'
+    -bodyClass = 'page-contact'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Liên hệ"}])
+    section.sec-contact-map 
+        .contact-map
+            .contact-map__frame 
+                iframe(
+                referrerpolicy="no-referrer-when-downgrade" 
+                loading="lazy" 
+                allowfullscreen="" 
+                style="border:0;" 
+                height="450" 
+                width="600" 
+                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.0780927363544!2d106.64175627583873!3d10.805330858658364!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752eb29728e0f3%3A0xe43565591e714d9f!2zQ8O0bmcgdHkgQ-G7lSBwaOG6p24gVGhp4bq_dCBC4buLIFkgU2luaA!5e0!3m2!1svi!2s!4v1755857072575!5m2!1svi!2s"
+                )
+    section.sec-contact-info 
+        .contact-info.ss-pd-min-t 
+            .container 
+                .contact-info__flex.row
+                    .contact-info__left.col 
+                        .wrapper 
+                            .flex.row.gap-res 
+                                .col    
+                                    .contact-info__item 
+                                        .inner 
+                                            .icon 
+                                                +img("ic-ct1.svg")
+                                            .info 
+                                                p.info-tt Bộ phận bán hàng
+                                                p.info-des Nói chuyện với đội ngũ thân thiện của chúng tôi.
+                                                .b-gr
+                                                    a(href="").info-link (028) 22600 006 
+                                                    a(href="").info-link (028) 22600 006 
+                                .col    
+                                    .contact-info__item 
+                                        .inner 
+                                            .icon 
+                                                +img("ic-ct2.svg")
+                                            .info 
+                                                p.info-tt Gọi cho chúng tôi
+                                                p.info-des Thứ Hai - Thứ Sáu từ 8 giờ sáng đến 5 giờ chiều.
+                                                a(href="").info-link  info@biohealth.asia
+                                .col    
+                                    .contact-info__item 
+                                        .inner 
+                                            .icon 
+                                                +img("ic-ct3.svg")
+                                            .info 
+                                                p.info-tt Hỗ trợ 24/7
+                                                p.info-des Thứ Hai - Thứ Sáu từ 8 giờ sáng đến 5 giờ chiều.
+                                                a(href="").info-link  info@biohealth.asia
+                                .col    
+                                    .contact-info__item 
+                                        .inner 
+                                            .icon 
+                                                +img("ic-ct3.svg")
+                                            .info 
+                                                p.info-tt Theo dõi chúng tôi trên
+                                                p.info-des Cập nhật tin tức mới nhất về chúng tôi
+                                                +Social
+                    .contact-info__right.col 
+                        .wrapper 
+                            +headVerti("mb-24") 
+                                +title40("Liên hệ với chúng tôi ")
+                            .contact-info__form 
+                                +Form 
+                                    +FormIp("Họ","","Họ","col per5")   
+                                    +FormIp("Tên","","Tên","col per5")   
+                                    +FormIp("Email","","Email","col per5")   
+                                    +FormIp("Số điện thoại","","Số điện thoại","col per5")   
+                                    +FormArea("Ghi chú đơn hàng (tùy chọn)","","Ghi chú về đơn hàng của bạn ....","col") 
+                                    +FormWrap 
+                                        +Btn("Gửi thông tin cho chúng tôi","button","second","ic-arrow.svg")  
+    +secSale

@@ -42,6 +42,10 @@ form {
     &-list {
         --cg:1.6rem;
         --rg:1.6rem;
+        @include max(500px) {
+            --cg:0.6rem;
+            --rg:0.6rem;
+        }
     }
 
     &-ip {
@@ -51,7 +55,7 @@ form {
         .text {
             display: block;
             color: var(--color-text);
-            font-weight: 700;
+            font-weight: 500;
             margin-bottom: 0.5rem;
 
             &.spe {
@@ -76,6 +80,17 @@ form {
                 cursor: pointer;
                 z-index: 2;
             }
+            .icon {
+                position: absolute;
+                right: 1rem;
+                width: 2.4rem;
+                height: 2.4rem;
+                top: 50%;
+                transform: translateY(-50%);
+                color: var(--color-text);
+                cursor: pointer;
+                z-index: 2;
+            }
         }
 
         input,
@@ -88,14 +103,14 @@ form {
             font-size: 1.6rem;
             font-weight: 500;
             background-color: transparent;
-            border-radius: var(--radius);
+            border-radius: 100rem;
 
             @include input-placeholder {
                 opacity: 0.5;
             }
 
             &:focus {
-                border-color: var(--color-text);
+                border-color: var(--color-pri);
                 box-shadow: var(--sdow);
             }
 
@@ -103,6 +118,7 @@ form {
 
         textarea {
             padding-top: 0.8rem;
+            border-radius: var(--radius);
         }
 
         // config
@@ -120,7 +136,7 @@ form {
 
         // select
         .select2-container--default .select2-selection--single {
-            border-radius: .8rem;
+            border-radius: 100rem;
             background-color: white;
         }
 
@@ -131,7 +147,7 @@ form {
         }
 
         .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
-            border-radius: .8rem !important;
+            border-radius: 100rem !important;
         }
 
         .select2-container .select2-selection--single .select2-selection__rendered {
@@ -154,10 +170,47 @@ form {
     }
 }
 
+.input-srch {
+    &__inner {
+        padding-right: 0.4rem;
+        background-color: white;
+        display: flex;
+        align-items: center;
+        height: 4.8rem;
+        border: 0.1rem solid var(--cl-bd);
+        border-radius: 100rem;
+        &:has(input:focus) {
+            border-color: var(--color-pri);
+        }
+        input {
+            height: 100%;
+            width: 100%;
+            border: none;
+            outline: none;
+            padding: 1.3rem;
+            background-color: transparent;
+            @include input-placeholder {
+                opacity: 0.5;
+                color: #384252;
+            }
+        }
+    }
+    &__btn {
+        width: 4rem;
+        height: 4rem;
+        flex-shrink: 0;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        img {
+            filter: brightness(1) invert(1);
+        }
+    }
+}
 .selectNor {
     // select
         .select2-container--default .select2-selection--single {
-            border-radius: .8rem;
+            border-radius: 100rem;
             background-color: white;
         }
 
@@ -168,7 +221,7 @@ form {
         }
 
         .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
-            border-radius: .8rem !important;
+            border-radius: 100rem !important;
         }
 
         .select2-container .select2-selection--single .select2-selection__rendered {
@@ -177,4 +230,9 @@ form {
             color: #384252;
             padding-left: 1.3rem;
         }
+}
+
+// Form Date
+.flatpickr-day.selected {
+    background-color: var(--color-pri);
 }

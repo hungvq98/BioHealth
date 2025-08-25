@@ -896,14 +896,13 @@
     }
 
     &__left {
-        width: 40%;
+        width: 100%;
     }
 
     &__right {
-        width: 60%;
+        width: 100%;
 
         .wrapper {
-            overflow: hidden;
             position: relative;
         }
     }
@@ -912,7 +911,9 @@
         font-size: clamp(4rem, calc(1.541rem + 4.918vw), 10rem);
         display: flex;
         align-items: center;
+        justify-content: center;
         gap: 1rem;
+        text-align: center;
 
         .num {
             display: inline;
@@ -920,6 +921,7 @@
             color: #3FB549;
             font-weight: 700;
             line-height: 1.2;
+            text-align: center;
         }
 
         .text {
@@ -931,14 +933,17 @@
     }
 
     &__content {
+        text-align: center;
+
         .mona-content * {
             margin: 0;
         }
     }
 
     &__slide {
-        // max-width:32rem;
-        width: 35%;
+        width: 70%;
+        max-width: 46rem;
+        margin: 0 auto;
 
         .swiper {
             overflow: visible;
@@ -952,7 +957,7 @@
 
                     .inner {
                         &::after {
-                            transform: translate(-50%, -65%) scale(0);
+                            transform: translate(-50%, -50%) scale(0);
                             transition: 0.4s;
                         }
 
@@ -960,6 +965,7 @@
                             transform: scale(0.5);
                             transition: 0.4s;
                         }
+                        
                     }
                 }
 
@@ -970,11 +976,16 @@
                         .inner {
                             &::after {
                                 transition-delay: 0.4s;
-                                transform: translate(-50%, -65%) scale(1);
+                                transform: translate(-50%, -50%) scale(1);
                             }
 
                             .img {
                                 transform: scale(1);
+                            }
+                            .info {
+                                &-bottom {
+                                    opacity: 1;
+                                }
                             }
                         }
                     }
@@ -1005,22 +1016,24 @@
 
     &__item {
         .inner {
-            position: relative;
 
-            &::after {
-                @include pseudo;
-                aspect-ratio: 1;
-                width: 45%;
-                background: linear-gradient(180deg, #3FB549 0%, #1B4F20 100%);
-                border-radius: 100rem;
-                position: absolute;
-                top: 50%;
-                left: 50%;
-                transform: translate(-50%, -65%);
-                z-index: -1;
-            }
 
             .img {
+                position: relative;
+
+                &::after {
+                    @include pseudo;
+                    aspect-ratio: 1;
+                    width: 50%;
+                    background: linear-gradient(180deg, #FDE92B 0%, #E76F00 100%);
+                    border-radius: 100rem;
+                    position: absolute;
+                    top: 50%;
+                    left: 50%;
+                    transform: translate(-50%, -50%);
+                    z-index: -1;
+                }
+
                 &-inner {
                     @include imgPd(190, 319);
 
@@ -1037,44 +1050,25 @@
                     color: var(--color-pri);
                     text-align: center;
                 }
+                &-bottom {
+                    text-align: center;
+                    transition:0.4s;
+                    opacity:0;
+                }
+
+                @include max(500px) {
+                    &-tt {
+                        font-size: 1.4rem;
+                    }
+                }
             }
-        }
-    }
-
-    @include max(1024px) {
-        .recontainer {
-            width: calc(100% - 3rem);
-            margin: 0 auto;
-        }
-
-        &__left {
-            width: 100%;
-
-            .wrapper {
-                text-align: center;
-            }
-        }
-
-        &__right {
-            width: 100%;
-
-            .swiper-control {
-                display: none;
-            }
-
-        }
-
-        &__head {
-            justify-content: center;
-        }
-
-        &__slide {
-            margin: 0 auto;
         }
     }
 }
 
 .homes-resrch {
+    position: relative;
+    overflow: hidden;
     &__head {
         padding-right: var(--half);
     }
@@ -1107,6 +1101,7 @@
         .swiper {
             padding-top: 0.2rem;
             padding-bottom: 2rem;
+
             &-slide {
                 overflow: visible;
             }
@@ -1135,48 +1130,58 @@
             }
         }
     }
+
     .flex {
         position: relative;
         align-items: center;
         z-index: 2;
     }
+
     &__left {
         width: 55%;
+
         .wrapper {
             width: fit-content;
         }
+
         .iwt {
             @include fz-40;
             --cl: var(--color-pri);
+
             .icon {
                 aspect-ratio: 83/68;
                 height: auto;
                 width: 2.4em;
             }
+
             .txt {
                 text-transform: uppercase;
                 line-height: 1.2;
+
                 &-pri {
                     color: var(--color-second);
                 }
             }
+
             @include max(540px) {
                 @include fz-20;
             }
         }
     }
+
     &__right {
         width: 45%;
     }
-    &-form {
 
-    }
+    &-form {}
+
     &__input {
         background-color: white;
         padding: 1.2rem;
         border-radius: 100rem;
         display: flex;
         border: 0.1rem solid var(--cl-bd);
+
         input {
             width: 100%;
             background-color: transparent;
@@ -1186,23 +1191,29 @@
             padding-left: 2.4rem;
             color: var(--color-pri);
         }
+
         &:has(input:focus) {
             border-color: var(--color-pri);
         }
+
         @include max(500px) {
             padding: .5rem;
         }
     }
+
     @include max(1050px) {
         .flex {
             flex-direction: column;
         }
+
         &__left {
             width: 100%;
+
             .wrapper {
                 margin: 0 auto;
             }
         }
+
         &__right {
             width: 100%;
         }

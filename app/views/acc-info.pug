@@ -1,0 +1,54 @@
+extends layout/layout
+
+block vars
+    -title = 'Thông tin tài khoản'
+    -bodyClass = 'page-acc'
+
+block container
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Thông tin tài khoản"}])
+    section.sec-acc 
+        .acc 
+            .container
+                .acc__flex.row
+                    .acc__left.col 
+                        .wrapper
+                            .acc__box.scrollContainer 
+                                a(href="").acc__box-item.buttons.active
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-usr.svg") 
+                                        p.txt Thông tin tài khoản
+                                a(href="").acc__box-item.buttons
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-mana.svg") 
+                                        p.txt Quản lý đơn hàng
+                                a(href="").acc__box-item.buttons
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-heart.svg") 
+                                        p.txt Sản phẩm yêu thích
+                    .acc__right.col
+                        .wrapper 
+                            .acc__headline 
+                                .acc__heads 
+                                    a(href="").acc__heads-item.active 
+                                        p.txt thông tin
+                                    a(href="").acc__heads-item 
+                                        p.txt địa chỉ
+                                    a(href="").acc__heads-item 
+                                        p.txt mật khẩu
+                            .acc__contents 
+                                .acc__info 
+                                    +Form 
+                                        +FormIp("Họ","","Họ","col per5")
+                                        +FormIp("Tên","","Tên","col per5")
+                                        +FormIp("Email","","Email","col per5")
+                                        +FormIp("Số điện thoại","","Số điện thoại","col per5")
+                                        +FormDate("Ngày sinh","","Ngày sinh","col per5")
+                                        +FormSelect("Giới tính","","Giới tính","col per5")
+                                        +FormWrap("")
+                                            +Btn("Lưu thông tin","","pri","")
+    +secSale

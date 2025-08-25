@@ -98,13 +98,18 @@ header.hd
                 .icon 
                   +img("ic-cart.svg")
               .hd-cart__menu 
-                .hd-cart__head Giỏ hàng
+                .hd-cart__head 
+                  |Giỏ hàng
+                  span.hd-cart__num (3)
                 .hd-cart__list 
                   each val,index in Array(5)
                     +MiniCart()
+                .hd-cart__total 
+                  span.name Tổng cộng
+                  span.val 1.709.100đ
                 .hd-cart__btns 
-                  +Btn("Xem giỏ hàng","#","pri small full","")
-                  +Btn("Thanh toán","#","second small full","")
+                  +Btn("Xem giỏ hàng","#","white small full","")
+                  +Btn("Thanh toán","#","pri small full","ic-plus.svg")
 
     .hd-bottom
       .container
@@ -115,6 +120,98 @@ header.hd
                   .icon 
                     +img("ic-cate.svg")
                   span.txt Danh mục sản phẩm
+              .hd-bottom__drop 
+                .hd-bottom__mega 
+                  .hd-bottom__mega-left
+                    ul.menu-list 
+                      li.menu-item 
+                        a(href="").menu-link Chăm sóc tóc
+                      li.menu-item 
+                        a(href="").menu-link Chăm sóc cơ thể
+                      li.menu-item 
+                        a(href="").menu-link Chăm sóc răng miệng
+                      li.menu-item 
+                        a(href="").menu-link Combo sản phẩm
+                      li.menu-item 
+                        a(href="").menu-link Combo ưu đãi
+                      li.menu-item 
+                        a(href="").menu-link Sale/Flash sale
+                  .hd-bottom__mega-right
+                    .wrappers
+                      .flex.row
+                        .hd-bottom__mega-item.col 
+                          .wrapper 
+                            p.tt LÀM SẠCH DA 
+                            ul.menu-list 
+                              li.menu-item 
+                                a(href="").menu-link Tẩy da mặt
+                              li.menu-item 
+                                a(href="").menu-link Sữa rửa mặt
+                              li.menu-item 
+                                a(href="").menu-link Tẩy tế bào chết da mặt
+                              li.menu-item 
+                                a(href="").menu-link Toner/ Nước cân bằng da
+                              li.menu-item 
+                                a(href="").menu-link Toner/ Nước cân bằng da
+                        .hd-bottom__mega-item.col 
+                          .wrapper 
+                            p.tt DƯỠNG ẨM
+                            ul.menu-list 
+                              li.menu-item 
+                                a(href="").menu-link Tẩy da mặt
+                              li.menu-item 
+                                a(href="").menu-link Sữa rửa mặt
+                              li.menu-item 
+                                a(href="").menu-link Tẩy tế bào chết da mặt
+                              li.menu-item 
+                                a(href="").menu-link Toner/ Nước cân bằng da
+                              li.menu-item 
+                                a(href="").menu-link Toner/ Nước cân bằng da
+                        .hd-bottom__mega-item.col 
+                          .wrapper 
+                            p.tt PHỤ KIỆN
+                            ul.menu-list 
+                              li.menu-item 
+                                a(href="").menu-link Tẩy da mặt
+                              li.menu-item 
+                                a(href="").menu-link Sữa rửa mặt
+                              li.menu-item 
+                                a(href="").menu-link Tẩy tế bào chết da mặt
+                              li.menu-item 
+                                a(href="").menu-link Toner/ Nước cân bằng da
+                              li.menu-item 
+                                a(href="").menu-link Toner/ Nước cân bằng da
+                    .wrappers
+                      .flex.row
+                        .hd-bottom__mega-item.col 
+                          .wrapper 
+                            p.tt LÀM SẠCH DA 
+                            ul.menu-list 
+                              li.menu-item 
+                                a(href="").menu-link Tẩy da mặt
+                              li.menu-item 
+                                a(href="").menu-link Sữa rửa mặt
+                              li.menu-item 
+                                a(href="").menu-link Tẩy tế bào chết da mặt
+                              li.menu-item 
+                                a(href="").menu-link Toner/ Nước cân bằng da
+                              li.menu-item 
+                                a(href="").menu-link Toner/ Nước cân bằng da
+                        each val,index in Array(4)
+                          .hd-bottom__mega-item.col 
+                            .wrapper 
+                              p.tt DƯỠNG ẨM
+                              ul.menu-list 
+                                li.menu-item 
+                                  a(href="").menu-link Tẩy da mặt
+                                li.menu-item 
+                                  a(href="").menu-link Sữa rửa mặt
+                                li.menu-item 
+                                  a(href="").menu-link Tẩy tế bào chết da mặt
+                                li.menu-item 
+                                  a(href="").menu-link Toner/ Nước cân bằng da
+                                li.menu-item 
+                                  a(href="").menu-link Toner/ Nước cân bằng da
             .hd-nav 
               .menu-nav
                 +renderMenu(menuItems)  
@@ -123,6 +220,7 @@ header.hd
                 .icon 
                   +img("ic-lookup.svg")
                 span.txt Tra cứu đơn hàng
+            +Lang
             +Burger
   +Found
   .mobile-overlay

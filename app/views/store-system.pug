@@ -1,0 +1,71 @@
+extends layout/layout
+
+block vars
+    -title = 'Hệ thống cửa hàng'
+    -bodyClass = 'page-store'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Hệ thống cửa hàng"}])
+    section.sec-store-system
+        .store-system
+            .container
+                +headVerti("mb-24")
+                    +title40("HỆ THỐNG CỬA HÀNG")
+                .store-system__filter 
+                    .bg 
+                        +img("homes-sale-bg.jpg")
+                    .form-list.row
+                        .col 
+                            +inputSrch("Tìm kiếm chi nhánh")
+                        .col 
+                            +SelectNormal("Thành phố, tỉnh")
+                        .col 
+                            +SelectNormal("Phường")
+                .store-system__flex.row.notabJS 
+                    .store-system__left.col 
+                        .store-system__box 
+                            p.store-system__title tất cả chi nhánh của chúng tôi
+                            .store-system__list 
+                                each val,index in Array(3)
+                                    .store-system__item.notabBtn 
+                                        .inner 
+                                            p.tt Chi nhánh 01
+                                            ul.list 
+                                                li.list-item 
+                                                    .iwt 
+                                                        .icon 
+                                                            +img("ic-pin.svg") 
+                                                        span.txt 580 Đường 3/2, Phường 6, Quận 10, TP. HCM
+                                                li.list-item 
+                                                    .iwt 
+                                                        .icon 
+                                                            +img("ic-phone.svg") 
+                                                        span.txt 0328 760 089
+                                                li.list-item 
+                                                    .iwt 
+                                                        .icon 
+                                                            +img("ic-mail.svg") 
+                                                        span.txt info@biohealth.asia
+                                                li.list-item 
+                                                    .iwt 
+                                                        .icon 
+                                                            +img("ic-clock.svg") 
+                                                        span.txt 7:00 - 18:00 (T2 - CN)
+                    .store-system__right.col 
+                        .wrapper
+                            each val,index in Array(3)
+                                .store-system__map.notabPanel
+                                    iframe(
+                                    referrerpolicy="no-referrer-when-downgrade" 
+                                    loading="lazy" 
+                                    allowfullscreen="" 
+                                    style="border:0;" 
+                                    height="450" 
+                                    width="600" 
+                                    src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3919.5896890929394!2d106.66110817583825!3d10.766071859382928!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x31752ee88f95a5b1%3A0xc317f3cf8e65452c!2zNTgwIMSQLiAzIFRow6FuZyAyLCBQaMaw4budbmcgNiwgUXXhuq1uIDEwLCBI4buTIENow60gTWluaCwgVmnhu4d0IE5hbQ!5e0!3m2!1svi!2s!4v1756107317761!5m2!1svi!2s"
+                                    )
+    +secSale
+
+                

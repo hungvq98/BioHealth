@@ -435,13 +435,13 @@ mixin Found()
 mixin Lang()
   .hd-lg 
     .hd-lg-item 
-      +img("ic-lang.svg")
+      +img("flag-vn.svg")
       span.txt VN
       span.ic
         i.fa-solid.fa-chevron-down
     .hd-lg-drop 
       a(href="").hd-lg-item 
-        +img("ic-lang.svg")
+        +img("flag-en.svg")
         span.txt EN
 mixin Burger()
   .burger
@@ -526,6 +526,13 @@ mixin FormIp(name,spe,place,col)
   label.form-ip(class=col)
     span.text(class=spe)=name
     input(type="text" placeholder=place)
+mixin FormDate(name,spe,place,col)
+  label.form-ip(class=col)
+    span.text(class=spe)=name
+    .input 
+      input(type="text" placeholder=place id="dob" data-min-year="1950" data-max-year="2012" data-default-year="2000")
+      .icon 
+        +img("ic-calendar.svg")
 mixin FormPass(name,spe,place,col)
   label.form-ip(class=col)
     span.text(class=spe)=name
@@ -644,6 +651,7 @@ mixin DropZone
 
 mixin SelectNormal(place)
   .selectNor 
+    span.text=place
     select(name="" class="re-select-main" data-placeholder=place)
       option(value="")=place 
       option(value="1") Cate 1   
@@ -652,9 +660,11 @@ mixin SelectNormal(place)
       option(value="1") Cate 4   
 mixin inputSrch(place)
   .input-srch 
-    input(type="text" placeholder=place)
-    button.input-srch-btn 
-      +img("ic-srch.svg")
+    span.text=place
+    .input-srch__inner
+      input(type="text" placeholder=place)
+      button.input-srch__btn 
+        +img("ic-srch.svg")
 mixin selectIcon(place,icon)
   .selectIcon 
     select(name="" class="re-select-main" data-placeholder=place) 
@@ -706,10 +716,24 @@ mixin MiniCart()
         a(href="").img-inner
           +img("item-1.png")
       .info 
+        .info-tags 
+          .info-tag.new
+            .iwt 
+              .icon 
+                +img("ic-mini.svg")
+              p.txt MỚi
+          .info-tag.sale
+            .iwt 
+              .icon 
+                +img("ic-mini.svg")
+              p.txt -22%
         p.info-tt  Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml
-        .box-price 
-          p.price-cur 200.000đ
-          p.price-old 399.000đ
+        .info-flex 
+          .box-price 
+            p.price-cur 200.000đ
+            p.price-old 399.000đ
+          .info-qty 
+            +Count
 mixin boxLeaf(speed,qlty,size)
   .box-leaf
     .box-leaf-imgs
@@ -741,6 +765,8 @@ mixin prodItem(ver)
   .prod-item(class=ver)
     .inner
       .img 
+        a(href="").img-hearts 
+          i.fa-regular.fa-heart
         .img-decs 
           .img-dec 
             +img("prod-dec1.png")
@@ -796,4 +822,33 @@ mixin itemBlog(img)
         a(href="").info-link  
           span.txt Tìm hiểu thêm
           i.fa-solid.fa-chevron-right
-        
+mixin prodFilter(arr)
+  .prod-filter
+    .prod-filter__list 
+      each val in arr
+        a(href="").prod-filter__link=val.txt 
+mixin secSale
+  section.sec-homes-sale 
+    .homes-sale.ss-pd-min
+        .container 
+            .homes-sale__box
+                .bg 
+                    +img("homes-sale-bg.jpg")
+                .flex.row 
+                    .homes-sale__left.col 
+                        .wrapper 
+                            .iwt 
+                                .icon 
+                                    +img("ic-mini2.png")
+                                p.txt 
+                                    span.txt-pri Nhận ưu đãi 
+                                    |làm đẹp sớm 
+                                    br
+                                    |nhất cùng chúng tôi!
+                    .homes-sale__right.col 
+                        .wrapper
+                            .homes-sale__form 
+                                form(action="")
+                                    .homes-sale__input 
+                                        input(type="text" placeholder="Email của bạn...")
+                                        +Btn("Gửi ngay", "button", "pri", "")

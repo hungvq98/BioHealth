@@ -22,6 +22,7 @@ import ConfettiModule from "./module/ConfettiModule.js";
 import ProductFilter from "./module/ProductFilter.js";
 import LeafModule from "./module/LeafModule.js";
 import SmoothScrollModule from "./module/SmoothScrollModule.js";
+import FlatPickrModule from "./module/FlatPickrModule.js";
 
 window.addEventListener("DOMContentLoaded", () => {
     TextAniModule();
@@ -48,4 +49,5 @@ window.addEventListener("DOMContentLoaded", () => {
     ProductFilter();
     LeafModule();
     SmoothScrollModule();
+    FlatPickrModule();
 });

@@ -1,0 +1,80 @@
+extends layout/layout
+
+block vars
+    -title = 'Trạng thái đơn hàng'
+    -bodyClass = 'page-order'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Trạng thái đơn hàng"}])
+    section.sec-order-status
+        .order-status
+            .container
+                a(href="").order-status__back
+                    .iwt
+                        .icon 
+                            +img("ic-arrow-back.svg")
+                        p.txt đơn hàng 
+                            span.txt-pri  #22082000
+                .order-status__flex.row 
+                    .order-status__left.col 
+                        .wrapper 
+                            .order-status__info 
+                                h3.order-status__title Thông tin giao hàng
+                                .order-status__info-flex.row.gap-res 
+                                    .order-status__info-item.col 
+                                        p.name Người nhận
+                                        p.val Hà Thanh Tuấn
+                                    .order-status__info-item.col 
+                                        p.name Địa chỉ
+                                        p.val 39 Nguyễn Bỉnh Khiêm P1, Q.Gò Vấp, TP. Hồ Chí Minh
+                                    .order-status__info-item.col 
+                                        p.name Số điện thoại
+                                        p.val 091232131241232
+                                    .order-status__info-item.col 
+                                        p.name Email
+                                        p.val hathanhtuan2208@gmail.com
+                                    .order-status__info-item.col 
+                                        p.name Phương thức thanh toán
+                                        p.val Chuyển khoản ngân hàng
+                                    .order-status__info-item.col 
+                                        p.name Tình trạng
+                                        .val 
+                                            .order-status__status Đang giao hàng
+                    .order-status__right.col 
+                        .wrapper 
+                            .order-box 
+                                .order-box__head 
+                                    h3.order-box__title ĐƠN HÀNG CỦA BẠN
+                                    .order-box__block 
+                                        .heads 
+                                            p.txt  đơn hàng của bạn 
+                                                span.txt-sup (3)
+                                            .icon 
+                                                i.fa-solid.fa-chevron-up
+                                        .bodies 
+                                            table   
+                                                tbody 
+                                                    each val,index in Array(3)
+                                                        tr 
+                                                            td 
+                                                                span.txt Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml
+                                                            td x1 
+                                                            td 299.000 đ
+                                    .order-box__totals  
+                                        .order-box__total 
+                                            p.txt Giảm giá
+                                            p.val -50.000 đ
+                                        .order-box__total 
+                                            p.txt Thuế
+                                            p.val 50.000 đ
+                                        .order-box__total 
+                                            .txt Vận chuyển
+                                                .txt-icon   
+                                                    +img("viettelpost.svg")  
+                                            p.val 0 đ
+                                        .order-box__total.total 
+                                            p.txt Tổng cộng
+                                            p.val 1.709.100 đ
+    +secSale

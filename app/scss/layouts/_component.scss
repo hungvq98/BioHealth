@@ -527,16 +527,19 @@ table {
     justify-content: space-between;
     width: fit-content;
     gap: 1rem;
+    border: 0.1rem solid #CCD3D8;
+    border-radius: 100rem;
+    padding: .5rem;
 
     &-input {
-        height: 4rem;
-        width: 6.4rem;
+        height: 2rem;
+        width: 2rem;
         text-align: center;
-        padding: 1rem;
-        border: 0.1rem solid #CCD3D8;
         flex-shrink: 0;
         display: block;
-        border-radius: 100rem;
+        outline: none;
+        border: none;
+        font-size: 1.2rem;
     }
 
     &-number {
@@ -544,23 +547,21 @@ table {
     }
 
     &-btn {
-        width: 4rem;
-        height: 4rem;
+        width: 2rem;
+        height: 2rem;
         display: flex;
         justify-content: center;
         align-items: center;
         cursor: pointer;
         border-radius: 100rem;
         transition: 0.4s;
-        background-color: var(--color-text);
-        color: white;
 
         i {
             font-size: 1rem;
         }
 
         &:hover {
-            background: var(--color-pri);
+            background: var(--color-second);
             color: white;
         }
     }
@@ -570,6 +571,7 @@ table {
 .checker {
     cursor: pointer;
     display: flex;
+    align-items: baseline;
     gap: 1rem;
     user-select: none;
     color: #4D4D4D;
@@ -581,7 +583,7 @@ table {
         flex-shrink: 0;
         position: relative;
         display: block;
-        margin-bottom: -0.2rem;
+        transform: translateY(0.2rem);
 
         &::after {
             @include pseudo;
@@ -614,8 +616,7 @@ table {
 
     .txt {
         display: block;
-        font-size: 1.4rem;
-        color: white;
+        font-size: 1.6rem;
 
         @include max(500px) {
             font-size: 1.4rem;

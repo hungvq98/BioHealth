@@ -14,6 +14,9 @@
         width: fit-content;
         margin-right: auto;
     }
+    &.center {
+        margin-top: 2.4rem;
+    }
     >li {
         &:not(:first-child) {
             // margin-left: 8px;
@@ -21,8 +24,8 @@
             }
         }
         &>.page-numbers {
-            width: 3.2rem;
-            height: 3.2rem;
+            width: 4.4rem;
+            height: 4.4rem;
             padding-bottom: 0.2rem;
             cursor: pointer;
             position: relative;
@@ -34,8 +37,8 @@
             align-items: center;
             line-height: 1;
             padding-top: 0.2rem;
+            border: 0.1rem solid var(--cl-bd);
             color: var(--color-text);
-            background-color: rgba($color: #292929, $alpha: .2);
             border-radius: 100rem;
             img {
                 width: 3.6rem;
@@ -49,7 +52,7 @@
             }
             @include hover {
                 color: white;
-                background-color: var(--color-text);
+                background-color: var(--color-second);
                 &:not(.dot) {
                     &::after {
                         left: 0;
@@ -59,7 +62,8 @@
             }
             &.current {
                 color: white;
-                background-color: var(--color-text);
+                background-color: var(--color-second);
+
             }
             &.prev,
             &.next {

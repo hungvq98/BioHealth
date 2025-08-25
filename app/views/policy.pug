@@ -1,0 +1,38 @@
+extends layout/layout
+
+block vars
+    -title = 'Chính sách bảo mật'
+    -bodyClass = 'page-policy'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Chính sách bảo hành"}])
+    section.sec-policy 
+        .policy.ss-pd-b 
+            .container 
+                +LayoutTwoBlock
+                    +BlockSide
+                        +Sidebar
+                            ul.menu-list 
+                                li.menu-item 
+                                    a.menu-link(href="") Chính sách bảo hành
+                                li.menu-item 
+                                    a.menu-link(href="") Chính sách Đổi - Trả sản phẩm
+                                li.menu-item 
+                                    a.menu-link(href="") Chính sách giao hàng
+                                li.menu-item 
+                                    a.menu-link(href="") Hướng dẫn mua hàng & thanh toán
+                                li.menu-item 
+                                    a.menu-link(href="") Chính sách bảo mật
+                                li.menu-item 
+                                    a.menu-link(href="") Câu hỏi thường gặp
+                    +BlockMain
+                        .side-open 
+                            .side-open-wrap 
+                                i.fa-regular.fa-sidebar-flip
+                        +headVerti("mb-24")
+                            +title40("Chính sách bảo hành")
+                        .mona-content fill content zo dùm tui nhe
+    +secSale
+            

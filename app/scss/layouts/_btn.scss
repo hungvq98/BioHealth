@@ -164,7 +164,7 @@
 
     &.white {
         background-color:white;
-        border: 0.1rem solid #F1F1F1;
+        border: 0.1rem solid var(--color-pri);
 
         .txt {
             color: var(--color-text);
@@ -180,10 +180,11 @@
                 color: white;
             }
 
+
             img {
                 filter: brightness(0) invert(1);
             }
-            background-color: var(--color-pri);
+            background-color: var(--color-second);
 
         }
     }
