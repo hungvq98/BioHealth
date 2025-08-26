@@ -79,6 +79,31 @@
             }
         }
     }
+    &.v2 {
+        .inner {
+            .info {
+                &-tt {
+                    font-weight: 700;
+                    @include lc(2);
+                }
+                &-flex {
+                    flex-direction: column;
+                }
+                .box-price {
+                    flex-direction: row !important;
+                }
+                &-variant {
+                    .select {
+                        --bdr:100rem;
+                        max-width: 20rem;
+                        .select2-container {
+                            height: 3.6rem !important;
+                        }
+                    }
+                }
+            }
+        }
+    }
 }
 
 .prod-item {

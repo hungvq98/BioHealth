@@ -1,0 +1,103 @@
+extends layout/layout
+
+block vars
+    -title = 'Quản lý đơn hàng - Chi tiết'
+    -bodyClass = 'page-acc'
+
+block container
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Quản lý đơn hàng"}])
+    section.sec-acc 
+        .acc 
+            .container
+                .acc__flex.row
+                    .acc__left.col 
+                        .wrapper
+                            .acc__box.scrollContainer 
+                                a(href="").acc__box-item.buttons
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-usr.svg") 
+                                        p.txt Thông tin tài khoản
+                                a(href="").acc__box-item.buttons.active
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-mana.svg") 
+                                        p.txt Quản lý đơn hàng
+                                a(href="").acc__box-item.buttons
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-heart.svg") 
+                                        p.txt Sản phẩm yêu thích
+                    .acc__right.col
+                        .wrapper 
+                            .acc__headline 
+                                a(href="").order-status__back
+                                    .iwt
+                                        .icon 
+                                            +img("ic-arrow-back.svg")
+                                        p.txt đơn hàng 
+                                            span.txt-pri  #22082000
+                            .acc__contents 
+                                .acc__manadt 
+                                    .acc__manadt-head
+                                        +title40("Thông tin đơn hàng")
+                                        +Btn("Mua lại đơn hàng","","pri","ic-arrow.svg")
+                                    .acc__manadt-body 
+                                        .acc__manadt-box
+                                            .order-status__info-flex.row.gap-res 
+                                                .order-status__info-item.col 
+                                                    p.name Người nhận
+                                                    p.val Hà Thanh Tuấn
+                                                .order-status__info-item.col 
+                                                    p.name Địa chỉ
+                                                    p.val 39 Nguyễn Bỉnh Khiêm P1, Q.Gò Vấp, TP. Hồ Chí Minh
+                                                .order-status__info-item.col 
+                                                    p.name Số điện thoại
+                                                    p.val 091232131241232
+                                                .order-status__info-item.col 
+                                                    p.name Email
+                                                    p.val hathanhtuan2208@gmail.com
+                                                .order-status__info-item.col 
+                                                    p.name Phương thức thanh toán
+                                                    p.val Chuyển khoản ngân hàng
+                                                .order-status__info-item.col 
+                                                    p.name Tình trạng
+                                                    .val 
+                                                        .order-status__status.complete Đã giao hàng
+                                        .acc__manadt-box
+                                            p.acc__manadt-title Chi tiết đơn hàng
+                                            .acc__manadt-info 
+                                                .lines 
+                                                    span.name Tổng giá trị đơn hàng
+                                                    span.val 250.000.000 VNĐ
+                                                .lines 
+                                                    span.name Tổng thuế VAT
+                                                    span.val 25.000.000 VNĐ
+                                                .lines.green 
+                                                    span.name Tổng giá trị đơn hàng sau thuế
+                                                    span.val 250.000.000 VNĐ
+                                        .acc__manadt-order 
+                                            p.acc__manadt-title 
+                                                | đơn hàng của bạn
+                                                span.sup (3)
+                                            .acc__manadt-table 
+                                                table 
+                                                    thead 
+                                                        tr 
+                                                            th Sản phẩm
+                                                            th Số lượng
+                                                            th Đơn giá
+                                                    tbody 
+                                                        tr 
+                                                            td(data-label="Sản phẩm") 
+                                                                +MiniCart2("v2")
+                                                            td(data-label="Số lượng") 01
+                                                            td(data-label="Đơn giá") 200.000đ
+                                                        tr 
+                                                            td(data-label="Sản phẩm") 
+                                                                +MiniCart2("v2")
+                                                            td(data-label="Số lượng") 01
+                                                            td(data-label="Đơn giá") 200.000đ
+    +secSale

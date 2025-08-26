@@ -1,0 +1,92 @@
+extends layout/layout
+
+block vars
+    -title = 'Quản lý đơn hàng'
+    -bodyClass = 'page-acc'
+
+block container
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Quản lý đơn hàng"}])
+    section.sec-acc 
+        .acc 
+            .container
+                .acc__flex.row
+                    .acc__left.col 
+                        .wrapper
+                            .acc__box.scrollContainer 
+                                a(href="").acc__box-item.buttons
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-usr.svg") 
+                                        p.txt Thông tin tài khoản
+                                a(href="").acc__box-item.buttons.active
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-mana.svg") 
+                                        p.txt Quản lý đơn hàng
+                                a(href="").acc__box-item.buttons
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-acc-heart.svg") 
+                                        p.txt Sản phẩm yêu thích
+                    .acc__right.col
+                        .wrapper 
+                            .acc__headline 
+                                .acc__heads 
+                                    a(href="").acc__heads-item.active 
+                                        p.txt quản lý đơn hàng
+                                .acc__manage-filter 
+                                    span.txt Trạng thái
+                                    .select 
+                                        select(name="" class="re-select-main" data-placeholder="Trạng thái") 
+                                            option(value="") Trạng thái
+                                            option(value="1") Đang giao
+                                            option(value="2") Đã giao
+                                            option(value="3") Đã hủy
+                                            option(value="4") Đang chờ
+                                            option(value="5") Đang xử lý
+                            .acc__contents 
+                                .acc__manage
+                                    .acc__manage-table 
+                                        table 
+                                            thead 
+                                                tr 
+                                                    th Mã đơn hàng
+                                                    th Thời gian
+                                                    th Giá tiền
+                                                    th Trạng thái
+                                                    th
+                                            tbody 
+                                                tr 
+                                                    td #22082000
+                                                    td 22 Th08,2024
+                                                    td 299.000đ
+                                                    td 
+                                                        .order-status__status.complete Hoàn tất
+                                                    td 
+                                                        a(href="").link
+                                                            +img("ic-arrow-grey.svg") 
+                                                tr 
+                                                    td #22082000
+                                                    td 22 Th08,2024
+                                                    td 299.000đ
+                                                    td 
+                                                        .order-status__status.cancel Đã hủy
+                                                    td 
+                                                        a(href="").link
+                                                            +img("ic-arrow-grey.svg") 
+                                                each val,index in Array(5)
+                                                    tr 
+                                                        td #22082000
+                                                        td 22 Th08,2024
+                                                        td 299.000đ
+                                                        td 
+                                                            .order-status__status.complete Hoàn tất
+                                                        td 
+                                                            a(href="").link
+                                                                +img("ic-arrow-grey.svg")
+
+                                            
+                                
+    +secSale

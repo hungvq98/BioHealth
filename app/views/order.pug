@@ -1,0 +1,112 @@
+extends layout/layout
+
+block vars
+    -title = 'Đơn hàng'
+    -bodyClass = 'page-acc'
+
+block container
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Đơn hàng"}])
+    section.sec-order
+        .order
+            .container
+                +headVerti("mb-24")
+                    +title40("ĐƠN HÀNG CỦA BẠN")
+                .order__flex.row
+                    .order__left.col
+                        .wrapper
+                            .acc__manadt-table 
+                                table 
+                                    thead 
+                                        tr 
+                                            th Sản phẩm
+                                            th Số lượng
+                                            th Đơn giá
+                                            th
+                                    tbody 
+                                        tr 
+                                            td(data-label="Sản phẩm") 
+                                                +MiniCart2("v2")
+                                            td(data-label="Số lượng")
+                                                +Count
+                                            td(data-label="Đơn giá") 200.000đ
+                                            td  
+                                                a(href="").remove
+                                                    +img("ic-remove.svg") 
+                                        tr 
+                                            td(data-label="Sản phẩm") 
+                                                +MiniCart2("v2")
+                                            td(data-label="Số lượng")
+                                                +Count
+                                            td(data-label="Đơn giá") 200.000đ
+                                            td  
+                                                a(href="").remove
+                                                    +img("ic-remove.svg") 
+                                        tr 
+                                            td(data-label="Sản phẩm") 
+                                                +MiniCart2("v2")
+                                            td(data-label="Số lượng")
+                                                +Count
+                                            td(data-label="Đơn giá") 200.000đ
+                                            td  
+                                                a(href="").remove
+                                                    +img("ic-remove.svg") 
+                            .acc__manadt-btn
+                                +Btn("Quay lại mua sắm","","white","")
+                    .order__right.col
+                        .wrapper
+                            .order__cart 
+                                .order__cart-bodies 
+                                    p.acc__manadt-title 
+                                        | đơn hàng của bạn
+                                        span.sup (3)
+                                    .order-box__totals 
+                                        .order-box__total 
+                                            p.txt Sản phẩm
+                                            p.val 3
+                                        .order-box__total 
+                                            p.txt Tạm tính
+                                            p.val 500.000 đ
+                                        .order-box__total 
+                                            p.txt Giảm giá
+                                            p.val -50.000 đ
+                                        .order-box__total 
+                                            p.txt Thuế
+                                            p.val 50.000 đ
+                                        .order-box__total 
+                                            .txt Vận chuyển
+                                                .txt-icon   
+                                                    +img("viettelpost.svg")  
+                                            p.val 0 đ
+                                        .order__cart-vcher 
+                                            p.order__cart-title MÃ GIẢM GIÁ
+                                            .homes-vcher__slide 
+                                                .swiper.row.gap-res 
+                                                    .swiper-wrapper 
+                                                        each val,index in Array(4)
+                                                            .swiper-slide.col 
+                                                                a(href="").homes-vcher__item 
+                                                                    .inner 
+                                                                        .lines
+                                                                            .lines-circle 
+                                                                            .lines-circle 
+                                                                        .content 
+                                                                            .iwt 
+                                                                                .icon 
+                                                                                    +img("ic-mini.svg")
+                                                                                .b-gr 
+                                                                                    p.txt Giảm 20%
+                                                                                    p.des Valid for first transactions in Traveloka App & Website
+                                                                        .copy.copyBtn
+                                                                            +img("ic-copy.svg")                        
+                                        .order-box__total.total 
+                                            p.txt Tổng cộng
+                                            p.val 1.709.100 đ
+                                a(href="").order__cart-btn 
+                                    .iwt
+                                        p.txt Tiếp tục thanh toán
+                                        .icon 
+                                            +img("ic-arrow.svg")
+
+    +secSale

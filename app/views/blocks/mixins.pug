@@ -734,6 +734,37 @@ mixin MiniCart()
             p.price-old 399.000đ
           .info-qty 
             +Count
+mixin MiniCart2(classCustom)
+  .miniCart-item(class=classCustom)
+    .inner 
+      .img 
+        a(href="").img-inner
+          +img("item-1.png")
+      .info 
+        .info-tags 
+          .info-tag.new
+            .iwt 
+              .icon 
+                +img("ic-mini.svg")
+              p.txt MỚi
+          .info-tag.sale
+            .iwt 
+              .icon 
+                +img("ic-mini.svg")
+              p.txt -22%
+        p.info-tt  Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml
+        .info-flex 
+          .box-price 
+            p.price-cur 200.000đ
+            p.price-old 399.000đ
+          .info-variant 
+            .select 
+              select(name="" class="re-select-main" data-placeholder="Chọn dung tích")
+                option(value="") Chọn dung tích
+                option(value="1") 70ml
+                option(value="2") 100ml
+                option(value="3") 150ml
+                option(value="4") 200ml
 mixin boxLeaf(speed,qlty,size)
   .box-leaf
     .box-leaf-imgs
