@@ -1,0 +1,22 @@
+extends layout/layout
+
+block vars
+    -title = '404'
+    -bodyClass = 'page-404'
+
+block container 
+    section.sec-error 
+        .error.ss-pd 
+            .container 
+                .error__box 
+                    +boxLeaf(1,3,.5)
+                    .bg 
+                        +img("404.png")
+                    .error__content 
+                        +headVerti("center")
+                            +title40("Không tìm thấy trang")
+                            .mona-content 
+                                p Lorem ipsum dolor sit amet consectetur. Posuere dui neque mi nunc. Ultrices at platea cursus malesuada feugiat viverra consectetur tincidunt at. Sit malesuada sit ut arcu. Sit interdum pulvinar arcu in.
+                        +Btn("Trở về trang chủ","","pri center","ic-arrow.svg")
+    +secSale
+

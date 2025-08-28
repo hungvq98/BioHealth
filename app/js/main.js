@@ -23,6 +23,7 @@ import ProductFilter from "./module/ProductFilter.js";
 import LeafModule from "./module/LeafModule.js";
 import SmoothScrollModule from "./module/SmoothScrollModule.js";
 import FlatPickrModule from "./module/FlatPickrModule.js";
+import SeemoreModule from "./module/SeemoreModule.js";
 
 window.addEventListener("DOMContentLoaded", () => {
     TextAniModule();
@@ -50,4 +51,5 @@ window.addEventListener("DOMContentLoaded", () => {
     LeafModule();
     SmoothScrollModule();
     FlatPickrModule();
+    SeemoreModule();
 });

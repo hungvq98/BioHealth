@@ -53,7 +53,9 @@ export default function CollapseModule() {
                 content.slideUp();
                 collapseItem.removeClass("active");
             }
+            
         });
+        
     });
 
     const clBlockf = document.querySelectorAll(".cl-block");

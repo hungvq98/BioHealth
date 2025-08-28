@@ -1,7 +1,7 @@
 export default function FlatPickrModule() {
     const el = document.querySelector('#dob');
-
-    // 1) Đọc & kiểm tra dữ liệu
+    if(el) {
+        // 1) Đọc & kiểm tra dữ liệu
     const minYear = parseInt(el.dataset.minYear, 10);
     const maxYear = parseInt(el.dataset.maxYear, 10);
     const defaultYear = el.dataset.defaultYear ? parseInt(el.dataset.defaultYear, 10) : null;
@@ -24,4 +24,7 @@ export default function FlatPickrModule() {
         allowInput: false,       // NGĂN người dùng gõ tay “2025”
         disableMobile: true      // tránh native picker bỏ qua min/max
     });
+    }
+
+    
 }

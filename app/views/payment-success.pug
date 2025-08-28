@@ -1,0 +1,63 @@
+extends layout/layout
+
+block vars
+    -title = 'Thanh toán thành công'
+    -bodyClass = 'page-pay'
+
+block container
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Thanh toán thành công"}])
+    section.sec-pay-suc 
+        .pay-suc.ss-pd-min-t.add-class.ParaY   
+            .sign__decs
+                .sign__dec.ParaYScroll
+                    .in 
+                        +img("sign-dec1.png")
+                .sign__dec.ParaYScroll
+                    .in 
+                        +img("sign-dec2.png")
+            .container
+                .pay-suc__title 
+                    +headVerti("center mb-24")
+                        .icon 
+                            +img("ic-suc.svg")
+                        +title40("Đơn hàng của bạn <span class='txt-pri'>đã hoàn tất!</span>")
+                .pay-suc__content 
+                    .order-box__block 
+                        .heads 
+                            p.txt  đơn hàng của bạn 
+                                span.txt-sup (3)
+                            .icon 
+                                i.fa-solid.fa-chevron-up
+                        .bodies 
+                            table   
+                                tbody 
+                                    each val,index in Array(3)
+                                        tr 
+                                            td 
+                                                span.txt Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml
+                                            td x1 
+                                            td 299.000 đ
+                    .pay-suc__info 
+                        .flex.row 
+                            .pay-suc__info-item.col 
+                                .inner 
+                                    p.name Mã đơn
+                                    p.val #22082000
+                            .pay-suc__info-item.col 
+                                .inner 
+                                    p.name Thời gian
+                                    p.val 22:00, 22 Th08,2024
+                            .pay-suc__info-item.col 
+                                .inner 
+                                    p.name Thanh toán
+                                    p.val 1.709.100 đ
+                            .pay-suc__info-item.col 
+                                .inner 
+                                    p.name Hình thức
+                                    p.val Chuyển khoản
+                    .pay-suc__btns 
+                        +Btn("Quay lại trang chủ","","white rev","ic-arrow-back.svg")
+                        +Btn("Tiếp tục mua sắm","","pri","ic-arrow.svg")
+    +secSale

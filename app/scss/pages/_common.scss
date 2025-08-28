@@ -298,15 +298,6 @@
     }
 }
 
-.cls-head {
-    cursor: pointer;
-}
-
-.cls-body {
-    display: none;
-}
-
-
 .rating {
     display: flex;
     gap: 0.5rem;
@@ -488,6 +479,7 @@ html:has(.admin-bar) {
 
         &-r {
             width: 100%;
+            margin: 0;
         }
     }
 }
@@ -1027,9 +1019,11 @@ html:has(.admin-bar) {
 
 .box-leaf {
     pointer-events: none;
+
     &-imgs {
         display: none;
     }
+
     canvas {
         height: 100%;
         width: 100%;
@@ -1046,17 +1040,22 @@ html:has(.admin-bar) {
     mask-repeat: no-repeat;
     mask-size: 100% 100%;
 }
+
 .dmsp {
     padding: 1.6rem;
+
     &-list {
-        mask-image:linear-gradient(to right,  black 95%, rgba(0, 0, 0, 0) 100%);
+        mask-image: linear-gradient(to right, black 95%, rgba(0, 0, 0, 0) 100%);
     }
+
     .swiper {
-        --cg:1.2rem;
-        --rg:1.2rem;
+        --cg: 1.2rem;
+        --rg: 1.2rem;
+
         &-slide {
             width: max-content;
             flex-shrink: 0;
+
             &:nth-child(n + 2) {
                 .dmsp-item {
                     .iwt {
@@ -1066,6 +1065,7 @@ html:has(.admin-bar) {
             }
         }
     }
+
     &-item {
         display: flex;
         justify-content: center;
@@ -1074,29 +1074,36 @@ html:has(.admin-bar) {
         border-radius: .8rem;
         border: 0.1rem solid var(--cl-bd);
         transition: 0.4s;
+
         .txt {
             transition: 0.4s;
         }
+
         .icon {
             transition: 0.4s;
+
             i {
                 font-size: 1.2rem;
             }
         }
+
         @include hover {
             background-color: var(--color-pri);
+
             .txt {
                 color: white;
             }
+
             .icon {
                 i {
                     color: white;
                 }
             }
         }
+
         .iwt {
-            --gap:.3rem;
-            --iz:1.6rem;
+            --gap: .3rem;
+            --iz: 1.6rem;
         }
     }
 }
@@ -1105,13 +1112,112 @@ html:has(.admin-bar) {
     margin-left: auto;
     width: 100%;
     max-width: var(--recontainer);
+
     @include max(1300px) {
         width: calc(100% - 1.5rem);
     }
 }
+
 .swiper.row {
     margin-bottom: 0 !important;
+
     .swiper-slide {
         margin-bottom: 0 !important;
+    }
+}
+
+// Check In & Out
+html:has(.hd.out) {
+    @media screen and (min-width: 1201px) {
+        .layout-two-r .wrapper {
+            position: sticky;
+            top: 7rem;
+        }
+
+        .acc__left .wrapper {
+            position: sticky;
+            top: 7rem;
+        }
+    }
+}
+
+// 
+.rating {
+
+    &-review {
+        #dropArea {
+            border: 0.1rem dashed var(--cl-bd);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            padding:1.2rem;
+            gap: 0.8rem;
+            cursor: pointer;
+            border-radius: 100rem;
+
+            .txt {
+                font-size: 1.4rem;
+            }
+        }
+
+        #previewContainer {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 1rem;
+
+            div {
+                flex-shrink: 0;
+                position: relative;
+                aspect-ratio: 1/1;
+                width: calc(100% / 4 - 1rem/4 * 3);
+
+                button {
+                    width: 2rem;
+                    height: 2rem;
+                    position: absolute;
+                    top: 0.5rem;
+                    right: 0.5rem;
+                    background: var(--color-pri);
+                    color: white;
+                    border-radius: 100rem;
+                    cursor: pointer;
+                }
+            }
+        }
+
+        .previewImage {
+            object-fit: cover;
+            display: block;
+            width: 10rem;
+            height: 10rem;
+            border-radius: 0.4rem;
+        }
+
+        .btn {
+            margin: auto;
+            height: 4.8rem;
+        }
+    }
+
+
+    &-upload {
+        width: 100%;
+        margin: 1rem 0;
+        display: block;
+        .iwt {
+            --iz:3.2rem;
+        }
+        .btn-plus {
+            width: 3.6rem;
+            height: 3.6rem;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 100rem;
+            background-color: var(--color-pri);
+            color: white;
+            font-size: 1em;
+            margin-left: auto;
+        }
     }
 }

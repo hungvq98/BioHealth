@@ -1,0 +1,36 @@
+extends layout/layout
+
+block vars
+    -title = 'Sản phẩm giảm giá'
+    -bodyClass = 'page-prod'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Sản phẩm giảm giá"}])
+    section.sec-prod-sale
+        .homes-flash.checkViewJS  
+            .container 
+                .homes-flash__box
+                    +boxLeaf(1,5,0.5)
+                    .homes-flash__decs 
+                        .homes-flash__dec
+                            +img("homes-flash-dec1.png")
+                        .homes-flash__dec
+                            +img("homes-flash-dec2.png")
+                    .bg.frameJs 
+                        +img("flash-green-bg.jpg")
+                    .homes-flash__head.flash 
+                        +headVerti("white")
+                            +title40('Flash Sale Tuần lễ sống <span class="italic">"Xanh"</span>',"text-hori","true")
+                        +CountDown("08/30/2025")
+                    .homes-flash__slideGr 
+                        .swiper(data-aos="fade")
+                            .swiper-wrapper 
+                                each val,index in Array(11)
+                                    .swiper-slide
+                                        +prodItem("ver1")
+                        +Pagination
+                    .homes-flash__btns
+                        +Btn("Xem thêm", "", "pri center", "")
+    +secSale

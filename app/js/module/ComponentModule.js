@@ -210,4 +210,90 @@ export default function ComponentModule() {
 
   // Gọi khi DOM đã sẵn sàng
   document.addEventListener('DOMContentLoaded', detectInView);
+
+
+  const inputUpload = document.querySelector(".upload-image");
+  let loadFile = function (event) {
+    let image = document.querySelector(".preview-img img");
+    image.src = URL.createObjectURL(event.target.files[0]);
+    image.srcset = URL.createObjectURL(event.target.files[0]);
+  };
+  if (inputUpload) {
+    inputUpload.addEventListener("change", loadFile);
+  }
+  // upfile module
+  const upload = document.querySelectorAll(".rating-review");
+  console.log(upload.length);
+  if (upload.length > 0) {
+    const dropArea = document.getElementById("dropArea");
+    const fileInput = document.getElementById("fileInput");
+    const previewContainer = document.getElementById("previewContainer");
+
+    let displayedFiles = [];
+    dropArea.addEventListener("dragover", (e) => {
+      e.preventDefault();
+      dropArea.style.backgroundColor = "#f2f2f2";
+    });
+
+    dropArea.addEventListener("dragleave", () => {
+      dropArea.style.backgroundColor = "#fff";
+    });
+
+    dropArea.addEventListener("drop", (e) => {
+      e.preventDefault();
+      dropArea.style.backgroundColor = "#fff";
+      const files = e.dataTransfer.files;
+      handleFiles(files);
+    });
+
+    fileInput.addEventListener("change", () => {
+      const files = fileInput.files;
+      handleFiles(files);
+    });
+
+    function handleFiles(files) {
+      for (const file of files) {
+        if (file.type.startsWith("image/")) {
+          const reader = new FileReader();
+          reader.onload = function (e) {
+            const img = new Image();
+            img.src = e.target.result;
+            img.classList.add("previewImage");
+
+            const deleteButton = document.createElement("button");
+            deleteButton.innerHTML = `<i class="fa-solid fa-xmark"></i>`;
+            deleteButton.addEventListener("click", () => {
+              img.closest("div").remove();
+              img.remove();
+              deleteButton.remove();
+              displayedFiles = displayedFiles.filter(
+                (displayedFile) => displayedFile !== file
+              );
+              updateInputFiles();
+            });
+
+            const imageContainer = document.createElement("div");
+            imageContainer.appendChild(img);
+            imageContainer.appendChild(deleteButton);
+            previewContainer.appendChild(imageContainer);
+
+            displayedFiles.push(file);
+            updateInputFiles();
+          };
+          reader.readAsDataURL(file);
+        }
+      }
+    }
+
+    function updateInputFiles() {
+      fileInput.value = "";
+
+      const fileList = new DataTransfer();
+      displayedFiles.forEach((file) => {
+        fileList.items.add(file);
+      });
+
+      fileInput.files = fileList.files;
+    }
+  }
 }

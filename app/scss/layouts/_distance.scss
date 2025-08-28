@@ -226,12 +226,12 @@
 .ss-pd-min-t {
     padding-top: 4rem;
     @include max(768px) {
-        padding-top: 2rem;
+        padding-top: 3rem;
     }
 }
 .ss-pd-min-b {
     padding-bottom: 4rem;
     @include max(768px) {
-        padding-bottom: 2rem;
+        padding-bottom: 3rem;
     }
 }

@@ -60,7 +60,7 @@
             right: 0;
             // @include posi-vertical;
             z-index: 40;
-            background-color: var(--color-text);
+            background-color: var(--color-pri);
             @include mid-flex;
             border-radius: var(--radius) 0 0 var(--radius);
             cursor: pointer;

@@ -167,11 +167,37 @@
         border: 0.1rem solid var(--color-pri);
 
         .txt {
-            color: var(--color-text);
+            color: var(--color-pri);
         }
 
         img {
-            filter: brightness(0) saturate(100%) invert(10%) sepia(93%) saturate(5148%) hue-rotate(357deg) brightness(109%) contrast(116%);
+            filter: var(--filter-pri);
+        }
+
+        @include hover {
+
+            .txt {
+                color: white;
+            }
+
+
+            img {
+                filter: brightness(0) invert(1);
+            }
+            background-color: var(--color-second);
+
+        }
+    }
+    &.gray {
+        background-color:#E0E0E0;
+        border: 0.1rem solid #E0E0E0;
+
+        .txt {
+            color: #666666;
+        }
+
+        img {
+            filter: var(--filter-pri);
         }
 
         @include hover {

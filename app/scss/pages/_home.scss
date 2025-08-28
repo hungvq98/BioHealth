@@ -408,6 +408,15 @@
             }
         }
     }
+    &__slideGr {
+        .swiper {
+            .swiper-wrapper {
+                @include min(651px) {
+                    flex-wrap: wrap;
+                }
+            }
+        }
+    }
 
     &__decs {
         position: absolute;

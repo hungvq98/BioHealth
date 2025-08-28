@@ -193,22 +193,38 @@ mixin Star(per)
         i.fa-solid.fa-star        
 //- rating
 mixin Rate()
-  .rating
-    label.stars
-      input.star-item(type='radio' name='name' hidden='')
-      i.fa-regular.fa-star
-    label.stars
-      input.star-item(type='radio' name='name' hidden='')
-      i.fa-regular.fa-star
-    label.stars
-      input.star-item(type='radio' name='name' hidden='')
-      i.fa-regular.fa-star
-    label.stars
-      input.star-item(type='radio' name='name' hidden='')
-      i.fa-regular.fa-star
-    label.stars
-      input.star-item(type='radio' name='name' hidden='')
-      i.fa-regular.fa-star
+  .stars
+    input#star1(
+      value="1" 
+      name="rating-star" 
+      type="radio"
+      )
+    input#star2(
+      value="2" 
+      name="rating-star" 
+      type="radio"
+      )
+    input#star3(
+      value="3" 
+      name="rating-star" 
+      type="radio"
+      )
+    input#star4(
+      checked="" 
+      value="4" 
+      name="rating-star" 
+      type="radio"
+      )
+    input#star5(
+      value="5" 
+      name="rating-star" 
+      type="radio"
+      )
+    label(for="star1")
+    label(for="star2")
+    label(for="star3")
+    label(for="star4")
+    label(for="star5")
 //- posi - (plus,midle,minus)
 mixin Navigation(classCustom)
   .swiper-control(class=classCustom)
@@ -646,9 +662,6 @@ mixin DropZone
         p.note JPG, GIF hoặc PNG. Kích thước tối đa 800Kb
       span#browseFile
       ul#fileList
-
-
-
 mixin SelectNormal(place)
   .selectNor 
     span.text=place
@@ -681,7 +694,6 @@ mixin uploadFile()
       +img("ic-upload.svg")
     p.text#imageName Upload CV 
       span.small (only supports PDF)
-
 mixin LayoutTwoBlock(classCustom)
   .layout-two.row(class=classCustom)
     block 
@@ -693,7 +705,6 @@ mixin BlockSide
   .layout-two-r.col 
     .wrapper 
       block
-
 mixin collapse(arrs,classCustom)
   .collapse-block(class=classCustom) 
     each v,i in arrs
@@ -704,7 +715,6 @@ mixin collapse(arrs,classCustom)
             +img("caret-circle.svg")
         .collapse-body 
           p.des=v.des
-
 mixin imgFull(img,classCustom)
   .imgFull(class=classCustom) 
     .imgFull-inner 
@@ -839,7 +849,57 @@ mixin prodItem(ver)
           span.name Đã bán 
           span.val 299 sản phẩm 
         +Btn("Chọn mua", "", "pri full small", "ic-plus.svg")
-
+mixin prodItem2(ver)
+  .prod-item(class=ver)
+    .inner
+      label.img 
+        .img-check 
+          input(type="checkbox" name="")
+          .sqr 
+          
+        a(href="").img-hearts 
+          i.fa-regular.fa-heart
+        .img-decs 
+          .img-dec 
+            +img("prod-dec1.png")
+          .img-dec 
+            +img("prod-dec2.png")
+        .img-tags 
+          .img-tag.new
+            .iwt 
+              .icon 
+                +img("ic-mini.svg")
+              p.txt MỚi
+          .img-tag.sale
+            .iwt 
+              .icon 
+                +img("ic-mini.svg")
+              p.txt -22%
+        .img-frame 
+          +img("prod-frame.png")
+        a(href="").img-inner 
+          +img("item-1.png")
+      .info 
+        .info-head
+          .info-star 
+            .iwt 
+              .icon 
+                +img("ic-star.svg")
+              p.txt 4.7
+          .info-sold 
+            span.name Đã bán 
+            span.val 220+
+        h4
+          a(href="").info-tt Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml
+        .box-price 
+          p.price-cur 200.000đ
+          p.price-old 399.000đ
+        .info-progress(style="--progress:50%") 
+          .info-progress__bar 
+        .info-sold.red 
+          span.name Đã bán 
+          span.val 299 sản phẩm 
+        +Btn("Chọn mua", "", "pri full small", "ic-plus.svg")
 mixin itemBlog(img)
   .blog-item  
     .inner 
@@ -883,3 +943,46 @@ mixin secSale
                                     .homes-sale__input 
                                         input(type="text" placeholder="Email của bạn...")
                                         +Btn("Gửi ngay", "button", "pri", "")
+mixin fillRange
+  .prod-fill-range
+    .range
+        .range-slider
+            .progress(style="left: 0%; right: 0%;")
+            .range-input
+                input.range-min.mona-filter-js(
+                    value="10" 
+                    min="0" 
+                    max="14000000" 
+                    step="10" 
+                    name="price_min" 
+                    type="range"
+                )
+                input.range-max.mona-filter-js(
+                    value="14000000" 
+                    min="0" 
+                    max="14000000" 
+                    step="10" 
+                    name="price_max" 
+                    type="range"
+                )
+        .range-flex
+            .range-item.min
+                input.price(
+                    type="number" 
+                    value="0" 
+                    min="0" 
+                    max="14000000" 
+                    step="10" 
+                    name="price_min"
+                )
+                span.txt đ
+            .range-item.max
+                input.price(
+                    type="number" 
+                    value="14000000" 
+                    min="0" 
+                    max="14000000" 
+                    step="10" 
+                    name="price_max"
+                )
+                span.txt đ

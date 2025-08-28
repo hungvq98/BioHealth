@@ -106,39 +106,72 @@ export default function HeaderModule() {
     );
 
 
-    const hdMenu = document.querySelector(".hd-bottom__cate")
+    const hdMenu = document.querySelector(".hd-bottom__cate");
     if (hdMenu) {
-        const hdMenuDrop = hdMenu.querySelector(".hd-bottom__drop")
-        const hdMenuLeft = hdMenu.querySelector(".hd-bottom__mega-left")
-        const hdMenuRight = hdMenu.querySelector(".hd-bottom__mega-right")
-        const hdMenuBtn = hdMenuLeft.querySelectorAll(".menu-item")
-        const hdMenuTab = hdMenuRight.querySelectorAll(".wrappers")
+        const hdMenuDrop = hdMenu.querySelector(".hd-bottom__drop");
+        const hdMenuLeft = hdMenu.querySelector(".hd-bottom__mega-left");
+        const hdMenuRight = hdMenu.querySelector(".hd-bottom__mega-right");
+        const hdMenuBtn = hdMenuLeft.querySelectorAll(".menu-item");
+        const hdMenuTab = hdMenuRight.querySelectorAll(".wrappers");
 
-        hdMenuBtn.forEach((item, index) => {
-            hdMenuBtn[0].classList.add("active")
-            hdMenuTab[0].classList.add("active")
+        // Tạo map từ child-id -> element
+        const wrapperById = new Map(
+            Array.from(hdMenuTab).map(w => [w.dataset.childId, w])
+        );
+
+        // Hàm clear & active theo id
+        const activateById = (id) => {
+            // clear
+            hdMenuBtn.forEach(b => b.classList.remove("active"));
+            hdMenuTab.forEach(t => t.classList.remove("active"));
+
+            // active nút có data-parent-id khớp
+            const btn = Array.from(hdMenuBtn).find(b => b.dataset.parentId === id);
+            if (btn) btn.classList.add("active");
+
+            // active wrapper có data-child-id khớp
+            const pane = wrapperById.get(id);
+            if (pane) pane.classList.add("active");
+        };
+
+        // Khởi tạo: chọn cặp đầu tiên có id khớp
+        (function initActive() {
+            const firstMatchingId = Array.from(hdMenuBtn)
+                .map(b => b.dataset.parentId)
+                .find(id => wrapperById.has(id));
+            if (firstMatchingId) {
+                activateById(firstMatchingId);
+            } else {
+                if (hdMenuBtn[0]) hdMenuBtn[0].classList.add("active");
+                if (hdMenuTab[0]) hdMenuTab[0].classList.add("active");
+            }
+        })();
+
+        // Hover vào menu-item: kích hoạt theo data-parent-id
+        hdMenuBtn.forEach((item) => {
             item.addEventListener("mouseenter", (e) => {
-                e.preventDefault()
-                $(hdMenuBtn).removeClass("active")
-                $(hdMenuTab).removeClass("active")
-                item.classList.add("active")
-                hdMenuTab[index].classList.add("active")
-            })
+                e.preventDefault();
+                const id = item.dataset.parentId; // lấy data-parent-id
+                if (id) activateById(id);
+            });
         });
+
+        // Logic đóng/mở dropdown
         document.addEventListener("click", (e) => {
             if (hdMenu.contains(e.target) || hdMenuDrop.contains(e.target)) {
-                hdMenuDrop.classList.add("active")
-                const hdMenuLeftHeight = hdMenuLeft.clientHeight
-                console.log(hdMenuLeftHeight);
-                hdMenu.setAttribute("style", `--max-h:${hdMenuLeftHeight}px`)
+                hdMenuDrop.classList.add("active");
+                const hdMenuLeftHeight = hdMenuLeft.clientHeight;
+                hdMenu.setAttribute("style", `--max-h:${hdMenuLeftHeight}px`);
             } else {
-                hdMenuDrop.classList.remove("active")
+                hdMenuDrop.classList.remove("active");
             }
-        })
-        window.addEventListener("scroll", ()=> {
-            hdMenuDrop.classList.remove("active")
+        });
 
-        })
+        window.addEventListener("scroll", () => {
+            hdMenuDrop.classList.remove("active");
+        });
     }
+
+
 
 }

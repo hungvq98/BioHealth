@@ -162,7 +162,7 @@ export default function SwiperModule() {
         drag: 'free',
         focus: 'center',
         perPage: 4,
-        gap:6,
+        gap: 6,
         direction: index == 1 ? "rtl" : "ltr",
         autoScroll: {
           speed: 0.5,
@@ -219,6 +219,52 @@ export default function SwiperModule() {
     spaceBetween: 0,
     effect: "slide",
   });
+  functionSlider(".homes-flash__slideGr ", {
+    speed: 1200,
+    slidesPerView: 5,
+    grid: {
+      rows: 2,
+      fill: "row",
+    },
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 24,
+    effect: "slide",
+    breakpoints: {
+      0: {
+        slidesPerView: 1,
+        spaceBetween: 12,
+        grid: {
+          rows: 1,
+          fill: "row",
+        },
+
+      },
+      391: {
+        slidesPerView: 2,
+        spaceBetween: 12,
+        grid: {
+          rows: 1,
+          fill: "row",
+        },
+
+      },
+      651: {
+        slidesPerView: 3,
+        spaceBetween: 12,
+
+      },
+      901: {
+        slidesPerView: 4,
+        spaceBetween: 12,
+
+      },
+      1201: {
+        slidesPerView: 5,
+      }
+    }
+  });
   functionSlider(".homes-material__slide", {
     speed: 1200,
     slidesPerView: "auto",
@@ -242,6 +288,41 @@ export default function SwiperModule() {
   });
 
   functionSlider(".homes-recent", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+
+
+
+  var swiperThumb = new Swiper(".prod-dt__slide-thumb .swiper", {
+    slidesPerView: "auto",
+    spaceBetween: 0,
+    direction: "vertical",
+  });
+  var swiperMain = new Swiper(".prod-dt__slide-main .swiper", {
+    slidesPerView: "auto",
+    spaceBetween: 0,
+    pagination: {
+      el: ".prod-dt__slide .swiper-pagination",
+      type: "fraction",
+    },
+    navigation: {
+      nextEl: ".prod-dt__slide-thumb .swiper-next",
+      prevEl: ".prod-dt__slide-thumb .swiper-prev",
+    },
+    thumbs: {
+      swiper: swiperThumb,
+    }
+  });
+
+
+  functionSlider(".prod-buy__slide", {
     speed: 1200,
     slidesPerView: "auto",
     // slidesPerGroup: 2,

@@ -1,0 +1,398 @@
+extends layout/layout
+
+block vars
+    -title = 'Sản phẩm chi tiết' 
+    -bodyClass = 'page-prod'
+
+block container 
+    +Popup("popup-write","comment")
+        .wrapper 
+            .tt Đánh giá sản phẩm
+            form(action="")
+                .popup-write__form.rating-review 
+                    +Rate()
+                    p.label Nội dung của bạn
+                    .popup-write__box 
+                        textarea(placeholder="Nội dung của bạn")
+                        #previewContainer
+                    label.rating-upload
+                        span#dropArea
+                            input#fileInput(
+                                hidden="" 
+                                multiple="" 
+                                type="file"
+                                )
+                            .iwt 
+                                .icon 
+                                    +img("ic-photo.png")
+                                p.txt Tải lên hình ảnh/video
+                            span.btn-plus 
+                                +img("ic-plus.svg")
+                    +Btn("Gửi đánh giá","","pri full","ic-arrow.svg")
+                    
+
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Sản phẩm"},{txt:"Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml"}])
+    section.sec-homes-four
+        .homes-four.homes-three  
+            .container 
+                .homes-four__box 
+                    .flex.row.gap-res 
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn4.jpg")
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn4.jpg")
+                        .col 
+                            .homes-four__item
+                                .img 
+                                    +img("homes-bn3.jpg")
+    section.sec-prod-dt
+        .prod-dt.ss-pd-min-t 
+            .container 
+                .prod-dt__flex.row 
+                    .prod-dt__slide.col 
+                        .wrapper 
+                            .prod-dt__slide-main
+                                .img-tags 
+                                    .img-tag.new
+                                        .iwt 
+                                            .icon 
+                                                +img("ic-mini.svg")
+                                            p.txt MỚi
+                                    .img-tag.sale
+                                        .iwt 
+                                            .icon 
+                                                +img("ic-mini.svg")
+                                            p.txt -22%
+                                .swiper
+                                    .swiper-wrapper 
+                                        each val,index in Array(10)
+                                            .swiper-slide 
+                                                .img
+                                                    a(href=`./assets/images/item-big.png` data-fancybox="gallery").img-inner
+                                                        +img("item-big.png")
+                                .swiper-pagination
+
+                            .prod-dt__slide-thumb
+                                .swiper.row.gap-res 
+                                    .swiper-wrapper 
+                                        each val,index in Array(10)
+                                            .swiper-slide.col 
+                                                .img
+                                                    .img-inner
+                                                        +img("item-1.png")
+                                .swiper-control 
+                                    .swiper-control-btn.swiper-next
+                                        i.fa-solid.fa-chevron-down
+                                    .swiper-control-btn.swiper-prev
+                                        i.fa-solid.fa-chevron-up
+                    .prod-dt__info.col 
+                        .wrapper 
+                            .prod-dt__head 
+                                p.sub Chăm sóc cơ thể
+                                p.tt Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml
+                            .prod-dt__bodie 
+                                .lines 
+                                    .rating 
+                                        +img("ic-star.svg")
+                                        span.txt 4.7
+                                    .line 
+                                        span.name Đã bán: 
+                                        span.val 220+
+                                    .line 
+                                        span.name Xuất xứ:
+                                        span.val Việt Nam
+                                    .line 
+                                        span.name SKU:
+                                        span.val 1210015
+                                .box-price 
+                                    p.price-cur 200.000đ
+                                    p.price-old 399.000đ 
+                                .prod-dt__sale 
+                                    .bg 
+                                        +img("prod-dt__sale-bg.jpg")
+                                    .prod-dt__sale-inner 
+                                        +img("flash-salex.png")
+                                        .prod-dt__time 
+                                            span.txt Kết thúc sau
+                                            .cdw(data-time="08/30/2025")
+                                                .cdw-list 
+                                                    .cdw-item
+                                                        .cdw-inner 
+                                                            .number.date
+                                                            span.text Ngày
+                                                    span.txt :
+                                                    .cdw-item 
+                                                        .cdw-inner 
+                                                            .number.hour
+                                                            span.text Giờ
+                                                    span.txt :
+                                                    .cdw-item 
+                                                        .cdw-inner 
+                                                            .number.minute
+                                                            span.text Phút
+                                                    span.txt :
+                                                    .cdw-item
+                                                        .cdw-inner 
+                                                            .number.second
+                                                            span.text Giây
+                                .prod-dt__variant 
+                                    span.tt  Phân loại sản phẩm
+                                    .prod-dt__variant-list 
+                                        label.prod-dt__variant-item 
+                                            input(type="radio", name="variant", value="1")
+                                            span.txt 300 Gram
+                                        label.prod-dt__variant-item 
+                                            input(type="radio", name="variant", value="1")
+                                            span.txt 500 Gram
+                                        label.prod-dt__variant-item 
+                                            input(type="radio", name="variant", value="1")
+                                            span.txt 800 Gram
+                                        label.prod-dt__variant-item 
+                                            input(type="radio", name="variant", value="1")
+                                            span.txt 2 x 800 Gram
+                                        label.prod-dt__variant-item 
+                                            input(type="radio", name="variant", value="1")
+                                            span.txt 2 x 500 Gram
+                                .prod-dt__action
+                                    .flex.row  
+                                        .col 
+                                            +Count()
+                                        .col 
+                                            +Btn("Mua ngay","","second full")
+                                        .col 
+                                            a(href="").prod-dt__icon.prod-dt__cart
+                                                +img("ic-cart-black.svg")
+                                        .col 
+                                            a(href="").prod-dt__icon.prod-dt__heart
+                                                i.fa-regular.fa-heart  
+                    .prod-dt__feature.col
+                        .wrapper 
+                            .prod-dt__feature-list
+                                .prod-dt__feature-item
+                                    .icon 
+                                        +img("ic-ft1.svg")
+                                    span.txt Lorem ipsum dolor sit amet consectetur.
+                                .prod-dt__feature-item
+                                    .icon 
+                                        +img("ic-ft2.svg")
+                                    span.txt Lorem ipsum dolor sit amet consectetur.
+                                .prod-dt__feature-item
+                                    .icon 
+                                        +img("ic-ft3.svg")
+                                    span.txt Lorem ipsum dolor sit amet consectetur.
+                                .prod-dt__feature-item
+                                    .icon 
+                                        +img("ic-ft4.svg")
+                                    span.txt Lorem ipsum dolor sit amet consectetur.
+                                .prod-dt__feature-item
+                                    .icon 
+                                        +img("ic-ft4.svg")
+                                    span.txt Lorem ipsum dolor sit amet consectetur.
+                            a(href="").prod-dt__feature-btn Xem tất cả chính sách
+    section.sec-homes-vcher 
+        .homes-vcher 
+            .container 
+                .homes-vcher__slide 
+                    .swiper.row.gap-res 
+                        .swiper-wrapper 
+                            each val,index in Array(4)
+                                .swiper-slide.col 
+                                    a(href="").homes-vcher__item 
+                                        .inner 
+                                            .lines
+                                                .lines-circle 
+                                                .lines-circle 
+                                            .content 
+                                                .iwt 
+                                                    .icon 
+                                                        +img("ic-mini.svg")
+                                                    .b-gr 
+                                                        p.txt Giảm 20%
+                                                        p.des Valid for first transactions in Traveloka App & Website
+                                            .copy.copyBtn
+                                                +img("ic-copy.svg")                        
+                    +SwiperControl("posi minus")    
+                    +Pagination   
+    section.sec-prod-buy 
+        .prod-buy 
+            .container 
+                .prod-buy__box 
+                    .bg 
+                        +img("prod-buy-bg.jpg")
+                    .prod-buy__content 
+                        +headVerti("mb-24")
+                            +title40("mua càng nhiều, ưu đãi càng lớn")
+                        .prod-buy__list.row.gap-res 
+                            .prod-buy__part.col 
+                                .wrapper 
+                                    +prodItem2("ver4") 
+                            .prod-buy__part.col 
+                                .wrapper 
+                                    .prod-buy__slide 
+                                        .swiper.rows.gap-res 
+                                            .swiper-wrapper 
+                                                each val,index in Array(4)
+                                                    .swiper-slide.col 
+                                                        +prodItem2("ver4")
+                                        +Pagination
+                            .prod-buy__part.col 
+                                .wrapper 
+                                    .buy-all-item
+                                        .bg 
+                                            +img("buy-all-bg.jpg") 
+                                        .inner 
+                                            .box-price 
+                                                p.price-cur 200.000đ
+                                                p.price-old 399.000đ 
+                                            .buy-all-item__btn 
+                                                +Btn("Mua ngay tất cả","","white full")
+    section.sec-prod-desc 
+        .prod-desc.ss-pd-min-t 
+            .container 
+                +LayoutTwoBlock
+                    +BlockMain
+                        .prod-desc__block 
+                            .prod-desc__head 
+                                p.tt  Mô tả sản phẩm
+                            .mona-content 
+                                figure 
+                                    +img("homes-bn1.jpg")
+                                blockquote 
+                                    p Không có người phụ nữ xấu, chỉ có người phụ nữ không biết làm đẹp” - Bạn sẽ thêm tự tin, chủ động trong cuộc sống khi biết làm đẹp cho bản thân. Một số hướng dẫn dưới đây của Beauty Box sẽ chỉ ra 10 bước trang điểm cơ bản cho người mới bắt đầu, bạn cùng tham khảo nhé.
+                                h4 4 bước chăm sóc da trước khi trang điểm
+                                p Để có được lớp trang điểm hoàn hảo nhất, chăm sóc da trước khi trang điểm là điều rất cần thiết. Dưới đây là các bước dưỡng da cần lưu ý:
+                                p 
+                                    strong Bước 1: Làm sạch da mặt
+                                    br
+                                    |Sử dụng sữa rửa mặt để loại bỏ bụi bẩn, vi khuẩn và tế bào chết trên da. Điều này giúp lỗ chân lông thông thoáng và hấp thu dưỡng chất tốt hơn.
+                                p 
+                                    strong Bước 2: Cân bằng da
+                                    br
+                                    |Dùng nước hoa hồng để loại bỏ vi khuẩn gây viêm da. Đồng thời, giúp nuôi dưỡng cấu trúc da và giúp da đàn hồi tốt hơn.
+                                p 
+                                    strong Bước 3: Dưỡng ẩm
+                                    br
+                                    |Thoa một lớp serum hoặc kem dưỡng ẩm mỏng lên da để tăng độ ẩm và giúp da mềm mịn hơn. Ngoài ra, còn giúp các lớp mỹ phẩm sau này bám lâu hơn.
+                                p 
+                                    strong Bước 4: Dùng kem chống nắng
+                                    br
+                                    |Sử dụng thêm kem chống nắng để hạn chế tối đa các tác động xấu từ ánh nắng mặt trời lên da. Từ đó, giúp giảm hình thành sạm thâm và tình trạng lão hóa da sớm.
+                        .prod-desc__block
+                            .prod-desc__head 
+                                p.tt ĐÁNH GIÁ SẢN PHẨM
+                                a(href="").prod-desc__btn.popup-open(data-popup="comment") 
+                                    span.txt Viết đánh giá
+                                    i.fa-solid.fa-chevron-right
+                            .prod-desc__rating 
+                                .flex
+                                    .prod-desc__rating-left
+                                        .inner 
+                                            p.num 4.9
+                                            .b-gr 
+                                                .iwt 
+                                                    span.txt 5
+                                                    .icon 
+                                                        +img("ic-star2.svg")
+                                                .lines 
+                                                    span.name 12.422 
+                                                    span.val Đánh giá
+                                    .prod-desc__rating-right
+                                        .inner 
+                                            .prod-desc__rating-list 
+                                                label.prod-desc__rating-item 
+                                                    input(type="radio", name="rating", value="1")
+                                                    .iwt 
+                                                        span.txt 5
+                                                        .icon 
+                                                            +img("ic-star2.svg")
+                                                        span.txt (80k)
+                                                label.prod-desc__rating-item 
+                                                    input(type="radio", name="rating", value="1")
+                                                    .iwt 
+                                                        span.txt 4
+                                                        .icon 
+                                                            +img("ic-star2.svg")
+                                                        span.txt (60k)
+                                                label.prod-desc__rating-item 
+                                                    input(type="radio", name="rating", value="1")
+                                                    .iwt 
+                                                        span.txt 3
+                                                        .icon 
+                                                            +img("ic-star2.svg")
+                                                        span.txt (1k)
+                                                label.prod-desc__rating-item 
+                                                    input(type="radio", name="rating", value="1")
+                                                    .iwt 
+                                                        span.txt 2
+                                                        .icon 
+                                                            +img("ic-star2.svg")
+                                                        span.txt (200)
+                                                label.prod-desc__rating-item 
+                                                    input(type="radio", name="rating", value="1")
+                                                    .iwt 
+                                                        span.txt 1
+                                                        .icon 
+                                                            +img("ic-star2.svg")
+                                                        span.txt (50)
+                            .prod-desc__comment.seemoreJS(data-init="3" data-show="1" data-more="Xem thêm" data-less="Thu gọn")
+                                each val,index in Array(7)
+                                    .prod-desc__comment-item.seemoreJS-item
+                                        .inner 
+                                            .avatar 
+                                                +img("avatar.jpg")
+                                            .content 
+                                                +Star("80%")
+                                                .author 
+                                                    span.tg Đánh giá bởi
+                                                    span.name Nguyễn Văn A
+                                                    |-
+                                                    span.date 12/08/2025
+                                                .content-box 
+                                                    p.des This is an unusually large advance over previous models, especially in raw computing power, but also in fun things like screen and headphone support.
+                                                    .content-imgs 
+                                                        .img 
+                                                            .img-inner 
+                                                                +img("blog1.jpg")
+                                                        .img 
+                                                            .img-inner 
+                                                                +img("blog1.jpg")
+                                                        .img 
+                                                            .img-inner 
+                                                                +img("blog1.jpg")
+                                a(href="").prod-desc__btn.popup-open.seemoreJS-btn 
+                                    span.txt Xem thêm
+                                    i.fa-solid.fa-chevron-down
+                        .prod-desc__block
+                            .prod-desc__head 
+                                p.tt Chính sách đổi trả
+                            .mona-content 
+                                ul 
+                                    li Figma ipsum component variant main layer. Union plugin duplicate editor object project stroke. Flows shadow asset object select object. Duplicate text ellipse list list. Strikethrough flows scale edit rectangle rotate. Community horizontal flows horizontal rectangle image pencil. Team prototype component inspect flows align duplicate edit duplicate. Fill stroke draft export style. Rotate figma frame boolean slice project.
+                                    li Ipsum pixel star text union move auto inspect. Connection follower strikethrough arrow pen font main edit create. Pen star select community background auto group variant. Ellipse plugin project underline pixel frame figjam. Vertical italic fill hand stroke. Editor inspect reesizing horizontal variant strikethrough list pen style clip. Image polygon main connection overflow community list. Team arrow undo auto thumbnail style create prototype auto.
+                                    li Shadow flatten overflow plugin hand create italic effect underline overflow. Text undo layout star invite comment ellipse scale move line. Rectangle strikethrough flatten underline auto. Prototype frame ellipse bold layout connection polygon. Figma slice.
+                                    li Ipsum pixel star text union move auto inspect. Connection follower strikethrough arrow pen font main edit create. Pen star select community background auto group variant. Ellipse plugin project underline pixel frame figjam. Vertical italic fill hand stroke.
+                    +BlockSide
+                        h3.news-dt__title BÁN CHẠY NHẤT
+                        .news-dt__list.row.gap-res 
+                            each val,index in Array(3)
+                                .col 
+                                    +prodItem("ver2")
+    section.sec-homes-recent 
+        .homes-recent.ss-pd-min-t 
+            .container 
+                +headHori("mb-24")
+                    +title40("sản phẩm tương tự","text-hori","true")
+                    +SwiperControl()
+                .homes-recent__slide
+                    .swiper.row.gap-res.rows-5 
+                        .swiper-wrapper 
+                            each val,index in Array(6)
+                                .swiper-slide.col 
+                                    +prodItem("ver2")
+    +secSale                          

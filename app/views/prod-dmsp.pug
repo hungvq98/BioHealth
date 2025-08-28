@@ -1,0 +1,155 @@
+extends layout/layout
+
+block vars
+    -title = 'Sản phẩm đặc sắc'
+    -bodyClass = 'page-prod'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Sản phẩm đặc sắc"}])
+    section.sec-prod-dmsp
+        .prod-dmsp
+            .container 
+                .prod-dmsp__head
+                    +title40("chăm sóc cơ thể")
+                    .prod-dmsp__action 
+                        +Checker("checkbox","sqr","Hiển thị sản phẩm giảm giá")
+                        .acc__manage-filter 
+                            span.txt Lọc theo
+                            .select 
+                                select(name="" class="re-select-main" data-placeholder="Giá") 
+                                    option(value="") Giá
+                                    option(value="1") Giá thấp - cao
+                                    option(value="2") Giá cao - thấp
+                    
+
+                +LayoutTwoBlock 
+                    +BlockSide 
+                        +Sidebar
+                            .prod-dmsp__filter
+                                .prod-dmsp__block.cls-block 
+                                    .prod-dmsp__collapse 
+                                        .cls-item.active 
+                                            .cls-head 
+                                                span.txt Danh mục sản phẩm
+                                                .icon
+                                                    i.fa-solid.fa-chevron-down
+                                            .cls-body 
+                                                +inputSrch("Tìm kiếm sản phẩm")
+                                                ul.prod-dmsp__ul 
+                                                    li.prod-dmsp__ul-item.active 
+                                                        a(href="").prod-dmsp__ul-link Chăm sóc tóc 
+                                                    li.prod-dmsp__ul-item 
+                                                        a(href="").prod-dmsp__ul-link Chăm sóc cơ thể
+                                                    li.prod-dmsp__ul-item 
+                                                        a(href="").prod-dmsp__ul-link Chăm sóc răng miệng
+                                                    li.prod-dmsp__ul-item 
+                                                        a(href="").prod-dmsp__ul-link Combo sản phẩm
+                                                    li.prod-dmsp__ul-item 
+                                                        a(href="").prod-dmsp__ul-link Combo ưu đãi
+                                                    li.prod-dmsp__ul-item 
+                                                        a(href="").prod-dmsp__ul-link Sale/Flash sale
+                                    .prod-dmsp__collapse 
+                                        .cls-item 
+                                            .cls-head 
+                                                span.txt Nguyên llệu
+                                                .icon
+                                                    i.fa-solid.fa-chevron-down
+                                            .cls-body(style="display: none;")
+                                                +Checker("checkbox","sqr","Gừng")
+                                                +Checker("checkbox","sqr","Rau má")
+                                                +Checker("checkbox","sqr","Bồ hòn")
+                                                +Checker("checkbox","sqr","Lá trầu")
+                                                +Checker("checkbox","sqr","Bạc hà")
+                                                +Checker("checkbox","sqr","Lá dứa")
+                                                +Checker("checkbox","sqr","Hạnh nhân")
+                                                +Checker("checkbox","sqr","Lá xô thêm")
+                                    .prod-dmsp__collapse 
+                                        .cls-item 
+                                            .cls-head 
+                                                span.txt Dung tích
+                                                .icon
+                                                    i.fa-solid.fa-chevron-down
+                                            .cls-body(style="display: none;") 
+                                                +Checker("checkbox","sqr","200ml")
+                                                +Checker("checkbox","sqr","300ml")
+                                                +Checker("checkbox","sqr","500ml")
+                                                +Checker("checkbox","sqr","1000ml")
+                                                +Checker("checkbox","sqr","1500ml")
+                                                +Checker("checkbox","sqr","2000ml")
+                                                +Checker("checkbox","sqr","2500ml")
+                                                +Checker("checkbox","sqr","3000ml")
+                                    .prod-dmsp__collapse 
+                                        .cls-item 
+                                            .cls-head 
+                                                span.txt Công dụng
+                                                .icon
+                                                    i.fa-solid.fa-chevron-down
+                                            .cls-body(style="display: none;") 
+                                                +Checker("checkbox","sqr","Chăm sóc tóc")
+                                                +Checker("checkbox","sqr","Chăm sóc cơ thể")
+                                                +Checker("checkbox","sqr","Chăm sóc răng miệng")
+                                                +Checker("checkbox","sqr","Combo sản phẩm")
+                                                +Checker("checkbox","sqr","Combo ưu đãi")
+                                                +Checker("checkbox","sqr","Sale/Flash sale")
+                                    .prod-dmsp__collapse 
+                                        .cls-item 
+                                            .cls-head 
+                                                span.txt Đánh giá
+                                                .icon
+                                                    i.fa-solid.fa-chevron-down
+                                            .cls-body(style="display: none;") 
+                                                label.checker
+                                                    input(type="radio" name="rating")
+                                                    .sqr
+                                                    +Star("100%")
+                                                label.checker
+                                                    input(type="radio" name="rating")
+                                                    .sqr
+                                                    +Star("80%")
+                                                label.checker
+                                                    input(type="radio" name="rating")
+                                                    .sqr
+                                                    +Star("60%")
+                                                label.checker
+                                                    input(type="radio" name="rating")
+                                                    .sqr
+                                                    +Star("40%")
+                                                label.checker
+                                                    input(type="radio" name="rating")
+                                                    .sqr
+                                                    +Star("20%")
+                                    .prod-dmsp__collapse 
+                                        .cls-item 
+                                            .cls-head 
+                                                span.txt Trạng thái sản phẩm
+                                                .icon
+                                                    i.fa-solid.fa-chevron-down
+                                            .cls-body(style="display: none;") 
+                                                +Checker("checkbox","sqr","Sản phẩm mới")
+                                                +Checker("checkbox","sqr","Sản phẩm bán chạy")
+                                                +Checker("checkbox","sqr","Sản phẩm khuyến mãi")
+                                                +Checker("checkbox","sqr","Sản phẩm bán chạy")
+                                    .prod-dmsp__collapse 
+                                        .cls-item.active 
+                                            .cls-head 
+                                                span.txt Khoảng giá
+                                                .icon
+                                                    i.fa-solid.fa-chevron-down
+                                            .cls-body 
+                                                +fillRange
+                                .prod-dmsp__btns 
+                                    +Btn("Xóa bỏ","","gray")
+                                    +Btn("Áp dụng","","pri")
+
+                    +BlockMain 
+                        .side-open 
+                            .side-open-wrap 
+                                i.fa-regular.fa-sidebar-flip
+                        .prod-dmsp__list.row.gap-res.rows-4
+                            each val,index in Array(12) 
+                                .col 
+                                    +prodItem("ver2")
+                        +PageNumber
+    +secSale

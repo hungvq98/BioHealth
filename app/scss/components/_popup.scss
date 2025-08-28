@@ -115,288 +115,38 @@
     }
 }
 
-.rc-popup {
-    max-width: 81.7rem;
-
+.popup-write {
+    max-width: 44.8rem;
+    .popup-over {
+        min-height: 30vh;
+    }
     .popup-wrapper {
         padding: 2rem;
-    }
-
-    .popup-over {
-        min-height: unset;
-        max-height: unset;
-    }
-
-    .texts {
-        font-weight: 700;
-        color: var(--color-second);
-        margin-bottom: .5rem;
-        display: block;
-        @include fz-20;
-    }
-
-    .subs {
-        color: #737373;
-        margin-bottom: 1rem;
-    }
-
-    &-form {
-        padding: 1.6rem;
-        border: 0.1rem dashed var(--color-second);
-        border-radius: 1.2rem;
-        padding-bottom: 2rem;
-
-        .dropZone {
-            .tt {
-                display: none;
-            }
-        }
-
-        .form-ip:has(.texts) {
-            margin-bottom: 0;
-        }
-
-        .form-list {
-            --cg: 1.2rem;
-            --rg: 1.2rem;
-        }
-
-        overflow-y: auto;
-        max-height: 60vh;
-        height: 100%;
-    }
-
-    &-wrap {
-        display: flex;
-        flex-direction: column;
-        gap: 1rem;
-    }
-
-    &-over {
-        height: 100%;
-        display: flex;
-        flex-direction: column;
-    }
-
-    &-bottom {
-        .btn-box {
-            margin-left: auto;
-
-            @include max(500px) {
-                width: 100%;
-
-                .btn {
-                    width: 100%;
-                }
-            }
+        .tt {
+            @include fz-24;font-weight: 600;
+            text-transform: uppercase;
+            color: var(--color-pri);
         }
     }
-}
-
-.srch-pop .input-srch {
-    margin-bottom: 2.4rem;
-}
-
-.srch-pop .input-srch input {
-    border-radius: 0;
-    background-color: #F4F4F5;
-}
-
-.srch-pop .input-srch .input-srch-btn {
-    border-radius: 0;
-}
-
-.srch-pop-rs-it {
-    display: flex;
-    gap: .5rem;
-    color: #737373;
-    transition: 0.4s;
-    cursor: pointer;
-
-    &:not(:first-child) {
-        margin-top: 1rem;
-    }
-
-    @include hover {
-        color: var(--color-pri);
-    }
-}
-
-.srch-pop-rs .tt {
-    margin-bottom: 1rem;
-    font-size: 1.4rem;
-}
-
-
-.thank-pop {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
-    z-index: 999;
-    visibility: hidden;
-    pointer-events: none;
-    @keyframes letterUp {
-        0% {
-            transform: translateY(50%);
+    &__form {
+        .stars {
+            margin-bottom: 1rem;
         }
-        100% {
-            transform: translateY(-17%);
-        }
-    }
-    @include max(600px) {
-        @keyframes letterUp {
-            0% {
-                transform: translateY(50%);
-            }
-            100% {
-                transform: translateY(-20%);
-            }
-        }
-    }
-    @include max(500px) {
-        @keyframes letterUp {
-            0% {
-                transform: translateY(50%);
-            }
-            100% {
-                transform: translateY(0%);
-            }
-        }
-    }
-    &.open {
-        visibility: visible;
-        pointer-events: visible;
-        .thank-pop-info {
-            animation: letterUp 0.8s ease-in-out forwards;
-            
-
-        }
-    }
-
-    &-overlay {
-        height: 100%;
-        width: 100%;
-        background-color: rgba($color: black, $alpha: 0.8);
-        @include transitionRe;
-    }
-
-    &-main {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        width: 100%;
-        max-width: 61rem;
-        width: calc(100% - 3rem);
-        border-radius: 1rem;
-    }
-
-    &-box {
-        position: relative;
-        aspect-ratio: 1;
-        display: flex;
-        justify-content: center;
-        align-items: center;
-        overflow: hidden;
-        &::after {
-            @include pseudo;
-            width: 100%;
-            height: 100%;
-            background-image: url("../assets/images/letter-back.png");
-            @include default-background;
-            bottom: 0;
-            left: 0;
-            pointer-events: none;
-        }
-
-        &::before {
-            @include pseudo;
-            width: 100%;
-            background-image: url("../assets/images/letter-front.png");
-            @include default-background;
-            bottom: 0;
-            left: 0;
-            aspect-ratio: 613/388;
-            z-index: 3;
-            pointer-events: none;
-        }
-        @include max(500px) {
-            &::after,&::before {
-                display: none;
-            }
-        }
-    }
-
-    &-info {
-        position: relative;
-        z-index: 2;
-        background-color: white;
-        width: 80%;
-        margin: 0 auto;
-        transition: 0.4s;
-        transform: translateY(50%);
-        padding: 2.4rem;
-        padding-bottom: 4rem;
-        @include max(600px) {
-            padding: 2rem 1rem;
-            padding-bottom: 4rem;
-        }
-        @include max(500px) {
-            width: 90%;
-        }
-        &::after {
-            @include pseudo;
-            width: 100%;
-            background-color: #F6EBE2;
-            height: 100%;
-            top: 0;
-            left: 0;
-        }
-        &::before {
-            @include pseudo;
-            height: 90%;
-            width: 80%;
-            background-color: white;
-            left: 0;top: 0;
-            z-index: 2;
+        .label {
+            font-weight: 700;
+            margin-bottom: 0.5rem;
         }
         
-        .inner {
-            gap: 2.4rem;
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-            position: relative;
-            z-index: 2;
-            @include max(1200px) {
-                gap: 1rem;
-            }
-        }
-        .icon {
-            width: 4.5rem;
-            height: 4.5rem;
-
-            img {
-                width: inherit;
-                height: inherit;
-                display: block;
-            }
-        }
-
-        .tt {
-            @include fz-24;
-            font-weight: 700;
-        }
-
-        .mona-content {
-            p {
-                font-size: 1.2rem;
-                opacity: 0.6;
-                margin: 0;
-                text-align: center;
-            }
+    }
+    &__box {
+        width: 100%;
+        border: 0.1rem solid var(--cl-bd);
+        border-radius: var(--radius);
+        padding: 1.2rem;
+        textarea {
+            width: 100%;
+            min-height: 11rem;
+            border: none;
         }
     }
 }

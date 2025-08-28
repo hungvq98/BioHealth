@@ -476,37 +476,42 @@ table {
 }
 
 .cls-body {
-    display: none;
+    // display: none;
 }
 
 
-.rating {
+.stars {
     display: flex;
-    gap: 0.5rem;
-
-    .stars {
-        cursor: pointer;
-
-        i {
-            color: #FCC21F;
-        }
-
-        &.active {
-            i {
-                color: #FCC21F;
-                font-weight: 900;
-            }
-        }
-
-    }
-
-    .star {
-        width: 2rem;
-        height: 2rem;
-        background: gray;
-        display: block;
-    }
 }
+
+.stars input {
+    position: absolute;
+    clip: rect(0, 0, 0, 0);
+}
+
+.stars input:nth-child(1):checked~label:nth-of-type(-n + 1),
+.stars input:nth-child(2):checked~label:nth-of-type(-n + 2),
+.stars input:nth-child(3):checked~label:nth-of-type(-n + 3),
+.stars input:nth-child(4):checked~label:nth-of-type(-n + 4),
+.stars input:nth-child(5):checked~label:nth-of-type(-n + 5) {
+    background: url(../assets/images/star-svg.svg);
+    background-repeat: no-repeat;
+    background-size: contain;
+}
+
+.stars label {
+    box-sizing: border-box;
+    display: inline-block;
+    margin-right: 6px;
+    height: 4rem;
+    width: 4rem;
+    background: url(../assets/images/star-gray.svg);
+    background-repeat: no-repeat;
+    cursor: pointer;
+    background-size: contain;
+}
+
+
 
 .marquee {
     .splide__list {
@@ -781,6 +786,7 @@ table {
         align-items: center;
         gap: 1rem;
     }
+
     .cdw-item {
         display: flex;
         justify-content: center;
@@ -792,6 +798,7 @@ table {
         color: white;
         border-radius: var(--radius);
         background-color: var(--color-second);
+
         .text {
             display: none;
         }
