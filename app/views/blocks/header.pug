@@ -86,13 +86,32 @@ header.hd
                           i.fa-solid.fa-box-open
                         p.txt Đơn hàng 
                   +Btn("Đăng xuất","","pri full","")
-            .hd-act__it 
+            .hd-act__it.hd-locate 
               .iwt 
                 .icon 
                   +img("ic-locate.svg")
                 .b-gr 
                   span.txt Cửa hàng
                   span.val Hồ Chí Minh
+              .hd-locate__menu 
+                ul.hd-locate__list 
+                  li.hd-locate__item 
+                    +Checker("radio","circle","Thành Phố Hồ Chí Minh","","","locate")
+                  li.hd-locate__item 
+                    +Checker("radio","circle","Hà Nội","","","locate")
+                  li.hd-locate__item 
+                    +Checker("radio","circle","Đà Nẵng","","","locate")
+                  li.hd-locate__item 
+                    +Checker("radio","circle","Nha Trang","","","locate")
+                  li.hd-locate__item 
+                    +Checker("radio","circle","Hải Phòng","","","locate")
+                  li.hd-locate__item 
+                    +Checker("radio","circle","Cần Thơ","","","locate")
+                  li.hd-locate__item 
+                    +Checker("radio","circle","Huế","","","locate")
+                  li.hd-locate__item 
+                    +Checker("radio","circle","Quy Nhơn","","","locate")
+
             .hd-act__it.hd-cart 
               .iwt 
                 .icon 

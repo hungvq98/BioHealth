@@ -1127,6 +1127,19 @@ html:has(.admin-bar) {
 }
 
 // Check In & Out
+.layout-two-r .wrapper {
+    transition: 0.4s;
+}
+
+.acc__left .wrapper {
+    transition: 0.4s;
+}
+.store-system__right .wrapper {
+    transition: 0.4s;
+}
+.prod-dt__slide .wrapper {
+    transition: 0.4s;
+}
 html:has(.hd.out) {
     @media screen and (min-width: 1201px) {
         .layout-two-r .wrapper {
@@ -1135,6 +1148,14 @@ html:has(.hd.out) {
         }
 
         .acc__left .wrapper {
+            position: sticky;
+            top: 7rem;
+        }
+        .store-system__right .wrapper {
+            position: sticky;
+            top: 7rem;
+        }
+        .prod-dt__slide .wrapper {
             position: sticky;
             top: 7rem;
         }

@@ -44,6 +44,33 @@ block container
                                 |Sử dụng thêm kem chống nắng để hạn chế tối đa các tác động xấu từ ánh nắng mặt trời lên da. Từ đó, giúp giảm hình thành sạm thâm và tình trạng lão hóa da sớm.
                             figure 
                                 +img("mona2.jpg")
+                        .news-dt__flash
+                            section.sec-homes-flash 
+                                .homes-flash.ss-pd-min-t.ver2.checkViewJS  
+                                    .homes-flash__box 
+                                        +boxLeaf(1,5,0.5)
+                                        .homes-flash__decs 
+                                            .homes-flash__dec
+                                                +img("homes-flash-dec3.png")
+                                            .homes-flash__dec
+                                                +img("homes-flash-dec4.png")
+                                            .homes-flash__dec
+                                                +img("homes-flash-dec5.png")
+                                            .homes-flash__dec
+                                                +img("homes-flash-dec6.png")
+                                        .bg.frameJs 
+                                            +img("flash-light-bg.jpg")
+                                        .homes-resrch__head
+                                            +headHori("mb-24")
+                                                +title40("SẢN PHẨM LIÊN QUAN","text-hori","true")
+                                                +SwiperControl()
+                                        .homes-news__slide 
+                                            .swiper.row.gap-res 
+                                                .swiper-wrapper 
+                                                    each val,index in Array(6)
+                                                        .swiper-slide.col 
+                                                            +prodItem("ver1")
+                                            +Pagination
                         .news-dt__bottom 
                             span.txt  Chia sẻ bài viết
                             +Social()       

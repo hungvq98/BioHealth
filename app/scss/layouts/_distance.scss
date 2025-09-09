@@ -96,6 +96,9 @@
 
 .mb-24 {
     margin-bottom: 2.4rem;
+    @include max(768px) {
+        margin-bottom: .5rem;
+    }
 }
 
 .mb-24s {

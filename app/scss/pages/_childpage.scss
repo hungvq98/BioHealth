@@ -69,6 +69,35 @@
             }
         }
     }
+    .homes-flash {
+        .homes-news__slide  {
+            .swiper {
+                overflow: visible;
+                &-slide {
+                    width: calc(100% / 3.2);
+                    @include max(730px) {
+                        width: 50%;
+                    }
+                    @include max(430px) {
+                        width: calc(100% / 1.5);
+                    }
+                }
+            }
+        }
+        .homes-resrch__head {
+            width: 100%;
+            padding-right: 0;
+        }
+        .homes-flash__dec {
+            &:nth-child(2) {
+                opacity: 0;
+            }
+            &:nth-child(3) {
+                left: unset;right: 0;
+                transform: translate(30%, -30%) scaleX(-1);
+            }
+        }
+    }
 }
 
 // Policy
@@ -703,7 +732,9 @@ body:has(.page-store) {
         width: calc(7/12*100%);
 
         .wrapper {
-            height: 100%;
+            // height: 100%;
+            position: sticky;
+            top: var(--size-hd);
         }
     }
 
@@ -736,6 +767,8 @@ body:has(.page-store) {
 
     &__item {
         .inner {
+            transition: 0.4s;
+            cursor: pointer;
             .tt {
                 font-weight: 600;
                 text-transform: uppercase;
@@ -779,20 +812,60 @@ body:has(.page-store) {
                 padding-bottom: 0;
             }
         }
+        &.is-active {
+            .inner {
+                background-color: var(--color-pri);
+                color: white;
+                padding: 1rem;
+                border-radius: 1rem;
+                .tt {
+                    border-color: white;
+                    color: white;
+                }
+                .list {
+                    &-item {
+                        .iwt {
+                            .icon {
+                                img {
+                                    filter: brightness(0) invert(1);
+                                }
+                            }
+                            .txt {
+                                color: white;
+                            }
+                        }
+                    }
+                }
+            }
+        }
 
     }
 
     &__map {
-        height: 100%;
+        // height: 100%;
         border-radius: var(--radius-xl);
         overflow: hidden;
-        min-height: 40rem;
+        // min-height: 40rem;
+        aspect-ratio: 779/559;
 
         iframe {
             height: 100%;
             width: 100%;
             display: block;
             object-fit: cover;
+        }
+        .be-map-active {
+            height: 100%;
+        }
+        .be-map-nonactive {
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            @include fz-20;
+            text-transform: uppercase;
+            color: var(--color-pri);
         }
     }
 

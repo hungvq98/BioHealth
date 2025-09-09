@@ -986,3 +986,92 @@ mixin fillRange
                     name="price_max"
                 )
                 span.txt đ
+mixin boxCmt()
+  .lib.mt-40
+    .lib-cmt
+        .lib-cmt-wr
+          .lib-cmt-box.cmtJS.seemoreJS(data-init="3" data-show="1" data-more="Xem thêm" data-less="Thu gọn")
+            ul.lib-cmt-list.cmtresults
+              each val,index in Array(5)
+                li.lib-cmt-item.seemoreJS-item
+                  .wrap 
+                    .ava 
+                      +img("logo-avatar.jpg")
+                    .ctn 
+                      p.ctn-name 
+                          |Sara
+                      p.ctn-des I give it 5 reputable stars, the fruit is sweet, cool and delicious, and the staff is enthusiastic
+                      .lib-cmt-rep 
+                          .wrap 
+                              span.ctn-time 23 giờ trước
+                              span.ctn-like
+                                  span.ctn-like-txt  Like
+                                  i.fa-solid.fa-thumbs-up
+                                  span.ctn-like-num (21)
+                              span.ctn-like.repJS
+                                  span.ctn-like-txt  Reply
+                                  i.fa-solid.fa-comment-dots
+                                  span.ctn-like-num (21)
+                          .lib-cmt-f 
+                              form(action="")
+                                  .lib-cmt-f-flex
+                                      input(type="text")
+                                      button
+                                          i.fa-solid.fa-paper-plane
+                  ul.lib-cmt-list
+                    li.lib-cmt-item 
+                      .wrap 
+                        .ava 
+                            +img("logo-avatar.jpg")
+                        .ctn 
+                            p.ctn-name 
+                                |Sara
+                            
+                            p.ctn-des I give it 5 reputable stars, the fruit is sweet, cool and delicious, and the staff is enthusiastic
+                            .lib-cmt-rep 
+                                .wrap 
+                                    span.ctn-time 23 giờ trước
+                                    span.ctn-like
+                                        span.ctn-like-txt  Like
+                                        i.fa-solid.fa-thumbs-up
+                                        span.ctn-like-num (21)
+                                    span.ctn-like.repJS
+                                        span.ctn-like-txt  Reply
+                                        i.fa-solid.fa-comment-dots
+                                        span.ctn-like-num (21)
+                                .lib-cmt-f 
+                                    form(action="")
+                                        .lib-cmt-f-flex
+                                            input(type="text")
+                                            button
+                                                i.fa-solid.fa-paper-plane
+                      ul.lib-cmt-list
+                        li.lib-cmt-item 
+                            .wrap 
+                                .ava 
+                                    +img("logo-avatar.jpg")
+                                .ctn 
+                                    p.ctn-name 
+                                        |Sara
+                                    
+                                    p.ctn-des I give it 5 reputable stars, the fruit is sweet, cool and delicious, and the staff is enthusiastic
+                                    .lib-cmt-rep 
+                                        .wrap
+                                            span.ctn-time 23 giờ trước 
+                                            span.ctn-like
+                                                span.ctn-like-txt  Like
+                                                i.fa-solid.fa-thumbs-up
+                                                span.ctn-like-num (21)
+                                            span.ctn-like.repJS
+                                                span.ctn-like-txt  Reply
+                                                i.fa-solid.fa-comment-dots
+                                                span.ctn-like-num (21)
+                                        .lib-cmt-f 
+                                            form(action="")
+                                                .lib-cmt-f-flex
+                                                    input(type="text")
+                                                    button
+                                                        i.fa-solid.fa-paper-plane
+              a(href="").prod-desc__btn.seemoreJS-btn 
+                span.txt Xem thêm
+                i.fa-solid.fa-chevron-down              

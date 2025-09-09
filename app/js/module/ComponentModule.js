@@ -296,4 +296,31 @@ export default function ComponentModule() {
       fileInput.files = fileList.files;
     }
   }
+
+  // repjs jquery 
+  $(document).ready(function() {
+    const cmt = $(".cmtJS");
+    if (cmt.length) {
+      const cmtItem = cmt.find(".lib-cmt-item");
+      cmtItem.each(function() {
+        const cmtForm = $(this).find(".lib-cmt-f");
+        const cmtChild = $(this).find(".lib-cmt-child");
+        cmtForm.slideUp(500);
+      });
+  
+      const repJs = $(".repJS");
+      repJs.each(function() {
+        const repItem = $(this);
+        const repForm = repItem.closest(".lib-cmt-rep").find(".lib-cmt-f");
+        repItem.on("click", () => {
+          $(".lib-cmt-f").slideUp(500);
+          if (repForm.css("display") === "none") {
+            repForm.slideDown(500);
+          } else {
+            repForm.slideUp(500);
+          }
+        });
+      });
+    }
+  });
 }

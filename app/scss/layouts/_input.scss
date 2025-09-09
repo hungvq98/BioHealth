@@ -1,5 +1,3 @@
-
-
 textarea {
     resize: none;
 }
@@ -40,11 +38,12 @@ form {
     --text: var(--color-text);
 
     &-list {
-        --cg:1.6rem;
-        --rg:1.6rem;
+        --cg: 1.6rem;
+        --rg: 1.6rem;
+
         @include max(500px) {
-            --cg:0.6rem;
-            --rg:0.6rem;
+            --cg: 0.6rem;
+            --rg: 0.6rem;
         }
     }
 
@@ -52,6 +51,7 @@ form {
         .inner {
             position: relative;
         }
+
         .text {
             display: block;
             color: var(--color-text);
@@ -80,6 +80,7 @@ form {
                 cursor: pointer;
                 z-index: 2;
             }
+
             .icon {
                 position: absolute;
                 right: 1rem;
@@ -163,6 +164,7 @@ form {
 
         &:has(.btn) {
             pointer-events: none;
+
             .btn {
                 pointer-events: visible;
             }
@@ -179,9 +181,11 @@ form {
         height: 4.8rem;
         border: 0.1rem solid var(--cl-bd);
         border-radius: 100rem;
+
         &:has(input:focus) {
             border-color: var(--color-pri);
         }
+
         input {
             height: 100%;
             width: 100%;
@@ -189,12 +193,14 @@ form {
             outline: none;
             padding: 1.3rem;
             background-color: transparent;
+
             @include input-placeholder {
                 opacity: 0.5;
                 color: #384252;
             }
         }
     }
+
     &__btn {
         width: 4rem;
         height: 4rem;
@@ -202,34 +208,51 @@ form {
         display: flex;
         justify-content: center;
         align-items: center;
+
         img {
             filter: brightness(1) invert(1);
         }
     }
 }
+
 .selectNor {
+
     // select
-        .select2-container--default .select2-selection--single {
-            border-radius: 100rem;
-            background-color: white;
-        }
+    .select2-container .select2-selection {
+        border-color: var(--cl-bd);
+    }
 
-        .select2-container--default .select2-selection--single .select2-selection__placeholder {
-            color: #384252;
-            font-size: 1.6rem;
-            font-weight: 400;
-        }
+    .select2-container--default .select2-selection--single {
+        border-radius: 100rem;
+        background-color: white;
+    }
 
-        .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
-            border-radius: 100rem !important;
-        }
+    .select2-container--default .select2-selection--single .select2-selection__placeholder {
+        color: #384252;
+        font-size: 1.6rem;
+        font-weight: 400;
+    }
 
-        .select2-container .select2-selection--single .select2-selection__rendered {
-            font-weight: 400;
-            font-size: 1.6rem;
-            color: #384252;
-            padding-left: 1.3rem;
-        }
+    .select2-container--default.select2-container--open.select2-container--below .select2-selection--single {
+        border-radius: 100rem !important;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__rendered {
+        font-weight: 400;
+        font-size: 1.6rem;
+        color: #384252;
+        padding-left: 1.3rem;
+    }
+
+    .select2-container .select2-selection--single .select2-selection__arrow b {
+        background: transparent;
+    }
+
+    .select2-container--default .select2-selection--single .select2-selection__clear {
+        position: absolute;
+        right: 1.2rem;
+        top: 15%;
+    }
 }
 
 // Form Date

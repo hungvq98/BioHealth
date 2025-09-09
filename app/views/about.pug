@@ -1,0 +1,201 @@
+extends layout/layout
+
+block vars
+    -title = 'Giới thiệu' 
+    -bodyClass = 'page-about'
+
+block container 
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Giới thiệu"}])
+    section.sec-ab-first 
+        .ab-first.ss-pd-min-t.add-class.ParaY  
+            .sign__decs
+                .sign__dec.ParaYScroll
+                    .in 
+                        +img("sign-dec1.png")
+                .sign__dec.ParaYScroll
+                    .in 
+                        +img("sign-dec2.png")
+            .container
+                .ab-first__title 
+                    p.sub(data-aos="fade-up-cus" data-aos-delay="300") Về chúng tôi
+                    p.ttmsl(data-aos="fade-up-cus" data-aos-delay="400") SẢN PHẨM DƯỢC LIỆU THIÊN NHIÊN HỮU CƠ CHĂM SÓC CÁ NHÂN (Top to Toe) AN TOÀN, LÀNH TÍNH
+                    p.tt.text-ln(data-aos="fade-up-cus" data-aos-delay="500") 
+                        |CHỮA LÀNH VÀ TOẢ SÁNG 
+                        br
+                        |TỪ THIÊN NHIÊN
+                    p.des(data-aos="fade-up-cus" data-aos-delay="600") LỐI SỐNG, DINH DƯỠNG VÀ CÁC SẢN PHẨM GIẢI PHÁP CHĂM SÓC CÁ NHÂN. BIOHEALTH MANG LẠI GIÁ TRỊ KHÁC BIỆT – TRÊN HÀNH TRÌNH SỐNG KHOẺ THUẦN TỰ NHIÊN 
+                .ab-first__slide(data-aos="fade" data-aos-delay="600") 
+                    .swiper.row.gap-res.rows-3 
+                        .swiper-wrapper 
+                            each val,index in Array(3)
+                                .swiper-slide.col 
+                                    .ab-first__item 
+                                        .inner 
+                                            .img 
+                                                a(href="").img-inner
+                                                    +img(`ab${index+1}.jpg`)
+                                            .info 
+                                                h4.info-tt Thói quen làm sạch hằng ngày ảnh hưởng trực tiếp đến sức khỏe da, tóc, răng miệng. BioHealth giúp bạn loại bỏ rủi ro hóa chất, hướng tới cuộc sống xanh an lành & bền vững.
+                    +Pagination
+                    +Btn("Mua sắm ngay hôm nay","","second center","ic-arrow.svg")
+    section.sec-ab-tnsm 
+        .ab-tnsm.ss-pd-min-t
+            .container 
+                .ab-tnsm__flex.row 
+                    .ab-tnsm__left.col
+                        .wrapper 
+                            .ab-tnsm__cls.collapse-block 
+                                .ab-tnsm__cls-item.collapse-item 
+                                    .ab-tnsm__cls-head.collapse-head 
+                                        span.txt tầm nhìn
+                                    .ab-tnsm__cls-body.collapse-body 
+                                        .mona-content
+                                            p Bằng giải pháp sử dụng nguồn nguyên liệu tươi nguyên 100%, ứng dụng công nghệ trích ly xanh nhằm đảm bảo phẩm chất hữu cơ đạt hiệu quả chất lượng cao. Quá trình sản xuất từ nguyên liệu được thu hoạch tươi xanh, chiết tách & phối trộn thành phẩm hoàn chỉnh theo tiêu chuẩn khu công nghệ cao TP HCM - SHTP theo tiêu chuẩn cGMP - Asean, đạt chứng nhận ISO & FDA. Cam kết không sử dụng thành phần dược liệu công nghiệp và hương liệu.
+                                            p BioHealth mong muốn rằng, mỗi sản phẩm hữu cơ 
+                                                strong LIỆU THIÊN NHIÊN 
+                                                |quý giá không chỉ mang lại hiệu quả 
+                                                strong HỒI PHỤC 
+                                                |các tổn hại đã xảy ra theo thời gian mà còn là người bạn đồng hành tin cậy với giải pháp 
+                                                strong CHUYỂN ĐỔI HỮU CƠ 
+                                                |thiên nhiên, giải pháp cho tinh thần thư thái, tự tin, thoải mái, 
+                                                strong SỐNG KHOẺ KHÔNG DÙNG THUỐC.
+                                .ab-tnsm__cls-item.collapse-item 
+                                    .ab-tnsm__cls-head.collapse-head 
+                                        span.txt Sứ mệnh
+                                    .ab-tnsm__cls-body.collapse-body 
+                                        .mona-content
+                                            p Bằng giải pháp sử dụng nguồn nguyên liệu tươi nguyên 100%, ứng dụng công nghệ trích ly xanh nhằm đảm bảo phẩm chất hữu cơ đạt hiệu quả chất lượng cao. Quá trình sản xuất từ nguyên liệu được thu hoạch tươi xanh, chiết tách & phối trộn thành phẩm hoàn chỉnh theo tiêu chuẩn khu công nghệ cao TP HCM - SHTP theo tiêu chuẩn cGMP - Asean, đạt chứng nhận ISO & FDA. Cam kết không sử dụng thành phần dược liệu công nghiệp và hương liệu.
+                                            p BioHealth mong muốn rằng, mỗi sản phẩm hữu cơ 
+                                                strong LIỆU THIÊN NHIÊN 
+                                                |quý giá không chỉ mang lại hiệu quả 
+                                                strong HỒI PHỤC 
+                                                |các tổn hại đã xảy ra theo thời gian mà còn là người bạn đồng hành tin cậy với giải pháp 
+                                                strong CHUYỂN ĐỔI HỮU CƠ 
+                                                |thiên nhiên, giải pháp cho tinh thần thư thái, tự tin, thoải mái, 
+                                                strong SỐNG KHOẺ KHÔNG DÙNG THUỐC.
+                    .ab-tnsm__right.col 
+                        .wrapper
+                            .ab-tnsm__img.hoverParas 
+                                .img-decs
+                                    each val,index in Array(4) 
+                                        .img-dec.hoverParasIt 
+                                            +img(`ab-tnsm-img${index+1}.png`)
+                                .img 
+                                    +img("ab-tnsm-img.png")
+    section.sec-ab-three 
+        .ab-three.ss-pd-min-t
+            .container 
+                .ab-three__flex.row 
+                    -
+                        var arrs = [
+                            {
+                                icon:"ic-three1.png",
+                                tt:" Sử dụng 100% nguyên liệu tươi nguyên",
+                            },
+                            {
+                                icon:"ic-three2.png",
+                                tt:" Không hóa chất công nghiệp, không hương liệu tổng hợp",
+                            },
+                            {
+                                icon:"ic-three3.png",
+                                tt:"Nâng tầm giá trị dược liệu Việt Nam",
+                            },
+                        ]
+                    each val,index in arrs 
+                        .ab-three__item.col 
+                            .inner 
+                                .icon 
+                                    +img(val.icon)
+                                .tt=val.tt
+    section.sec-ab-prod 
+        .ab-prod.ss-pd-min-t 
+            .container 
+                .ab-prod__flex.row 
+                    .ab-prod__left.col 
+                        .wrapper 
+                            +headVerti("mb-24")
+                                +title40("ĐỊNH VỊ SẢN PHẨM","add-class text-hori","true")
+                            .img(data-aos="fade")
+                                .img-inner 
+                                    +img("ab-prod-img.png")
+                    .ab-prod__right.col 
+                        .wrapper 
+                            +headVerti("mb-24")
+                                +title40("ĐỊNH VỊ SẢN PHẨM","add-class text-hori")
+                            .ab-prod__blocks 
+                                .ab-prod__block(data-aos="fade-up-cus" data-aos-delay="300") 
+                                    .inner 
+                                        .icon 
+                                            +img("ic-ab-pr1.png")
+                                        .content 
+                                            h4.tt Ứng dụng khoa học dược liệu – Thành phần hoạt tính chủ động
+                                            .mona-content 
+                                                p BioHealth kế thừa và phát triển các bài thuốc dân gian từ lá trầu không, gừng, bồ hòn, rau má, xương rồng tai thỏ…, kết hợp với khoa học dược liệu hiện đại để tối ưu hiệu quả, ứng dụng làm sạch, vệ sinh chăm sóc cá nhân thay thế sản phẩm hoá chất. 
+                                .ab-prod__block(data-aos="fade-up-cus" data-aos-delay="400") 
+                                    .inner 
+                                        .icon 
+                                            +img("ic-ab-pr2.png")
+                                        .content 
+                                            h4.tt Công nghệ trích ly xanh – Giữ nguyên dưỡng chất, loại bỏ tạp chất
+                                            .mona-content 
+                                                p Ứng dụng công nghệ trích ly xanh hiện đại, BioHealth giúp tách chiết tinh khiết các hoạt chất có lợi mà không làm biến đổi dược tính, đồng thời loại bỏ hoàn toàn tạp chất, dư lượng hóa học mà phương pháp thông thường không kiểm soát được. Quy trình này giúp sản phẩm ổn định, an toàn và đạt hiệu quả tối ưu, đáp ứng tiêu chuẩn khắt khe về dược liệu thiên nhiên.
+                                .ab-prod__block(data-aos="fade-up-cus" data-aos-delay="00") 
+                                    .inner 
+                                        .icon 
+                                            +img("ic-ab-pr3.png")
+                                        .content 
+                                            h4.tt Sản xuất theo tiêu chuẩn cGMP ASEAN – Quy trình sản xuất và chất lượng sản phẩm được kiểm soát nghiêm ngặt
+                                            .mona-content 
+                                                p Mỗi sản phẩm BioHealth được sản xuất trên dây chuyền công nghệ cao đạt chuẩn ISO, đảm bảo độ tinh khiết, an toàn sinh học và ổn định trong suốt vòng đời sản phẩm.
+    section.sec-ab-store
+        .ab-store.ss-pd-min-t 
+            .container 
+                .ab-store__box.ParaBlock
+                    .bg.imgPara 
+                        +img("ab-store-bg.jpg")
+                    .map
+                        .map-in.ParaScroll
+                            +img("vn-map.png")
+                    .ab-store__content 
+                        .ab-store__title 
+                            +headVerti("mb-24")
+                                +title40("HỆ THỐNG CỬA HÀNG <br>TRÊN TOÀN QUỐC","add-class text-hori","true")
+                                .mona-content(data-aos="fade-left-cus" data-aos-delay="300")
+                                    p Figma ipsum component variant main layer. Draft list export rectangle opacity pencil. 
+                        .ab-store__btn(data-aos="fade-left-cus" data-aos-delay="500") 
+                            +Btn("Tìm cửa hàng gần bạn","","second","ic-arrow.svg")
+    section.sec-ab-customer 
+        .ab-customer.ss-pd-min-t 
+            .container 
+                +headHori("mb-24")
+                    +title40("đánh giá từ khách hàng","text-hori","true")
+                    +SwiperControl()
+                .ab-customer__slide
+                    .swiper.row.gap-res 
+                        .swiper-wrapper 
+                            each val,index in Array(4)
+                                .swiper-slide.col
+                                    .ab-customer__box
+                                        .inner 
+                                            .heads 
+                                                .iwt 
+                                                    .icon 
+                                                        +img("avatar.jpg")
+                                                    .b-gr 
+                                                        p.name Hà Tuấn
+                                                        +Star("80%") 
+                                            .bodies 
+                                                p.des Lorem ipsum dolor sit amet consectetur. Diam tincidunt eu magna vitae dolor interdum mattis vestibulum auctor. Turpis tempor elementum ultrices ut id cum odio. Varius ipsum ac viverra et.
+                                                .bodies-imgs 
+                                                    .img 
+                                                        +img("blog2.jpg")
+                                                    .img 
+                                                        +img("blog2.jpg")
+                                                    .img 
+                                                        +img("blog2.jpg")
+                    +Pagination                                
+
+
+    +secSale

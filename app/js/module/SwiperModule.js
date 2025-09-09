@@ -332,6 +332,37 @@ export default function SwiperModule() {
     spaceBetween: 0,
     effect: "slide",
   });
+
+  functionSlider(".ab-first__slide", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+  functionSlider(".news-dt__flash", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+  functionSlider(".ab-customer", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
 }
 
 

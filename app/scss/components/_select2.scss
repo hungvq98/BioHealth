@@ -65,7 +65,7 @@
     border: none;
     border-bottom: none !important;
     padding: 4px 6px !important;
-    background-color: black;
+    border-top: 0.1rem solid black;
     color: black;
 }
 .select2-results {
@@ -146,6 +146,9 @@
 
 .select2-search.select2-search--dropdown {
     display: none !important;
+}
+.select2-dropdown.has-search .select2-search.select2-search--dropdown {
+    display: block !important;
 }
 
 .select2-results__option {

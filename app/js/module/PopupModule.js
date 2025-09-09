@@ -13,6 +13,14 @@ export default function PopupModule() {
             });
         });
     }
+    document.addEventListener('keydown', (e) => {
+        if (e.key === 'Escape') {
+            popup.forEach((item) => {
+                item.classList.remove("open");
+                body.classList.remove("no-scroll");
+            });
+        }
+    });
     if (popupOverlay) {
         popupOverlay.forEach((item) => {
             item.addEventListener("click", () => {

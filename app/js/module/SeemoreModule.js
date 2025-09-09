@@ -1,6 +1,6 @@
 export default function SeemoreModule() {
     const seemoreJS = document.querySelectorAll('.seemoreJS');
-    if(seemoreJS.length > 0) {
+    if(seemoreJS) {
         seemoreJS.forEach(wrapper => {
             const init = parseInt(wrapper.dataset.init) || 0;
             const show = parseInt(wrapper.dataset.show) || 0;
@@ -17,11 +17,12 @@ export default function SeemoreModule() {
     
             // Tạo nút
             if (items.length > init) {
-                const btn = document.querySelector(".seemoreJS-btn");
+                const btn = wrapper.querySelector(".seemoreJS-btn");
                 const btnText = btn.querySelector(".txt");
                 btnText.textContent = moreText;
     
-                btn.addEventListener("click", () => {
+                btn.addEventListener("click", (e) => {
+                    e.preventDefault();
                     if (visibleCount < items.length) {
                         // Hiện thêm item
                         let nextCount = Math.min(visibleCount + show, items.length);
