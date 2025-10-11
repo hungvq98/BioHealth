@@ -1,0 +1,63 @@
+extends layout/layout
+
+block vars
+    -title = 'Thông tin chuyển khoản'
+    -bodyClass = 'page-ck'
+
+block container
+    section.sec-breadcrumb
+        .container
+            +BreadCrumb([{txt:"Thông tin chuyển khoản"}])
+    section.sec-ck-info
+        .ck-info.ss-pd-b
+            .container
+                +headVerti("mb-24")
+                    +title40("THÔNG TIN ĐƠN HÀNG")
+                .ck-info__box 
+                    .ck-info__flex.row 
+                        .ck-info__left.col 
+                            .wrapper 
+                                .img 
+                                    +img("qr-code.jpg")
+                        .ck-info__right.col
+                            .wrapper.notabJS 
+                                .ck-info__head.scrollContainer 
+                                    .ck-info__btn.notabBtn.buttons 
+                                        +img("bank1.png")
+                                    .ck-info__btn.notabBtn.buttons 
+                                        +img("bank2.png")
+                                    .ck-info__btn.notabBtn.buttons 
+                                        +img("bank3.png")
+                                .ck-info__body
+                                    .ck-info__panel.notabPanel
+                                        .order-box__block 
+                                            .heads 
+                                                p.txt  đơn hàng của bạn 
+                                                    span.txt-sup (3)
+                                                .icon 
+                                                    i.fa-solid.fa-chevron-up
+                                            .bodies 
+                                                table   
+                                                    tbody 
+                                                        each val,index in Array(3)
+                                                            tr 
+                                                                td 
+                                                                    span.txt Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml
+                                                                td x1 
+                                                                td 299.000 đ
+                                        .ck-info__text 
+                                            .lines 
+                                                p.name Chủ tài khoản
+                                                p.val HA THANH TUAN
+                                            .lines 
+                                                p.name Số tài khoản
+                                                p.val 23432 2398 5434 2354
+                                            .lines 
+                                                p.name Ngân hàng
+                                                p.val Ngân hàng TMCP Ngoại thương Việt Nam Vietcombank (VCB)
+                                            .lines 
+                                                p.name Nội dung chuyển khoản
+                                                p.val Mã đơn hàng + SĐT (vd: 0123 + 0912345678)
+                                    .ck-info__panel.notabPanel 
+                                    .ck-info__panel.notabPanel 
+                                    

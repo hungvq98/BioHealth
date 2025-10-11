@@ -546,7 +546,7 @@ mixin FormDate(name,spe,place,col)
   label.form-ip(class=col)
     span.text(class=spe)=name
     .input 
-      input(type="text" placeholder=place id="dob" data-min-year="1950" data-max-year="2012" data-default-year="2000")
+      input(type="text" value="10/12/1998" placeholder=place id="dob" data-min-year="1950" data-max-year="2012" data-default-year="2000")
       .icon 
         +img("ic-calendar.svg")
 mixin FormPass(name,spe,place,col)
@@ -797,11 +797,16 @@ mixin dmsp(arr)
                   p.txt Về BioHealth
             each val,index in arr 
               .swiper-slide.col
-                a(href="").dmsp-item 
+                .dmsp-item 
                   .iwt 
                     .icon
                       i.fa-solid.fa-chevron-down
-                    p.txt=val.txt
+                    a(href="").txt=val.txt
+                  .dmsp-dropdown
+                    ul.dmsp-dropdown__list
+                      each val,index in Array(6) 
+                        li.dmsp-dropdown__item
+                          a(href="").dmsp-dropdown__link=`Danh mục 1`
 mixin prodItem(ver)
   .prod-item(class=ver)
     .inner
@@ -967,25 +972,9 @@ mixin fillRange
                 )
         .range-flex
             .range-item.min
-                input.price(
-                    type="number" 
-                    value="0" 
-                    min="0" 
-                    max="14000000" 
-                    step="10" 
-                    name="price_min"
-                )
-                span.txt đ
+                .price-text-min
             .range-item.max
-                input.price(
-                    type="number" 
-                    value="14000000" 
-                    min="0" 
-                    max="14000000" 
-                    step="10" 
-                    name="price_max"
-                )
-                span.txt đ
+                .price-text-max
 mixin boxCmt()
   .lib.mt-40
     .lib-cmt

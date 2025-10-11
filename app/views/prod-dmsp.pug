@@ -8,8 +8,18 @@ block container
     section.sec-breadcrumb
         .container
             +BreadCrumb([{txt:"Sản phẩm đặc sắc"}])
+    section.sec-dmsp-banner 
+        .dmsp-banner 
+            .container 
+                .dmsp-banner__flex.row.gap-res 
+                    .col 
+                        .dmsp-banner__item 
+                            +img("dmsp-bn.jpg")
+                    .col 
+                        .dmsp-banner__item 
+                            +img("dmsp-bn.jpg")
     section.sec-prod-dmsp
-        .prod-dmsp
+        .prod-dmsp.ss-pd-t
             .container 
                 .prod-dmsp__head
                     +title40("chăm sóc cơ thể")

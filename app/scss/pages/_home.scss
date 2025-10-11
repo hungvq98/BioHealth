@@ -23,7 +23,7 @@
             height: 100%;
             border-radius: var(--radius);
 
-            img {
+            img,video {
                 @include imgCover;
                 height: 100%;
             }
@@ -65,6 +65,11 @@
 
     &__slide {
         position: relative;
+        .swiper-control.posi {
+            .swiper-control-btn {
+                top: calc(50% - 2rem);
+            }
+        }
 
         .swiper {
             @include max(1200px) {
@@ -96,7 +101,10 @@
     }
 
     &__item {
+        height: 100%;
+
         .inner {
+            height: 100%;
             display: flex;
             border-radius: var(--radius);
             border: 0.1rem solid var(--cl-bd);
@@ -275,6 +283,10 @@
 }
 
 .homes-flash {
+    .prod-item.ver2::after {
+        display: none;
+    }
+
     &__box {
         position: relative;
         overflow: hidden;
@@ -407,7 +419,9 @@
                 padding-top: 0.2rem;
             }
         }
+
     }
+
     &__slideGr {
         .swiper {
             .swiper-wrapper {
@@ -551,15 +565,16 @@
         .flex {
             --cg: .8rem;
             --rg: .8rem;
-        }
-
-        .col {
-            width: 100%;
-
-            &:nth-child(n + 2) {
-                width: calc(100% / 3);
+            >.col {
+                width: 100%;
+    
+                &:nth-child(n + 2) {
+                    width: calc(100% / 3);
+                }
             }
         }
+
+        
     }
 
     &__item {
@@ -568,7 +583,7 @@
             overflow: hidden;
             border-radius: var(--radius);
 
-            img {
+            img,video {
                 @include imgCover;
             }
         }
@@ -635,8 +650,13 @@
     }
 
     @include max(1024px) {
+        &__flex {
+            display: flex;
+            flex-direction: column-reverse;
+        }
         &__left {
-            display: none;
+            // display: none;
+            width: 100%;
         }
 
         &__right {
@@ -778,8 +798,9 @@
 // 
 .sec-homes-vct {
     position: relative;
-    background: linear-gradient(180deg, rgba(239, 249, 254, 0) 0%, #EFF9FE 90%,rgba(239, 249, 254, 0) 100%);
+    background: linear-gradient(180deg, rgba(239, 249, 254, 0) 0%, #EFF9FE 90%, rgba(239, 249, 254, 0) 100%);
     padding-bottom: 4rem;
+
     .box-leaf {
         position: absolute;
         top: 0;
@@ -837,6 +858,7 @@
                 @include default-background;
                 background-size: contain;
                 margin-right: 0.3em;
+                margin-left: 0.3em;
             }
         }
     }
@@ -965,17 +987,18 @@
                     opacity: 0.5;
 
                     .inner {
-                        
+
 
                         .img {
-                            transform: scale(0.5);
+                            transform: scale(0.6);
                             transition: 0.4s;
+
                             &::after {
-                                transform: translate(-50%, -50%) scale(0);
+                                transform: translate(-50%, -60%) scale(0);
                                 transition: 0.4s;
                             }
                         }
-                        
+
                     }
                 }
 
@@ -984,15 +1007,17 @@
                         opacity: 1;
 
                         .inner {
-                            
+
 
                             .img {
                                 transform: scale(1);
+
                                 &::after {
                                     transition-delay: 0.4s;
-                                    transform: translate(-50%, -50%) scale(1);
+                                    transform: translate(-50%, -60%) scale(1);
                                 }
                             }
+
                             .info {
                                 &-bottom {
                                     opacity: 1;
@@ -1062,10 +1087,11 @@
                     color: var(--color-pri);
                     text-align: center;
                 }
+
                 &-bottom {
                     text-align: center;
-                    transition:0.4s;
-                    opacity:0;
+                    transition: 0.4s;
+                    opacity: 0;
                 }
 
                 @include max(500px) {
@@ -1076,11 +1102,76 @@
             }
         }
     }
+
+    @include min(1201px) {
+        .container {
+            max-width: var(--recontainer);
+            margin-right: 0;
+        }
+
+        &__box {
+            .flex {
+                align-items: center;
+            }
+        }
+
+        &__left {
+            width: 57rem;
+
+            .head-verti {
+                text-align: left !important;
+            }
+
+            .homes-material__head {
+                justify-content: start;
+            }
+
+            .homes-material__content {
+                .mona-content {
+                    text-align: left;
+                }
+            }
+        }
+
+        &__right {
+            width: calc(100% - 57rem);
+
+            .wrapper {
+                overflow: hidden;
+            }
+        }
+
+        &__slide {
+            margin-left: 0;
+            position: relative;
+            width: 100%;
+            max-width: unset;
+
+            .swiper {
+                width: 70%;
+                max-width: 46rem;
+                margin-right: auto;
+                
+            }
+            .swiper-control {
+                &-btn.swiper-next {
+                    right: 0 !important;
+                }
+            }
+        }
+
+        &__item {
+            .info-bottom {
+                display: none;
+            }
+        }
+    }
 }
 
 .homes-resrch {
     position: relative;
     overflow: hidden;
+
     &__head {
         padding-right: var(--half);
     }
@@ -1229,6 +1320,24 @@
 
         &__right {
             width: 100%;
+        }
+    }
+}
+
+.slide-for-all {
+    .swiper-slide {
+        height: 100% !important;
+    }
+}
+
+
+.homes-smallbn {
+    &__box {
+        aspect-ratio: 1226.83/181.47;
+        .bg {
+            img {
+                object-fit: top;
+            }
         }
     }
 }

@@ -295,6 +295,13 @@ export default function ComponentModule() {
 
       fileInput.files = fileList.files;
     }
+
+    document.addEventListener("monaCommentSuccess", ()=> {
+      displayedFiles = []
+      updateInputFiles();
+      console.log("đã xóa file");
+      
+    })
   }
 
   // repjs jquery 

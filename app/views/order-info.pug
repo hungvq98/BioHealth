@@ -11,12 +11,12 @@ block container
     section.sec-order
         .order
             .container
-                +headVerti("mb-24")
-                    +title40("THÔNG TIN ĐƠN HÀNG")
                 .order__flex.row
                     .order__left.col
                         .wrapper
                             .acc__info 
+                                +headVerti("mb-24")
+                                    +title40("THÔNG TIN ĐƠN HÀNG")
                                 +Form 
                                     +FormIp("Họ","","Họ","col per5")
                                     +FormIp("Tên","","Tên","col per5")
@@ -42,6 +42,57 @@ block container
                                                 p.acc__info-switch-txt Đặt làm địa chỉ mặc định
                                     +FormWrap("")
                                         +Btn("Lưu thông tin","","pri","")
+                            .acc__info  
+                                +headVerti("mb-24")
+                                    +title40("Phương thức thanh toán") 
+                                .acc__info-methodpay 
+                                    label.checker
+                                        input(type="radio" name="methodpay")
+                                        span.circle 
+                                        .iwt 
+                                            p.txt Trả tiền mặt khi giao hàng (COD)
+                                    label.checker
+                                        input(type="radio" name="methodpay")
+                                        span.circle 
+                                        .iwt 
+                                            p.txt Chuyển khoản ngân hàng
+                                    label.checker
+                                        input(type="radio" name="methodpay")
+                                        span.circle 
+                                        .iwt 
+                                            p.txt Ví Momo
+                                            .icon 
+                                                +img("method-momo.svg")
+                                    label.checker
+                                        input(type="radio" name="methodpay")
+                                        span.circle 
+                                        .iwt 
+                                            p.txt Zalopay
+                                            .icon 
+                                                +img("method-zalopay.svg")
+                                            
+                                    label.checker
+                                        input(type="radio" name="methodpay")
+                                        span.circle 
+                                        .iwt 
+                                            p.txt Chuyển khoản qua thẻ VISA
+                                            .icon 
+                                                +img("method-visa.svg")
+                                    label.checker
+                                        input(type="radio" name="methodpay")
+                                        span.circle 
+                                        .iwt 
+                                            p.txt Chuyển khoản Master Card
+                                            .icon 
+                                                +img("method-paypal.svg")
+                                    label.checker
+                                        input(type="radio" name="methodpay")
+                                        span.circle 
+                                        .iwt 
+                                            p.txt Chuyển khoản VNPay
+                                            .icon 
+                                                +img("method-vnpay.svg")
+
                     .order__right.col
                         .wrapper
                             .order__cart 
@@ -60,51 +111,7 @@ block container
                                                             td 
                                                                 span.txt Tinh chất bí đao 70ml - Tặng dung dịch chấm mụn bí đao 5ml
                                                             td x1 
-                                                            td 299.000 đ
-                                    .order__cart-method 
-                                        p.order__cart-title Phương thức thanh toán
-                                        .order__cart-method-item 
-                                            label.checker
-                                                input(type="radio", name="method")
-                                                .iwt 
-                                                    .icon 
-                                                        +img("ic-code.svg")
-                                                    p.txt Thanh toán khi nhận hàng
-                                                span.sqr 
-                                        .order__cart-method-item 
-                                            label.checker
-                                                input(type="radio", name="method")
-                                                .iwt 
-                                                    .icon 
-                                                        +img("ic-ck.svg")
-                                                    p.txt Thanh toán khi nhận hàng
-                                                span.sqr 
-                                            .order__cart-method-drop 
-                                                .flex 
-                                                    .order__cart-method-part
-                                                        .img 
-                                                            .img-inner
-                                                                +img("qr.jpg")
-                                                    .order__cart-method-part
-                                                        table 
-                                                            tbody 
-                                                                tr 
-                                                                    td Chủ tài khoản
-                                                                    td HA THANH TUAN
-                                                                tr 
-                                                                    td Số tài khoản
-                                                                    td 23432 2398 5434 2354
-                                                                tr 
-                                                                    td Ngân hàng
-                                                                    td Vietcombank (VCB)
-                                        .order__cart-method-item 
-                                            label.checker
-                                                input(type="radio", name="method")
-                                                .iwt 
-                                                    .icon 
-                                                        +img("ic-vnpay.svg")
-                                                    p.txt Thanh toán khi nhận hàng
-                                                span.sqr 
+                                                            td 299.000 đ                                        
                                     .order-box__totals 
                                         .order-box__total 
                                             p.txt Sản phẩm
@@ -131,5 +138,21 @@ block container
                                         p.txt Tiếp tục thanh toán
                                         .icon 
                                             +img("ic-arrow.svg")
+                            .order-royal 
+                                .bg 
+                                    +img("bg-royal.jpg")
+                                .order-royal__content 
+                                    .order-royal__head 
+                                        .iwt 
+                                            .icon 
+                                                +img("ic-royal.svg")
+                                            p.txt Loyalty pOINT
+                                    .orer-royal-btn
+                                        .iwt 
+                                            .icon 
+                                                +img("ic-user-green.svg")
+                                            p.txt 
+                                                a(href="").txt-link Đăng nhập 
+                                                span.txt-in để dùng điểm tích lũy của bạn 
 
     +secSale

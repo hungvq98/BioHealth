@@ -1,74 +1,107 @@
 export default function ProductFilter() {
     const rangeInputs = document.querySelectorAll(".range-input input");
     const progress = document.querySelector(".range-slider .progress");
-    const priceInputs = document.querySelectorAll(".range-item .price");
+    const priceMin = document.querySelector(".range-item.min");
+    const priceMax = document.querySelector(".range-item.max");
 
-    let priceGap = 10;
+    let priceGap = 1000;
+    if (rangeInputs && progress) {
+        let minVal = parseInt(rangeInputs[0].value);
+        let minValueOrigin = parseInt(rangeInputs[0].min);
+        let maxVal = parseInt(rangeInputs[1].value);
 
-    function updateProgress() {
-        const minVal = parseInt(rangeInputs[0].value) || 0;
-        const maxVal = parseInt(rangeInputs[1].value) || 0;
+        priceMin.innerHTML = minVal.toLocaleString("it-IT", {
+            style: "currency",
+            currency: "VND",
+        });
+        priceMax.innerHTML = maxVal.toLocaleString("it-IT", {
+            style: "currency",
+            currency: "VND",
+        });
 
-        progress.style.left = (minVal / rangeInputs[0].max) * 100 + "%";
-        progress.style.right = 100 - (maxVal / rangeInputs[1].max) * 100 + "%";
+        progress.style.left =
+            ((minVal - minValueOrigin) / (rangeInputs[0].max - minValueOrigin)) *
+            100 +
+            "%";
+        progress.style.right =
+            100 -
+            ((maxVal - minValueOrigin) / (rangeInputs[1].max - minValueOrigin)) *
+            100 +
+            "%";
+        rangeInputs.forEach((item) => {
+            item.addEventListener("input", (e) => {
+                let minVal = parseInt(rangeInputs[0].value);
+                let maxVal = parseInt(rangeInputs[1].value);
+                if (maxVal - minVal < priceGap) {
+                    if (e.target.className === "range-min") {
+                        rangeInputs[0].value = maxVal - priceGap;
+                    } else {
+                        rangeInputs[1].value = minVal + priceGap;
+                    }
+                } else {
+                    progress.style.left =
+                        ((minVal - minValueOrigin) /
+                            (rangeInputs[0].max - minValueOrigin)) *
+                        100 +
+                        "%";
+                    progress.style.right =
+                        100 -
+                        ((maxVal - minValueOrigin) /
+                            (rangeInputs[1].max - minValueOrigin)) *
+                        100 +
+                        "%";
+                }
+            });
+        });
+        rangeInputs[0].addEventListener("input", () => {
+            let minVal = parseInt(rangeInputs[0].value).toLocaleString("it-IT", {
+                style: "currency",
+                currency: "VND",
+            });
+            priceMin.innerHTML = minVal;
+        });
+        rangeInputs[1].addEventListener("input", () => {
+            let maxVal = parseInt(rangeInputs[1].value).toLocaleString("it-IT", {
+                style: "currency",
+                currency: "VND",
+            });
+            priceMax.innerHTML = maxVal;
+        });
     }
 
-    function enforceConstraints() {
-        let minVal = parseInt(rangeInputs[0].value) || 0;
-        let maxVal = parseInt(rangeInputs[1].value) || 0;
 
-        // Ràng buộc giá trị nếu người dùng nhập không hợp lệ
-        if (maxVal - minVal < priceGap) {
-            maxVal = minVal + priceGap;
+    const dmsp = document.querySelector(".dmsp");
+    if (dmsp) {
+        const dmspItems = dmsp.querySelectorAll(".dmsp-item");
+        const icons = dmsp.querySelectorAll(".arrow");
+        const dropdowns = dmsp.querySelectorAll(".dmsp-dropdown");
+        function toggleAll(icon,dropdown) {
+            icons.forEach(icon => {
+                icon.classList.remove("active");
+            });
+            dropdowns.forEach(dropdown => {
+                dropdown.classList.remove("active");
+            });
         }
-
-        rangeInputs[0].value = minVal;
-        rangeInputs[1].value = maxVal;
-
-        priceInputs[0].value = minVal;
-        priceInputs[1].value = maxVal;
-
-        updateProgress();
+        dmspItems.forEach(item => {
+            const icon = item.querySelector(".arrow");
+            const dropdown = item.querySelector(".dmsp-dropdown");
+            
+            item.addEventListener("click", (e) => {
+                if(icon.contains(e.target) || dropdown.contains(e.target)) {
+                    if(icon.classList.contains("active")) {
+                        toggleAll(icon,dropdown);
+                        icon.classList.remove("active");
+                        dropdown.classList.remove("active");
+                    } else {
+                        toggleAll(icon,dropdown);
+                        icon.classList.add("active");
+                        dropdown.classList.add("active");
+                    }
+                } else {
+                    return;
+                }
+            });
+        });
     }
-
-    // Xử lý nhập liệu
-    priceInputs.forEach((input, index) => {
-        input.addEventListener("input", (e) => {
-            let value = e.target.value.replace(/[^\d]/g, ""); // Loại bỏ ký tự không phải số
-            value = parseInt(value) || "";
-
-            // Cho phép xóa toàn bộ giá trị
-            e.target.value = value;
-        });
-
-        input.addEventListener("blur", () => {
-            let value = parseInt(input.value) || 0;
-            const otherIndex = index === 0 ? 1 : 0;
-
-            if (index === 0) {
-                // Với min: đảm bảo không vượt quá max - gap
-                value = Math.min(value, parseInt(priceInputs[otherIndex].value) - priceGap || 0);
-            } else {
-                // Với max: đảm bảo không nhỏ hơn min + gap
-                value = Math.max(value, parseInt(priceInputs[0].value) + priceGap || 0);
-            }
-
-            input.value = value;
-            rangeInputs[index].value = value;
-
-            updateProgress();
-        });
-    });
-
-    // Xử lý kéo slider
-    rangeInputs.forEach((range, index) => {
-        range.addEventListener("input", () => {
-            const value = parseInt(range.value) || 0;
-
-            priceInputs[index].value = value;
-
-            enforceConstraints();
-        });
-    });
-
 }

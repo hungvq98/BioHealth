@@ -74,8 +74,16 @@ block container
                                                     td 
                                                         .order-status__status.cancel Đã hủy
                                                     td 
-                                                        a(href="").link
-                                                            +img("ic-arrow-grey.svg") 
+                                                        .order-status__action 
+                                                            span.txt Thao tác
+                                                            .order-status__action-drop
+                                                                ul 
+                                                                    li 
+                                                                        a(href="").order-status__action-link Thanh toán 
+                                                                    li 
+                                                                        a(href="").order-status__action-link Xem
+                                                                    li 
+                                                                        a(href="").order-status__action-link Hủy
                                                 each val,index in Array(5)
                                                     tr 
                                                         td #22082000

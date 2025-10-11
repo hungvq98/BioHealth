@@ -52,7 +52,18 @@ block container
                                             td  
                                                 a(href="").remove
                                                     +img("ic-remove.svg") 
-                            .acc__manadt-btn
+                            .acc__manadt-kem 
+                                .acc__manadt-kem-head
+                                    .iwt 
+                                        .icon 
+                                            +img("ic-gifs.svg")
+                                        p.txt Mua kèm để tiết kiệm hơn
+                                .acc__manadt-kem-body
+                                    each val,index in Array(3)
+                                        .acc__manadt-kem-item
+                                            +MiniCart2("v2")
+                                            +Btn("Chọn","","second small","ic-arrow.svg")
+                            .acc__manadt-btn.mt-24
                                 +Btn("Quay lại mua sắm","","white","")
                     .order__right.col
                         .wrapper
@@ -100,6 +111,9 @@ block container
                                                                                     p.des Valid for first transactions in Traveloka App & Website
                                                                         .copy.copyBtn
                                                                             +img("ic-copy.svg")                        
+                                        .order__cart-select
+                                            p.order__cart-title Bạn có phiếu mua hàng
+                                            +SelectNormal("Chọn chương trình")
                                         .order-box__total.total 
                                             p.txt Tổng cộng
                                             p.val 1.709.100 đ

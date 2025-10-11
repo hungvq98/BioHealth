@@ -67,7 +67,8 @@ export default function SwiperModule() {
         drag: 'free',
         focus: 'center',
         perMove: 1,
-        perPage: 9,
+        perPage: 5,
+        gap:32,
         direction: index == 1 ? "rtl" : "ltr",
         autoScroll: {
           speed: 0.5,
@@ -87,7 +88,7 @@ export default function SwiperModule() {
           },
           1201: {
             perPage: 5,
-            gap: 8,
+            gap: 32,
           }
         },
       }).mount(window.splide.Extensions);
@@ -199,26 +200,46 @@ export default function SwiperModule() {
     spaceBetween: 0,
     effect: "slide",
   });
-  functionSlider(".homes-vcher__slide", {
-    speed: 1200,
-    slidesPerView: "auto",
-    // slidesPerGroup: 2,
-    initialSlide: 0,
-    centeredSlides: false,
-    loop: false,
-    spaceBetween: 0,
-    effect: "slide",
+
+  function vCherSlider() {
+    functionSlider(".homes-vcher__slide", {
+      speed: 1200,
+      slidesPerView: "auto",
+      // slidesPerGroup: 2,
+      initialSlide: 0,
+      centeredSlides: false,
+      loop: false,
+      spaceBetween: 0,
+      effect: "slide",
+    });
+  }
+  vCherSlider()
+  
+  document.addEventListener("mona_cart_updated", ()=> {
+    vCherSlider()
+  })
+  document.addEventListener("sectionCallLoaded", ()=> {
+    vCherSlider()
   });
-  functionSlider(".homes-flash__slide ", {
-    speed: 1200,
-    slidesPerView: "auto",
-    // slidesPerGroup: 2,
-    initialSlide: 0,
-    centeredSlides: false,
-    loop: false,
-    spaceBetween: 0,
-    effect: "slide",
+  
+
+  function homesFlash() {
+    functionSlider(".homes-flash__slide ", {
+      speed: 1200,
+      slidesPerView: "auto",
+      // slidesPerGroup: 2,
+      initialSlide: 0,
+      centeredSlides: false,
+      loop: false,
+      spaceBetween: 0,
+      effect: "slide",
+    });
+  }
+  homesFlash()
+  document.addEventListener("sectionCallLoaded", ()=> {
+    homesFlash()
   });
+
   functionSlider(".homes-flash__slideGr ", {
     speed: 1200,
     slidesPerView: 5,
@@ -287,15 +308,22 @@ export default function SwiperModule() {
     effect: "slide",
   });
 
-  functionSlider(".homes-recent", {
-    speed: 1200,
-    slidesPerView: "auto",
-    // slidesPerGroup: 2,
-    initialSlide: 0,
-    centeredSlides: false,
-    loop: false,
-    spaceBetween: 0,
-    effect: "slide",
+  
+  function homesRecent() {
+    functionSlider(".homes-recent", {
+      speed: 1200,
+      slidesPerView: "auto",
+      // slidesPerGroup: 2,
+      initialSlide: 0,
+      centeredSlides: false,
+      loop: false,
+      spaceBetween: 0,
+      effect: "slide",
+    });
+  }
+  homesRecent()
+  document.addEventListener("sectionCallLoaded", ()=> {
+    homesRecent()
   });
 
 
@@ -363,6 +391,70 @@ export default function SwiperModule() {
     spaceBetween: 0,
     effect: "slide",
   });
+
+
+  functionSlider(".hd-bottom__mega-head", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+  
+  function MegaSlide() {
+    functionSlider(".hd-bottom__mega-slide", {
+      speed: 1200,
+      slidesPerView: "auto",
+      // slidesPerGroup: 2,
+      initialSlide: 0,
+      centeredSlides: false,
+      loop: false,
+      spaceBetween: 0,
+      effect: "slide",
+    });
+  }
+  MegaSlide()
+  document.addEventListener("sectionCallLoaded", ()=> {
+    MegaSlide()
+  });
+
+  functionSlider(".ab-commit__slide ", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+
+
+  functionSlider(".slide-for-all", {
+    speed: 1200,
+    slidesPerView: "auto",
+    // slidesPerGroup: 2,
+    initialSlide: 0,
+    centeredSlides: false,
+    loop: false,
+    spaceBetween: 0,
+    effect: "slide",
+  });
+
+
+
+  const section = document.querySelectorAll("section")
+  if (section) {
+    section.forEach((item) => {
+      const itemId = item.getAttribute("data-secall")
+      if (itemId == "onsale") {
+
+      }
+    })
+  }
 }
 
 

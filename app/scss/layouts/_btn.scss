@@ -13,12 +13,12 @@
     background-color: white;
     white-space: nowrap;
     @include font-pri;
-    border: 0.1rem solid transparent;
+    border: 0.1rem solid transparent !important;
     font-weight: 400;
-    border-radius: inherit;
+    border-radius: inherit !important;
     
     &-box {
-        border-radius: 100rem;
+        border-radius: 100rem !important;
         width: fit-content;
         transition: 0.4s;
         position: relative;
@@ -111,7 +111,7 @@
     }
 
     &.pri {
-        background: var(--color-pri);
+        background: var(--color-pri) !important;
 
         .txt {
             color: white;
@@ -122,49 +122,49 @@
         }
 
         @include hover {
-            border-color: var(--color-pri);
-            background-color: white;
+            border-color: var(--color-second) !important;
+            background-color: var(--color-second) !important;
 
             .txt {
-                color: var(--color-pri);
+                color: white !important;
             }
 
             img {
-                filter: var(--filter-pri);
+                filter: brightness(0) invert(1) !important;
             }
         }
 
     }
 
     &.second {
-        background: var(--color-second);
+        background: var(--color-second) !important;
 
         &::after {
             background-color: white;
         }
 
         .txt {
-            color: white;
+            color: white !important;
         }
 
         @include hover {
-            border-color: var(--color-second);
-            background-color: white;
+            border-color: var(--color-second) !important;
+            background-color: white !important;
 
             .txt {
-                color: var(--color-second);
+                color: var(--color-second) !important;
             }
 
             img {
-                filter: var(--filter-second);
+                filter: var(--filter-second) !important;
             }
         }
     }
 
 
     &.white {
-        background-color:white;
-        border: 0.1rem solid var(--color-pri);
+        background-color:white !important;
+        border: 0.1rem solid var(--color-pri) !important;
 
         .txt {
             color: var(--color-pri);
@@ -177,14 +177,14 @@
         @include hover {
 
             .txt {
-                color: white;
+                color: white !important;
             }
 
 
             img {
                 filter: brightness(0) invert(1);
             }
-            background-color: var(--color-second);
+            background-color: var(--color-second) !important;
 
         }
     }
@@ -336,8 +336,8 @@
     }
 
     &.hd-btn {
-        border: 0.1rem solid #FA50B1;
-        border-radius: 100rem;
+        border: 0.1rem solid #FA50B1 !important;
+        border-radius: 100rem !important;
         .txt {
             padding-left: 0.4rem;
             gap: .4rem;

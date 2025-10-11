@@ -1032,13 +1032,16 @@ table {
 
     }
 
-    .lib-cmt-list {
-        .lib-cmt-list {
-            padding-left: 7rem;
-            padding-top: var(--gap);
+    .children {
+        padding-left: 7rem;
+        padding-top: var(--gap);
 
-            @include max(500px) {
-                padding-left: 5rem;
+        @include max(500px) {
+            padding-left: 5rem;
+        }
+        li {
+            &:not(:first-child) {
+                margin-top: 1rem;
             }
         }
     }
@@ -1132,10 +1135,20 @@ table {
 }
 .lib-cmt-list {
     >.lib-cmt-item {
-        >.lib-cmt-list {
-            >.lib-cmt-item {
+        >.children {
+            >.lib-cmt-item:has(.children) {
                 .ctn {
+                    position: relative;
                     &::after {
+                        @include pseudo;
+                        height: 100%;
+                        width: 4.8rem;
+                        border-radius: 0 0 0 2rem;
+                        border-left: 0.1rem solid var(--cl-bd);
+                        border-bottom: 0.1rem solid var(--cl-bd);
+                        left: calc(-1*(var(--ava-size)/2 + var(--gap)));
+                        top: calc(var(--ava-size)/2 + var(--gap));
+                        pointer-events: none;
                         border-bottom: none;
                     }
                 }

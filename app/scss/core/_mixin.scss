@@ -449,13 +449,13 @@
     -o-transform: $args;
 }
 
-@mixin font-pri($name: "Inter") {
+@mixin font-pri($name: "SVN-Mont") {
     font-family: $name, sans-serif;
 }
 @mixin font-second($name: "SVN-Bebas Neue Pro") {
     font-family: $name, sans-serif;
 }
-@mixin font-third($name: "Bricolage Grotesque") {
+@mixin font-third($name: "SVN-Mont") {
     font-family: $name, sans-serif;
 }
 @mixin font-four($name: "UTM Hanzel") {

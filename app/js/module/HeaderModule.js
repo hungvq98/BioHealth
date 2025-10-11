@@ -36,18 +36,20 @@ export default function HeaderModule() {
         document.addEventListener("click", (e) => {
             if (e.target.matches(".hd-srch, .hd-srch *") || e.target.matches(".found-wr, .found-wr *")) {
                 hdSrchform.classList.add("open");
-                $("body").css("overflow", "hidden")
+                // $("body").css("overflow", "hidden")
                 setTimeout(() => {
                     hdSrchIp.focus();
                 }, 100)
             } else {
                 hdSrchform.classList.remove("open");
-                $("body").css("overflow", "normal")
+                // $("body").css("overflow", "normal")
             }
         })
-        close.addEventListener("click", () => {
-            hdSrchform.classList.remove("open");
-            $("body").css("overflow", "normal")
+        document.addEventListener("click", (e) => {
+            if (close.contains(e.target)) {
+                hdSrchform.classList.remove("open");
+                // $("body").css("overflow", "normal")
+            }
         })
 
     }
@@ -111,65 +113,68 @@ export default function HeaderModule() {
         const hdMenuDrop = hdMenu.querySelector(".hd-bottom__drop");
         const hdMenuLeft = hdMenu.querySelector(".hd-bottom__mega-left");
         const hdMenuRight = hdMenu.querySelector(".hd-bottom__mega-right");
-        const hdMenuBtn = hdMenuLeft.querySelectorAll(".menu-item");
-        const hdMenuTab = hdMenuRight.querySelectorAll(".wrappers");
+        if (hdMenuDrop && hdMenuLeft && hdMenuRight) {
+            const hdMenuBtn = hdMenuLeft.querySelectorAll(".menu-item");
+            const hdMenuTab = hdMenuRight.querySelectorAll(".wrappers");
+            // Tạo map từ child-id -> element
+            const wrapperById = new Map(
+                Array.from(hdMenuTab).map(w => [w.dataset.childId, w])
+            );
 
-        // Tạo map từ child-id -> element
-        const wrapperById = new Map(
-            Array.from(hdMenuTab).map(w => [w.dataset.childId, w])
-        );
+            // Hàm clear & active theo id
+            const activateById = (id) => {
+                // clear
+                hdMenuBtn.forEach(b => b.classList.remove("active"));
+                hdMenuTab.forEach(t => t.classList.remove("active"));
 
-        // Hàm clear & active theo id
-        const activateById = (id) => {
-            // clear
-            hdMenuBtn.forEach(b => b.classList.remove("active"));
-            hdMenuTab.forEach(t => t.classList.remove("active"));
+                // active nút có data-parent-id khớp
+                const btn = Array.from(hdMenuBtn).find(b => b.dataset.parentId === id);
+                if (btn) btn.classList.add("active");
 
-            // active nút có data-parent-id khớp
-            const btn = Array.from(hdMenuBtn).find(b => b.dataset.parentId === id);
-            if (btn) btn.classList.add("active");
+                // active wrapper có data-child-id khớp
+                const pane = wrapperById.get(id);
+                if (pane) pane.classList.add("active");
+            };
 
-            // active wrapper có data-child-id khớp
-            const pane = wrapperById.get(id);
-            if (pane) pane.classList.add("active");
-        };
+            // Khởi tạo: chọn cặp đầu tiên có id khớp
+            (function initActive() {
+                const firstMatchingId = Array.from(hdMenuBtn)
+                    .map(b => b.dataset.parentId)
+                    .find(id => wrapperById.has(id));
+                if (firstMatchingId) {
+                    activateById(firstMatchingId);
+                } else {
+                    if (hdMenuBtn[0]) hdMenuBtn[0].classList.add("active");
+                    if (hdMenuTab[0]) hdMenuTab[0].classList.add("active");
+                }
+            })();
 
-        // Khởi tạo: chọn cặp đầu tiên có id khớp
-        (function initActive() {
-            const firstMatchingId = Array.from(hdMenuBtn)
-                .map(b => b.dataset.parentId)
-                .find(id => wrapperById.has(id));
-            if (firstMatchingId) {
-                activateById(firstMatchingId);
-            } else {
-                if (hdMenuBtn[0]) hdMenuBtn[0].classList.add("active");
-                if (hdMenuTab[0]) hdMenuTab[0].classList.add("active");
-            }
-        })();
-
-        // Hover vào menu-item: kích hoạt theo data-parent-id
-        hdMenuBtn.forEach((item) => {
-            item.addEventListener("mouseenter", (e) => {
-                e.preventDefault();
-                const id = item.dataset.parentId; // lấy data-parent-id
-                if (id) activateById(id);
+            // Hover vào menu-item: kích hoạt theo data-parent-id
+            hdMenuBtn.forEach((item) => {
+                item.addEventListener("mouseenter", (e) => {
+                    e.preventDefault();
+                    const id = item.dataset.parentId; // lấy data-parent-id
+                    if (id) activateById(id);
+                });
             });
-        });
 
-        // Logic đóng/mở dropdown
-        document.addEventListener("click", (e) => {
-            if (hdMenu.contains(e.target) || hdMenuDrop.contains(e.target)) {
-                hdMenuDrop.classList.add("active");
-                const hdMenuLeftHeight = hdMenuLeft.clientHeight;
-                hdMenu.setAttribute("style", `--max-h:${hdMenuLeftHeight}px`);
-            } else {
+            // Logic đóng/mở dropdown
+            document.addEventListener("click", (e) => {
+                if (hdMenu.contains(e.target) || hdMenuDrop.contains(e.target)) {
+                    hdMenuDrop.classList.add("active");
+                    const hdMenuLeftHeight = hdMenuLeft.clientHeight;
+                    hdMenu.setAttribute("style", `--max-h:${hdMenuLeftHeight}px`);
+                } else {
+                    hdMenuDrop.classList.remove("active");
+                }
+            });
+
+            window.addEventListener("scroll", () => {
                 hdMenuDrop.classList.remove("active");
-            }
-        });
+            });
+        }
 
-        window.addEventListener("scroll", () => {
-            hdMenuDrop.classList.remove("active");
-        });
+
     }
 
 

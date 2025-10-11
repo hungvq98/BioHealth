@@ -2,7 +2,7 @@
     width: 100%;
     margin: 0 auto;
     padding: 1rem 0;
-    margin-bottom: 2.4rem;
+    // margin-bottom: 2.4rem;
     &-wrapper {
         @include min($res-mobile) {
             // width: fit-content;
@@ -24,7 +24,7 @@
         gap: .8rem;
         font-weight: 400;
         @include lc(1);
-        color: #BCBCBC;
+        color: #666666;
         @include max(600px) {
             font-size: 1.4rem;
         }
